@@ -14,7 +14,9 @@ type MediaItem = {
   url: string
 }
 
-const API_BASE = '/api'
+const API_ORIGIN =
+  import.meta.env.VITE_API_ORIGIN || 'https://arhitectura-sinelui-api.onrender.com'
+const API_BASE = `${API_ORIGIN}/api`
 
 const pillars = [
   {

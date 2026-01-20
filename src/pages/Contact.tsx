@@ -4,7 +4,9 @@ import instagram from '../assets/instagram.png'
 import tiktok from '../assets/tiktok.png'
 import youtube from '../assets/youtube.png'
 
-const API_BASE = '/api'
+const API_ORIGIN =
+  import.meta.env.VITE_API_ORIGIN || 'https://arhitectura-sinelui-api.onrender.com'
+const API_BASE = `${API_ORIGIN}/api`
 const socialLinks = [
   {
     name: 'Facebook',
