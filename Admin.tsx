@@ -16,9 +16,9 @@ type Message = {
   created_at: string
 }
 
-const API_BASE = import.meta.env.VITE_API_ORIGIN
-  ? `${import.meta.env.VITE_API_ORIGIN}/api`
-  : '/api'
+const API_ORIGIN =
+  import.meta.env.VITE_API_ORIGIN || 'https://arhitectura-sinelui-api.onrender.com'
+const API_BASE = `${API_ORIGIN}/api`
 const TOKEN_KEY = 'adminToken'
 
 function Admin() {
