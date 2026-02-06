@@ -14,10 +14,6 @@ type MediaItem = {
   url: string
 }
 
-const API_ORIGIN =
-  import.meta.env.VITE_API_ORIGIN || 'https://arhitectura-sinelui-api.onrender.com'
-const API_BASE = `${API_ORIGIN}/api`
-
 const pillars = [
   {
     id: 'mind',
@@ -239,8 +235,7 @@ const fitnessPackages: PackageItem[] = [
 function Home() {
   const [activePillar, setActivePillar] = useState<string | null>(null)
   const selected = pillars.find((pillar) => pillar.id === activePillar)
-  const [mediaItems, setMediaItems] = useState<MediaItem[]>([])
-  const [mediaError, setMediaError] = useState('')
+  const mediaItems: MediaItem[] = []
   const [isFitness, setIsFitness] = useState(false)
   const [activePackage, setActivePackage] = useState<ShopPackage | null>(null)
   const pillarTitleRef = useRef<HTMLHeadingElement | null>(null)
@@ -249,23 +244,6 @@ function Home() {
   const formatMeta = (meta: string) => meta.replace('@', '').trim()
   const getPackageDetails = (id: string) =>
     packages.find((pkg) => pkg.id === id) || null
-
-  useEffect(() => {
-    const load = async () => {
-      try {
-        const res = await fetch(`${API_BASE}/media`)
-        if (!res.ok) {
-          throw new Error('Nu am putut incarca clipurile.')
-        }
-        const data = (await res.json()) as MediaItem[]
-        setMediaItems(data.slice(0, 9))
-      } catch (err) {
-        setMediaError(err instanceof Error ? err.message : 'Eroare necunoscuta.')
-      }
-    }
-
-    load()
-  }, [])
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll('.reveal'))
@@ -289,7 +267,7 @@ function Home() {
     elements.forEach((element) => observer.observe(element))
 
     return () => observer.disconnect()
-  }, [isFitness, mediaItems.length])
+  }, [isFitness])
 
   useEffect(() => {
     if (!selected || !pillarTitleRef.current) {
@@ -327,24 +305,23 @@ function Home() {
           preload="metadata"
         />
         <div className="hero-overlay" />
-      </div>
-
-      <div className="hero-intro reveal">
-        <h1>
-          Arhitectura Fiintei:
-          <br />
-          Integrare Minte, Corp si Spirit.
-        </h1>
-        <p className="muted hero-subtitle">
-          Psihoterapie Integrativa, Somatic Alignment si Antrenamente
-          Personalizate. Nutritie pentru Longevitate si Obiective de Compozitie
-          Corporala, infuzata cu intelepciunea orientala.
-        </p>
-        <div className="row hero-actions">
-          <Link className="btn" to="/shop">
-            Vezi Pachetele in Shop
-          </Link>
-          <button className="btn btn-secondary">Consultanta Gratuita 30 min</button>
+        <div className="hero-intro reveal is-visible">
+          <h1>
+            Arhitectura Fiintei:
+            <br />
+            Integrare Minte, Corp si Spirit.
+          </h1>
+          <p className="muted hero-subtitle">
+            Psihoterapie Integrativa, Somatic Alignment si Antrenamente
+            Personalizate. Nutritie pentru Longevitate si Obiective de Compozitie
+            Corporala, infuzata cu intelepciunea orientala.
+          </p>
+          <div className="row hero-actions">
+            <Link className="btn" to="/shop">
+              Vezi Pachetele in Shop
+            </Link>
+            <button className="btn btn-secondary">Consultanta Gratuita 30 min</button>
+          </div>
         </div>
       </div>
 
@@ -567,32 +544,29 @@ function Home() {
               Vezi toate videoclipurile
             </a>
           </div>
-            {mediaError && <p className="muted">{mediaError}</p>}
-            {!mediaError && mediaItems.length === 0 && (
-              <p className="muted">Inca nu exista clipuri.</p>
-            )}
-            <div className="media-grid">
-              {mediaItems.map((item) => {
-                const videoId = getYouTubeId(item.url)
-                if (!videoId) {
-                  return null
-                }
-                return (
-                  <div key={item.id} className="media-card">
-                    <div className="media-item">
-                      <iframe
-                        src={`https://www.youtube.com/embed/${videoId}`}
-                        title={item.title}
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </div>
-                    <p className="media-title">{item.title}</p>
+          <p className="muted">Inca nu exista clipuri.</p>
+          <div className="media-grid">
+            {mediaItems.map((item) => {
+              const videoId = getYouTubeId(item.url)
+              if (!videoId) {
+                return null
+              }
+              return (
+                <div key={item.id} className="media-card">
+                  <div className="media-item">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${videoId}`}
+                      title={item.title}
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
                   </div>
-                )
-              })}
-            </div>
+                  <p className="media-title">{item.title}</p>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
       {activePackage && (

@@ -5,7 +5,7 @@ import heroVideo from '../assets/hero.mp4'
 import mindImage from '../assets/mind.jpg'
 import bodyImage from '../assets/body.jpg'
 import spiritImage from '../assets/spirit.jpg'
-import portraitImage from '../assets/portret.jpg'
+import portraitImage from '../assets/portret.png'
 import { packages, type PackageItem as ShopPackage } from '../data/shopPackages'
 
 type MediaItem = {
@@ -13,10 +13,6 @@ type MediaItem = {
   title: string
   url: string
 }
-
-const API_ORIGIN =
-  import.meta.env.VITE_API_ORIGIN || 'https://arhitectura-sinelui-api.onrender.com'
-const API_BASE = `${API_ORIGIN}/api`
 
 const pillars = [
   {
@@ -80,6 +76,31 @@ const pillars = [
   },
 ]
 
+const mediaItems: MediaItem[] = [
+  {
+    id: 1,
+    title:
+      'De ce te pierzi in ceilalti? Limite, Granite si Identitate | Arhitectura Sinelui (I)',
+    url: 'https://www.youtube.com/watch?v=QjBsubCuRYM',
+  },
+  {
+    id: 2,
+    title: 'De ce finalul de an ne prinde, de fapt, atat de tristi?',
+    url: 'https://www.youtube.com/watch?v=gtPjh2_nkvk&t=25s',
+  },
+  {
+    id: 3,
+    title: 'Dezvaluirile Recorder au declansat ceva periculos in noi',
+    url: 'https://www.youtube.com/watch?v=KqWcY1YY6gY&t=19s',
+  },
+  {
+    id: 4,
+    title:
+      'Documentarul Recorder m-a zguduit. Dar nu din motivele la care te gandesti.',
+    url: 'https://www.youtube.com/watch?v=KOQ7BknHFCA',
+  },
+]
+
 const getYouTubeId = (url: string) => {
   try {
     const parsed = new URL(url)
@@ -112,15 +133,15 @@ type PackageItem = {
 
 const therapyPackages: PackageItem[] = [
   {
-    id: 'discovery-call',
-    label: 'Discovery Call Gratuit',
-    duration: '30 minutes',
-    price: 'GRATUIT',
+    id: 'consultanta-evaluare',
+    label: 'Consultanta si evaluare initiala',
+    duration: '50 minutes',
+    price: '100 LEI',
     ctaText: 'Programeaza acum',
     items: [
-      'apel de cunoastere 30 minute',
-      'clarificare nevoi si directie',
-      'alegerea pilonului potrivit',
+      '50 minute discutie ghidata',
+      'analiza situatiei actuale',
+      'strategie personalizata',
     ],
   },
   {
@@ -136,6 +157,18 @@ const therapyPackages: PackageItem[] = [
     ],
   },
   {
+    id: 'somatic-alignment',
+    label: 'Sesiune Somatic Alignment',
+    duration: '1 hour 30 minutes',
+    price: '400 LEI',
+    ctaText: 'Programeaza acum',
+    items: [
+      'identificarea zonelor de blocaj',
+      'eliberarea tensiunii acumulate',
+      'recalibrarea raspunsului la stres',
+    ],
+  },
+  {
     id: 'abonament-4x',
     label: 'Abonament 4x consiliere',
     duration: '4 sessions',
@@ -145,18 +178,6 @@ const therapyPackages: PackageItem[] = [
       '4 sesiuni individuale',
       'ritm saptamanal optim',
       'claritate si rezilienta',
-    ],
-  },
-  {
-    id: 'consultanta-evaluare',
-    label: 'Consultanta si evaluare initiala',
-    duration: '50 minutes',
-    price: '100 LEI',
-    ctaText: 'Programeaza acum',
-    items: [
-      '50 minute discutie ghidata',
-      'analiza situatiei actuale',
-      'strategie personalizata',
     ],
   },
   {
@@ -174,6 +195,18 @@ const therapyPackages: PackageItem[] = [
 ]
 
 const fitnessPackages: PackageItem[] = [
+  {
+    id: 'consultanta-evaluare',
+    label: 'Consultanta si evaluare initiala',
+    duration: '50 minutes',
+    price: '100 LEI',
+    ctaText: 'Programeaza acum',
+    items: [
+      '50 minute discutie ghidata',
+      'analiza situatiei actuale',
+      'strategie personalizata',
+    ],
+  },
   {
     id: 'program-gym',
     label: 'Program Gym + Morning Flow',
@@ -222,25 +255,11 @@ const fitnessPackages: PackageItem[] = [
       'evaluare chestionar',
     ],
   },
-  {
-    id: 'reset-challenge',
-    label: '30-Day Reset Challenge',
-    duration: '9 sessions',
-    price: '1,950 LEI',
-    ctaText: 'Programeaza acum',
-    items: [
-      'program complet minte-corp',
-      'antrenament + nutritie',
-      'suport si evaluari',
-    ],
-  },
 ]
 
 function Home() {
   const [activePillar, setActivePillar] = useState<string | null>(null)
   const selected = pillars.find((pillar) => pillar.id === activePillar)
-  const [mediaItems, setMediaItems] = useState<MediaItem[]>([])
-  const [mediaError, setMediaError] = useState('')
   const [isFitness, setIsFitness] = useState(false)
   const [activePackage, setActivePackage] = useState<ShopPackage | null>(null)
   const pillarTitleRef = useRef<HTMLHeadingElement | null>(null)
@@ -249,23 +268,6 @@ function Home() {
   const formatMeta = (meta: string) => meta.replace('@', '').trim()
   const getPackageDetails = (id: string) =>
     packages.find((pkg) => pkg.id === id) || null
-
-  useEffect(() => {
-    const load = async () => {
-      try {
-        const res = await fetch(`${API_BASE}/media`)
-        if (!res.ok) {
-          throw new Error('Nu am putut incarca clipurile.')
-        }
-        const data = (await res.json()) as MediaItem[]
-        setMediaItems(data.slice(0, 9))
-      } catch (err) {
-        setMediaError(err instanceof Error ? err.message : 'Eroare necunoscuta.')
-      }
-    }
-
-    load()
-  }, [])
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll('.reveal'))
@@ -327,47 +329,61 @@ function Home() {
           preload="metadata"
         />
         <div className="hero-overlay" />
-      </div>
-
-      <div className="hero-intro reveal">
-        <h1>
-          Arhitectura Fiintei:
-          <br />
-          Integrare Minte, Corp si Spirit.
-        </h1>
-        <p className="muted hero-subtitle">
-          Psihoterapie Integrativa, Somatic Alignment si Antrenamente
-          Personalizate. Nutritie pentru Longevitate si Obiective de Compozitie
-          Corporala, infuzata cu intelepciunea orientala.
-        </p>
-        <div className="row hero-actions">
-          <Link className="btn" to="/shop">
-            Vezi Pachetele in Shop
-          </Link>
-          <button className="btn btn-secondary">Consultanta Gratuita 30 min</button>
+        <div className="hero-intro reveal is-visible">
+          <h1>
+            Arhitectura Sinelui:
+            <br />
+            Integrare Minte, Corp și Spirit.
+          </h1>
+          <p className="muted hero-subtitle">
+            Psihologie integrativă, Somatic Alignment, nutriție pentru longevitate și
+            antrenament personalizat — un sistem complet de reconstrucție a ființei,
+            unde rigoarea științei moderne este ancorată în profunzimea filosofiei
+            orientale.
+          </p>
+          <div className="row hero-actions">
+            <Link className="btn" to="/shop">
+              Vezi Pachetele in E-Shop
+            </Link>
+          </div>
         </div>
       </div>
 
       <div className="content-wrap">
-        <div className="content-section reveal">
-          <h1>Metoda Holistica Pagina de viziune & manifest</h1>
-          <h3>Pagina de viziune & manifest</h3>
+        <div className="content-section reveal body-copy">
+          <h1>Ce înseamnă „Arhitectura Sinelui”?</h1>
+          <h3>Proiectul tău de reconstrucție interioară.</h3>
           <p>
-            Cred intr-o abordare completa a dezvoltarii umane, in care mintea,
-            corpul si stilul de viata lucreaza impreuna, nu separat. Schimbarea
-            reala apare atunci cand nu tratam doar simptomele, ci intelegem
-            persoana in ansamblul ei.
+            Majoritatea abordărilor moderne fragmentează ființa umană: mergem la
+            psiholog pentru minte, la sală pentru corp și căutăm nutriția doar în
+            cifre sau calorii.
           </p>
           <p>
-            Metoda mea holistica imbina elemente de psihologie, miscare constienta
-            si nutritie functionala, avand ca scop echilibrul, claritatea mentala
-            si performanta sustenabila. Nu exista solutii universale - fiecare
-            proces este personalizat in functie de nevoile, obiectivele si ritmul
-            fiecarei persoane.
+            Arhitectura Sinelui s-a născut din convingerea că vindecarea și
+            performanța nu pot exista în izolare. Aici, nu tratăm doar simptome,
+            ci proiectăm un fundament nou pe trei piloni inseparabili:
           </p>
           <p>
-            Aceasta nu este o metoda "rapida", ci una durabila, construita pentru
-            rezultate reale si pe termen lung.
+            MINTE (Psihologie Clinică): Descifrarea și recalibrarea tiparelor
+            mentale, gestionarea traumei și construirea rezilienței psihice prin
+            metode validate științific.
+          </p>
+          <p>
+            CORP (Somatic Alignment, Fitness & Nutriție): Aliniere: Eliberarea
+            tensiunii somatice înmagazinate în corp. Performanță: Antrenamente
+            structurate pentru o structură fizică rezistentă. Nutriție de
+            Longevitate: Un protocol alimentar avansat (inspirat din Blueprint),
+            axat pe biomarkeri și optimizarea compoziției corporale, unde știința
+            longevității se întâlnește cu disciplina și echilibrul.
+          </p>
+          <p>
+            SPIRIT (Înțelepciune Orientală): Infuzarea întregului proces cu
+            prezență și conștiență. Nutriția și mișcarea devin ritualuri de
+            respect față de sine, nu doar sarcini de îndeplinit.
+          </p>
+          <p>
+            „Nu doar îți schimbi obiceiurile. Îți reproiectezi biologia și
+            mentalul pentru a susține viața pe care vrei să o trăiești.”
           </p>
         </div>
         <hr className="section-divider" />
@@ -511,7 +527,7 @@ function Home() {
               <p>{selected.outro}</p>
               <div className="pillar-detail-footer">
                 <button className="btn" type="button" onClick={closePillarDetail}>
-                  Inchide
+                                Inchide
                 </button>
               </div>
             </motion.div>
@@ -521,34 +537,106 @@ function Home() {
         <hr className="section-divider" />
 
         <div className="about-section reveal">
-          <div className="about-text">
-            <h1>Despre Mine</h1>
-            <h3>Poveste, misiune si formare</h3>
+          <div className="about-text body-copy">
+            <h1>Arhitectul din spatele conceptului:</h1>
+            <h3>Paul-Cristian Borcoș</h3>
             <p>
-              Sunt psiholog si antrenor de fitness, cu o pasiune profunda pentru
-              intelegerea conexiunii dintre minte, corp si comportament.
+              „Sănătatea nu este absența bolii, ci armonia absolută între ceea ce
+              gândești, ceea ce simți și modul în care te miști.”
             </p>
             <p>
-              Drumul meu profesional a pornit din dorinta de a ajuta oamenii sa se
-              simta mai bine in propriul corp si in propria viata, nu doar la nivel
-              fizic, ci si emotional si mental.
+              Sunt Psiholog Clinician Autonom și Antrenor de Fitness, dar dincolo
+              de titluri, sunt un explorator al potențialului uman. Cred că suntem
+              cu toții arhitecții propriei noastre experiențe, iar misiunea mea
+              este să îți ofer instrumentele necesare pentru a-ți reclădi
+              fundamentul pe baze solide.
             </p>
             <p>
-              Misiunea mea este sa ofer un cadru sigur, profesionist si personalizat
-              in care fiecare persoana sa poata evolua in ritmul ei, cu instrumente
-              reale si aplicabile.
+              Abordarea mea integrativă s-a născut din fuziunea mai multor lumi:
+              Mintea (Știință și Introspecție): Ca psiholog clinician, descifrez
+              împreună cu tine tiparele care te blochează. Această pasiune pentru
+              profunzime s-a materializat și în volumul de versuri „Dincolo”, o
+              introspecție existențială dedicată celor care caută răspunsuri în
+              spațiul dintre cuvinte. Corpul (Performanță și Aliniere): Activitatea
+              mea de antrenor de fitness și statutul de Practician Acreditat în
+              Somatic Alignment îmi permit să lucrez cu biologia ta la un nivel
+              profund. Nu ne ocupăm doar de estetică, ci de eliberarea tensiunii
+              somatice și de alinierea sistemului nervos. Spiritul (Călătoria
+              Interioară): Prin proiectele mele digitale, canalul de YouTube
+              „Gânduri Profunde” și experiențele de explorare din „Inscape
+              Traveler”, împărtășesc perspective despre filozofia vieții și
+              echilibrul interior, prezența mea în diverse podcast-uri fiind o
+              extensie a dorinței de a educa și inspira.
             </p>
             <p>
-              Cred in educatie continua, empatie si rezultate construite cu rabdare.
+              De ce această integrare? Pentru că nu poți vindeca mintea dacă ignori
+              biologia corpului și nu poți atinge performanța fizică dacă ești
+              sabotat de propriile gânduri. Arhitectura Sinelui este suma tuturor
+              acestor experiențe, pusă în serviciul evoluției tale.
             </p>
-            <div className="about-actions">
-              <a className="btn" href="/contact">
-                Contacteaza-ma
-              </a>
-            </div>
+            <p>„Ești pregătit să treci dincolo de suprafață?”</p>
           </div>
           <div className="about-image">
             <img src={portraitImage} alt="Portret" loading="lazy" />
+          </div>
+        </div>
+
+        <div className="content-section reveal body-copy primul-pas">
+          <h1>
+            <span className="primul-pas-title">Primul Pas</span>
+          </h1>
+          <div className="evaluation-title">
+            <h1>Evaluare &amp; Consultanță Inițială</h1>
+            <div className="evaluation-content">
+              <p>
+                Aceasta este „poarta de intrare” pentru cei care vor să înceapă lucrul,
+                dar nu sunt pregătiți să plătească un pachet întreg de la prima vizită.
+              </p>
+              <p>
+                <strong>Sesiune de Evaluare și Claritate (50 min)</strong>
+              </p>
+              <p>
+                <strong>Preț: 100 RON</strong>
+              </p>
+              <p>
+                Descriere: „Înainte de orice construcție, avem nevoie de un plan. Această
+                sesiune este dedicată diagnosticării nevoilor tale pe toți cei trei piloni:
+                Minte, Corp și Spirit. Vom identifica împreună blocajele și vom schița
+                structura programului tău personalizat.”
+              </p>
+              <button className="btn" type="button">
+                Rezervă Evaluarea
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="content-section reveal is-visible testimonials-section">
+          <h1>Testimoniale (Social Proof)</h1>
+          <p>Urmeaza sa adaug continut.</p>
+        </div>
+
+        <hr className="section-divider" />
+
+        <div className="content-section reveal body-copy">
+          <h1>Încă ai întrebări? Hai să vorbim.</h1>
+          <p>
+            <strong>Discovery Call (30 min) – GRATUIT.</strong>
+          </p>
+          <p>
+            Acest apel nu este o ședință de terapie sau antrenament, ci un spațiu
+            dedicat exclusiv întrebărilor tale. Dacă nu ești sigur ce serviciu ți se
+            potrivește sau vrei să înțelegi mai bine metodologia Arhitectura Sinelui,
+            îți stau la dispoziție pentru a vedea dacă suntem pe aceeași lungime de
+            undă.
+          </p>
+          <div className="shop-actions row">
+            <button className="shop-btn shop-action-btn" type="button">
+              Programează Apelul Gratuit
+            </button>
+            <button className="shop-btn shop-action-btn btn-secondary" type="button">
+              Intrebari frecvente
+            </button>
           </div>
         </div>
 
@@ -567,32 +655,31 @@ function Home() {
               Vezi toate videoclipurile
             </a>
           </div>
-            {mediaError && <p className="muted">{mediaError}</p>}
-            {!mediaError && mediaItems.length === 0 && (
-              <p className="muted">Inca nu exista clipuri.</p>
-            )}
-            <div className="media-grid">
-              {mediaItems.map((item) => {
-                const videoId = getYouTubeId(item.url)
-                if (!videoId) {
-                  return null
-                }
-                return (
-                  <div key={item.id} className="media-card">
-                    <div className="media-item">
-                      <iframe
-                        src={`https://www.youtube.com/embed/${videoId}`}
-                        title={item.title}
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </div>
-                    <p className="media-title">{item.title}</p>
+          {mediaItems.length === 0 && (
+            <p className="muted">Inca nu exista clipuri.</p>
+          )}
+          <div className="media-grid">
+            {mediaItems.map((item) => {
+              const videoId = getYouTubeId(item.url)
+              if (!videoId) {
+                return null
+              }
+              return (
+                <div key={item.id} className="media-card">
+                  <div className="media-item">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${videoId}`}
+                      title={item.title}
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
                   </div>
-                )
-              })}
-            </div>
+                  <p className="media-title">{item.title}</p>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
       {activePackage && (

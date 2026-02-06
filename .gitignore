@@ -29,3 +29,5 @@ dist-ssr
 !.env.production
 server/.env
 server/data.db
+node_modules
+dist

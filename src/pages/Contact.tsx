@@ -1,12 +1,10 @@
-import { useState } from 'react'
 import facebook from '../assets/facebook.png'
 import instagram from '../assets/instagram.png'
 import tiktok from '../assets/tiktok.png'
 import youtube from '../assets/youtube.png'
 
-const API_ORIGIN =
-  import.meta.env.VITE_API_ORIGIN || 'https://arhitectura-sinelui-api.onrender.com'
-const API_BASE = `${API_ORIGIN}/api`
+const PRACTICE_BETTER_FORM =
+  'https://my.practicebetter.io/#/696fca8b131720479d800ab1/forms?f=696fcfb9dc4dcd0b101c3dc2'
 const socialLinks = [
   {
     name: 'Facebook',
@@ -23,37 +21,6 @@ const socialLinks = [
 ]
 
 function Contact() {
-  const [name, setName] = useState('')
-  const [phone, setPhone] = useState('')
-  const [email, setEmail] = useState('')
-  const [content, setContent] = useState('')
-  const [status, setStatus] = useState('')
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setStatus('')
-
-    try {
-      const res = await fetch(`${API_BASE}/contact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, email, content }),
-      })
-
-      if (!res.ok) {
-        throw new Error('Nu am putut trimite mesajul.')
-      }
-
-      setName('')
-      setPhone('')
-      setEmail('')
-      setContent('')
-      setStatus('Mesaj trimis cu succes. Vei fi contactat cat de curand!')
-    } catch (err) {
-      setStatus(err instanceof Error ? err.message : 'Eroare necunoscuta.')
-    }
-  }
-
   return (
     <section className="contact-page">
       <div className="contact-grid">
@@ -99,63 +66,46 @@ function Contact() {
 
         <hr className="contact-divider" />
 
-        <form className="card form contact-slide-right" onSubmit={handleSubmit}>
+        <div className="card form contact-slide-right">
           <div className="form-header">
-            <h2>Ai intrebari? Scrie-ne mai jos</h2>
-            <p className="form-note">Toate mesajele sunt tratate confidential.</p>
+            <h2>Ai intrebari?</h2>
+            <p className="form-note">Te redirectionam catre formularul nostru.</p>
           </div>
-      
-          {status && <p className={status.includes('succes') ? 'success' : 'error'}>{status}</p>}
-          <label className="field">
-            <span>Nume</span>
-            <input
-              className="input"
-              type="text"
-              placeholder="Numele tau"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-              required
-            />
-          </label>
-          <div className="form-row">
-            <label className="field">
-              <span>Telefon</span>
-              <input
-                className="input"
-                type="tel"
-                placeholder="Numar de telefon"
-                value={phone}
-                onChange={(event) => setPhone(event.target.value)}
-                required
-              />
-            </label>
-            <label className="field">
-              <span>Email</span>
-              <input
-                className="input"
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                required
-              />
-            </label>
+          <div className="contact-quick-links">
+            <p className="contact-text">
+              Ai o intrebare rapida? Poate gasesti raspunsul imediat mai jos.
+            </p>
+            <a className="contact-link" href="/faq">
+              <span className="contact-link-arrow" aria-hidden="true">
+                &rarr;
+              </span>
+              <span className="contact-link-text">
+                Vezi sectiunea Intrebari frecvente
+              </span>
+            </a>
+            <a className="contact-link" href="/shop">
+              <span className="contact-link-arrow" aria-hidden="true">
+                &rarr;
+              </span>
+              <span className="contact-link-text">Vezi toate pachetele</span>
+            </a>
           </div>
-          <label className="field">
-            <span>Continut</span>
-            <textarea
-              className="input textarea"
-              rows={6}
-              placeholder="Mesajul tau"
-              value={content}
-              onChange={(event) => setContent(event.target.value)}
-              required
-            />
-          </label>
-          <button className="btn" type="submit">
-            Trimite mesaj
-          </button>
-        </form>
+          <div className="contact-cta">
+            <div className="shop-details-arrow" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
+            <a
+              className="btn"
+              href={PRACTICE_BETTER_FORM}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Trimite mesaj
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   )
