@@ -1,24 +1,9 @@
-import facebook from '../assets/facebook.png'
-import instagram from '../assets/instagram.png'
-import tiktok from '../assets/tiktok.png'
-import youtube from '../assets/youtube.png'
+import phoneIcon from '../assets/phone.png'
+import emailIcon from '../assets/email.png'
+import scheduleIcon from '../assets/schedule.png'
 
 const PRACTICE_BETTER_FORM =
   'https://my.practicebetter.io/#/696fca8b131720479d800ab1/forms?f=696fcfb9dc4dcd0b101c3dc2'
-const socialLinks = [
-  {
-    name: 'Facebook',
-    icon: facebook,
-    href: 'https://www.facebook.com/psih.paulcristianborcos',
-  },
-  {
-    name: 'Instagram',
-    icon: instagram,
-    href: 'https://www.instagram.com/psih.paulcristianborcos/',
-  },
-  { name: 'TikTok', icon: tiktok, href: 'https://www.tiktok.com/@ganduriprofunde' },
-  { name: 'YouTube', icon: youtube, href: 'https://www.youtube.com/@ganduriprofunde' },
-]
 
 function Contact() {
   return (
@@ -30,36 +15,24 @@ function Contact() {
             Fie ca iti doresti o schimbare fizica sau un echilibru interior, nu
             ezita sa ma contactezi.
           </p>
-          <p className="contact-text">
-            <span className="muted">Telefon:</span> +40752451893
-          </p>
-          <p className="contact-text">
-            <span className="muted">Email:</span> daniel.oancea1997@gmail.com
-          </p>
-          <p className="contact-gap contact-text">
-            <span className="muted">Adresa:</span> Str. Cerbului, Nr 39, Oras Arad,
-            Jud Arad
-          </p>
-          <p className="contact-gap contact-text">
-            <span className="muted">Program:</span> Luni-Vineri, 09:00-18:00
-          </p>
-          <p className="contact-gap contact-text">
-            <span className="muted">Locatie cabinet:</span> Str. Revolutiei nr. 30,
-            sc A, ap 3.
-          </p>
-          <div className="contact-social">
-            <p className="muted contact-text">Social media</p>
-            <div className="footer-social">
-              {socialLinks.map((link) => (
-                <a key={link.name} href={link.href} aria-label={link.name}>
-                  <img
-                    className="social-icon"
-                    src={link.icon}
-                    alt={link.name}
-                    loading="lazy"
-                  />
-                </a>
-              ))}
+          <div className="contact-details-list">
+            <div className="contact-detail">
+              <img src={phoneIcon} alt="" aria-hidden="true" />
+              <p>
+                <span className="muted">Telefon:</span> +40 751 396 810
+              </p>
+            </div>
+            <div className="contact-detail">
+              <img src={emailIcon} alt="" aria-hidden="true" />
+              <p>
+                <span className="muted">Email:</span> contact@arhitecturasinelui.ro
+              </p>
+            </div>
+            <div className="contact-detail">
+              <img src={scheduleIcon} alt="" aria-hidden="true" />
+              <p>
+                <span className="muted">Program:</span> Luni-Vineri, 09:00-20:00
+              </p>
             </div>
           </div>
         </div>

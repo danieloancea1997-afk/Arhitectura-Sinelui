@@ -6,6 +6,8 @@ import mindImage from '../assets/mind.jpg'
 import bodyImage from '../assets/body.jpg'
 import spiritImage from '../assets/spirit.jpg'
 import portraitImage from '../assets/portret.png'
+import portraitImageTablet from '../assets/portret1.png'
+import h111Image from '../assets/h111.png'
 import { packages, type PackageItem as ShopPackage } from '../data/shopPackages'
 
 type MediaItem = {
@@ -135,7 +137,7 @@ const therapyPackages: PackageItem[] = [
   {
     id: 'consultanta-evaluare',
     label: 'Consultanta si evaluare initiala',
-    duration: '50 minutes',
+    duration: '50 minute',
     price: '100 LEI',
     ctaText: 'Programeaza acum',
     items: [
@@ -147,7 +149,7 @@ const therapyPackages: PackageItem[] = [
   {
     id: 'consiliere-psihologica',
     label: 'Consiliere psihologica',
-    duration: '50 minutes',
+    duration: '50 minute',
     price: '250 LEI',
     ctaText: 'Programeaza acum',
     items: [
@@ -159,7 +161,7 @@ const therapyPackages: PackageItem[] = [
   {
     id: 'somatic-alignment',
     label: 'Sesiune Somatic Alignment',
-    duration: '1 hour 30 minutes',
+    duration: '1 ora 30 minute',
     price: '400 LEI',
     ctaText: 'Programeaza acum',
     items: [
@@ -171,7 +173,7 @@ const therapyPackages: PackageItem[] = [
   {
     id: 'abonament-4x',
     label: 'Abonament 4x consiliere',
-    duration: '4 sessions',
+    duration: '4 sedinte',
     price: '800 LEI',
     ctaText: 'Programeaza acum',
     items: [
@@ -183,7 +185,7 @@ const therapyPackages: PackageItem[] = [
   {
     id: 'reset-challenge',
     label: '30-Day Reset Challenge',
-    duration: '9 sessions',
+    duration: '9 sedinte',
     price: '1,950 LEI',
     ctaText: 'Programeaza acum',
     items: [
@@ -198,7 +200,7 @@ const fitnessPackages: PackageItem[] = [
   {
     id: 'consultanta-evaluare',
     label: 'Consultanta si evaluare initiala',
-    duration: '50 minutes',
+    duration: '50 minute',
     price: '100 LEI',
     ctaText: 'Programeaza acum',
     items: [
@@ -210,7 +212,7 @@ const fitnessPackages: PackageItem[] = [
   {
     id: 'program-gym',
     label: 'Program Gym + Morning Flow',
-    duration: '1 session',
+    duration: '1 sedinta',
     price: '400 LEI',
     ctaText: 'Programeaza acum',
     items: [
@@ -222,7 +224,7 @@ const fitnessPackages: PackageItem[] = [
   {
     id: 'ghid-nutritie',
     label: 'Ghid nutritie + suplimentare',
-    duration: '1 session',
+    duration: '1 sedinta',
     price: '400 LEI',
     ctaText: 'Programeaza acum',
     items: [
@@ -234,7 +236,7 @@ const fitnessPackages: PackageItem[] = [
   {
     id: 'combo-gym-nutritie',
     label: 'Combo Gym + Nutritie',
-    duration: '2 sessions',
+    duration: '2 sedinte',
     price: '700 LEI',
     ctaText: 'Programeaza acum',
     items: [
@@ -246,7 +248,7 @@ const fitnessPackages: PackageItem[] = [
   {
     id: 'arhitectura-nutritiei',
     label: 'Arhitectura nutritiei',
-    duration: '2 sessions',
+    duration: '2 sedinte',
     price: '700 LEI',
     ctaText: 'Programeaza acum',
     items: [
@@ -336,10 +338,16 @@ function Home() {
             Integrare Minte, Corp și Spirit.
           </h1>
           <p className="muted hero-subtitle">
-            Psihologie integrativă, Somatic Alignment, nutriție pentru longevitate și
-            antrenament personalizat — un sistem complet de reconstrucție a ființei,
-            unde rigoarea științei moderne este ancorată în profunzimea filosofiei
-            orientale.
+            <span className="hero-subtitle-long">
+              Psihologie integrativă, Somatic Alignment, nutriție pentru longevitate și
+              antrenament personalizat — un sistem complet de reconstrucție a ființei,
+              unde rigoarea științei moderne este ancorată în profunzimea filosofiei
+              orientale.
+            </span>
+            <span className="hero-subtitle-short">
+              Psihologie integrativă, Somatic Alignment, nutriție pentru longevitate și
+              antrenament personalizat
+            </span>
           </p>
           <div className="row hero-actions">
             <Link className="btn" to="/shop">
@@ -464,13 +472,8 @@ function Home() {
             <Link className="shop-btn shop-action-btn" to="/shop">
               Vezi toate pachetele
             </Link>
-            <button className="shop-btn shop-action-btn btn-secondary" type="button">
-              Intrebari frecvente
-            </button>
           </div>
         </div>
-        <hr className="section-divider" />
-
         <div className="pillar-grid reveal" ref={pillarGridRef}>
           {pillars.map((pillar) => (
             <button
@@ -534,8 +537,6 @@ function Home() {
           )}
         </AnimatePresence>
 
-        <hr className="section-divider" />
-
         <div className="about-section reveal">
           <div className="about-text body-copy">
             <h1>Arhitectul din spatele conceptului:</h1>
@@ -557,13 +558,15 @@ function Home() {
               împreună cu tine tiparele care te blochează. Această pasiune pentru
               profunzime s-a materializat și în volumul de versuri „Dincolo”, o
               introspecție existențială dedicată celor care caută răspunsuri în
-              spațiul dintre cuvinte. Corpul (Performanță și Aliniere): Activitatea
-              mea de antrenor de fitness și statutul de Practician Acreditat în
-              Somatic Alignment îmi permit să lucrez cu biologia ta la un nivel
-              profund. Nu ne ocupăm doar de estetică, ci de eliberarea tensiunii
-              somatice și de alinierea sistemului nervos. Spiritul (Călătoria
-              Interioară): Prin proiectele mele digitale, canalul de YouTube
-              „Gânduri Profunde” și experiențele de explorare din „Inscape
+              spațiul dintre cuvinte. Corpul (Performanță și Aliniere):
+            </p>
+            <p>
+              Activitatea mea de antrenor de fitness și statutul de Practician
+              Acreditat în Somatic Alignment îmi permit să lucrez cu biologia ta
+              la un nivel profund. Nu ne ocupăm doar de estetică, ci de eliberarea
+              tensiunii somatice și de alinierea sistemului nervos. Spiritul
+              (Călătoria Interioară): Prin proiectele mele digitale, canalul de
+              YouTube „Gânduri Profunde” și experiențele de explorare din „Inscape
               Traveler”, împărtășesc perspective despre filozofia vieții și
               echilibrul interior, prezența mea în diverse podcast-uri fiind o
               extensie a dorinței de a educa și inspira.
@@ -577,7 +580,15 @@ function Home() {
             <p>„Ești pregătit să treci dincolo de suprafață?”</p>
           </div>
           <div className="about-image">
-            <img src={portraitImage} alt="Portret" loading="lazy" />
+            <img className="about-image-mobile" src={h111Image} alt="Detaliu" loading="lazy" />
+            <img className="about-image-tablet" src={portraitImageTablet} alt="Portret" loading="lazy" />
+            <img className="about-image-desktop" src={portraitImage} alt="Portret" loading="lazy" />
+            <div className="about-image-overlay" aria-hidden="true">
+              <div className="about-image-overlay-inner">
+                <h1>Arhitectul din spatele conceptului:</h1>
+                <h3>Paul-Cristian Borcoș</h3>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -634,15 +645,12 @@ function Home() {
             <button className="shop-btn shop-action-btn" type="button">
               Programează Apelul Gratuit
             </button>
-            <button className="shop-btn shop-action-btn btn-secondary" type="button">
-              Intrebari frecvente
-            </button>
           </div>
         </div>
 
         <hr className="section-divider" />
 
-        <div className="content-section reveal">
+        <div className="content-section reveal media-section">
           <h1>Media</h1>
           <div className="media-header">
             <h3>Clipuri video</h3>

@@ -18,7 +18,7 @@ export const packages: PackageItem[] = [
     id: 'discovery-call',
     category: 'psihologie',
     title: 'Discovery Call Gratuit (Apel de Cunoastere)',
-    meta: '30 minutes @ Gratuit',
+    meta: '30 minute @ Gratuit',
     description: [
       'O discutie scurta si directa pentru a vedea daca rezonam si care dintre pilonii Arhitectura Sinelui - Psihologie, Fitness sau Somatic - este cel mai potrivit pentru obiectivele tale actuale. Nu este o sesiune de consiliere propriu-zisa, ci o etapa de clarificare a directiei tale de evolutie.',
     ],
@@ -27,7 +27,7 @@ export const packages: PackageItem[] = [
     id: 'consiliere-psihologica',
     category: 'psihologie',
     title: 'Consiliere Psihologica',
-    meta: '50 minutes @ 250.00 lei',
+    meta: '50 minute @ 250.00 lei',
     description: [
       'Aceasta sesiune de consiliere reprezinta primul pas in procesul de proiectare si reconstructie a echilibrului tau interior. Intr-un spatiu sigur si confidential, vom explora impreuna mecanismele care iti guverneaza gandurile si emotiile, identificand fundatia pe care vom cladi noua ta stare de bine.',
     ],
@@ -49,7 +49,7 @@ export const packages: PackageItem[] = [
     id: 'consultanta-evaluare',
     category: 'somatic',
     title: 'Sesiune de Consultanta si Evaluare Initiala: Proiecteaza-ti Schimbarea',
-    meta: '50 minutes @ 100.00 lei',
+    meta: '50 minute @ 100.00 lei',
     description: [
       'Aceasta sesiune de 50 de minute reprezinta primul punct de contact cu ecosistemul Arhitectura Sinelui. Este spatiul in care transformam incertitudinea in claritate si obiectivele vagi in planuri de actiune concrete.',
     ],
@@ -80,7 +80,7 @@ export const packages: PackageItem[] = [
     id: 'somatic-alignment',
     category: 'somatic',
     title: 'Sesiune Somatic Alignment',
-    meta: '1 hour 30 minutes @ 400.00 lei',
+    meta: '1 ora 30 minute @ 400.00 lei',
     description: [
       'Somatic Alignment este o metoda de lucru corporal care vizeaza restabilirea echilibrului dintre minte si corp prin interventii directe asupra sistemului nervos si a tensiunilor musculare cronice. Spre deosebire de terapia prin vorbire, aceasta sesiune se concentreaza pe limbajul corpului tau, abordand stresul si trauma acolo unde ele sunt stocate fizic.',
     ],
@@ -103,7 +103,7 @@ export const packages: PackageItem[] = [
     id: 'abonament-4x',
     category: 'psihologie',
     title: 'Abonament 4x Consiliere Psihologica',
-    meta: '4 sessions @ 800.00 lei',
+    meta: '4 sedinte @ 800.00 lei',
     description: [
       'Acest abonament este conceput pentru cei care doresc sa treaca de la o simpla explorare la un proces real de reconstructie interioara. Patru sesiuni ofera timpul si spatiul necesar pentru ca schimbarile sa prinda radacini, permitandu-ne sa lucram asezat la fundatia echilibrului tau mental.',
     ],
@@ -130,7 +130,7 @@ export const packages: PackageItem[] = [
     id: 'program-gym',
     category: 'fitness',
     title: 'Program Antrenament Gym + Rutina Morning Flow (Fara suport)',
-    meta: '1 session @ 400.00 lei',
+    meta: '1 sedinta @ 400.00 lei',
     description: [
       'Construieste-ti corpul si disciplina folosind un plan adaptat nevoilor tale biologice. Acest pachet este creat pentru cei care au nevoie de o structura clara, dar sunt autonomi in executie.',
     ],
@@ -152,7 +152,7 @@ export const packages: PackageItem[] = [
     id: 'ghid-nutritie',
     category: 'fitness',
     title: 'Ghid Nutritie si Suplimentare Personalizat (Fara suport)',
-    meta: '1 session @ 400.00 lei',
+    meta: '1 sedinta @ 400.00 lei',
     description: [
       'Optimizeaza-ti biologia prin nutritie adaptata stilului tau de viata si obiectivelor de longevitate. Acest ghid este un instrument de lucru pentru cei care doresc claritate in alegerile alimentare si o schema de suplimentare bazata pe nevoi reale.',
     ],
@@ -174,7 +174,7 @@ export const packages: PackageItem[] = [
     id: 'combo-gym-nutritie',
     category: 'fitness',
     title: 'Combo: Arhitectura Corpului (Gym + Nutritie) - Fara suport',
-    meta: '2 sessions @ 700.00 lei',
+    meta: '2 sedinte @ 700.00 lei',
     description: [
       'Acest pachet reprezinta solutia completa pentru cei care doresc sa isi reproiecteze stilul de viata, actionand simultan asupra celor doi piloni fundamentali: miscarea si combustibilul biologic. Prin alegerea acestui combo, beneficiezi de o strategie integrata si de o economie de 100 RON fata de achizitia separata a serviciilor.',
     ],
@@ -202,7 +202,7 @@ export const packages: PackageItem[] = [
     id: 'arhitectura-nutritiei',
     category: 'fitness',
     title: 'Arhitectura Nutritiei: Ghid Personalizat + Sedinta Live & Suport Chat',
-    meta: '2 sessions @ 700.00 lei',
+    meta: '2 sedinte @ 700.00 lei',
     description: [
       'Transforma nutritia dintr-o corvoada intr-un sistem de suport pentru biologia ta. Acest pachet adauga componenta de ghidaj direct la ghidul tau personalizat.',
     ],
@@ -225,7 +225,7 @@ export const packages: PackageItem[] = [
     id: 'arhitectura-miscarii',
     category: 'fitness',
     title: 'Arhitectura Miscarii: Plan Fitness + Sedinta Live & Suport Chat',
-    meta: '2 sessions @ 700.00 lei',
+    meta: '2 sedinte @ 700.00 lei',
     description: [
       'Aceasta este varianta extinsa a programului de fitness, creata pentru cei care doresc nu doar un plan, ci si certitudinea executiei corecte si monitorizarea progresului in prima luna de transformare.',
     ],
@@ -248,7 +248,7 @@ export const packages: PackageItem[] = [
     id: 'master-body',
     category: 'fitness',
     title: 'Master your body: Arhitectura corpului (Gym + Nutritie) + Suport Live & Chat',
-    meta: '3 sessions @ 1,000.00 lei',
+    meta: '3 sedinte @ 1,000.00 lei',
     description: [
       'Acest Master Plan integreaza ambii piloni - fitness si nutritie - intr-o singura strategie coerenta, sustinuta de asistenta directa.',
     ],
@@ -272,7 +272,7 @@ export const packages: PackageItem[] = [
     id: 'protocol-aliniere',
     category: 'somatic',
     title: 'Protocol Aliniere Somatica: Pregatire - Aliniere - Integrare',
-    meta: '3 sessions @ 800.00 lei',
+    meta: '3 sedinte @ 800.00 lei',
     description: [
       'Acesta este un protocol terapeutic structurat, conceput pentru a oferi un cadru sigur si complet procesului de eliberare somatica. Nu lucram doar cu corpul, ci ne asiguram ca mintea poate procesa si integra schimbarile aparute.',
     ],
@@ -295,7 +295,7 @@ export const packages: PackageItem[] = [
     id: 'reset-challenge',
     category: 'fitness',
     title: 'Arhitectura Sinelui: 30-Day Reset Challenge',
-    meta: '9 sessions @ 1,950.00 lei',
+    meta: '9 sedinte @ 1,950.00 lei',
     description: [
       'Cea mai intensa si completa experienta de transformare din ecosistemul Arhitectura Sinelui. Timp de 30 de zile, lucram integrat pe toate planurile biologice si psihologice pentru a reconstrui fundatia starii tale de bine. Nu este doar un program de fitness sau de terapie, ci o recalibrare totala a modului in care traiesti, simti si te misti.',
     ],

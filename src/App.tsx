@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
+import Faq from './pages/Faq'
 import Home from './pages/Home'
 import Products from './pages/Products'
 
@@ -75,6 +76,7 @@ function AppShell() {
           <Route path="/products" element={<Products />} />
           <Route path="/shop" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<Faq />} />
           <Route path="/blog" element={<Blog />} />
         </Routes>
       </main>
