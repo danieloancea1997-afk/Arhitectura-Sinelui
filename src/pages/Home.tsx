@@ -358,7 +358,7 @@ function Home() {
       </div>
 
       <div className="content-wrap">
-        <div className="content-section reveal body-copy">
+        <div className="content-section reveal body-copy about-followup about-followup-spaced">
           <h1>Ce înseamnă „Arhitectura Sinelui”?</h1>
           <h3>Proiectul tău de reconstrucție interioară.</h3>
           <p>
@@ -537,6 +537,8 @@ function Home() {
           )}
         </AnimatePresence>
 
+        <hr className="section-divider about-divider" />
+
         <div className="about-section reveal">
           <div className="about-text body-copy">
             <h1>Arhitectul din spatele conceptului:</h1>
@@ -545,39 +547,13 @@ function Home() {
               „Sănătatea nu este absența bolii, ci armonia absolută între ceea ce
               gândești, ceea ce simți și modul în care te miști.”
             </p>
-            <p>
+            <p className="about-tight">
               Sunt Psiholog Clinician Autonom și Antrenor de Fitness, dar dincolo
               de titluri, sunt un explorator al potențialului uman. Cred că suntem
               cu toții arhitecții propriei noastre experiențe, iar misiunea mea
               este să îți ofer instrumentele necesare pentru a-ți reclădi
               fundamentul pe baze solide.
             </p>
-            <p>
-              Abordarea mea integrativă s-a născut din fuziunea mai multor lumi:
-              Mintea (Știință și Introspecție): Ca psiholog clinician, descifrez
-              împreună cu tine tiparele care te blochează. Această pasiune pentru
-              profunzime s-a materializat și în volumul de versuri „Dincolo”, o
-              introspecție existențială dedicată celor care caută răspunsuri în
-              spațiul dintre cuvinte. Corpul (Performanță și Aliniere):
-            </p>
-            <p>
-              Activitatea mea de antrenor de fitness și statutul de Practician
-              Acreditat în Somatic Alignment îmi permit să lucrez cu biologia ta
-              la un nivel profund. Nu ne ocupăm doar de estetică, ci de eliberarea
-              tensiunii somatice și de alinierea sistemului nervos. Spiritul
-              (Călătoria Interioară): Prin proiectele mele digitale, canalul de
-              YouTube „Gânduri Profunde” și experiențele de explorare din „Inscape
-              Traveler”, împărtășesc perspective despre filozofia vieții și
-              echilibrul interior, prezența mea în diverse podcast-uri fiind o
-              extensie a dorinței de a educa și inspira.
-            </p>
-            <p>
-              De ce această integrare? Pentru că nu poți vindeca mintea dacă ignori
-              biologia corpului și nu poți atinge performanța fizică dacă ești
-              sabotat de propriile gânduri. Arhitectura Sinelui este suma tuturor
-              acestor experiențe, pusă în serviciul evoluției tale.
-            </p>
-            <p>„Ești pregătit să treci dincolo de suprafață?”</p>
           </div>
           <div className="about-image">
             <img className="about-image-mobile" src={h111Image} alt="Detaliu" loading="lazy" />
@@ -590,6 +566,35 @@ function Home() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="content-section reveal body-copy about-followup">
+          <p className="about-followup-lead">
+            Abordarea mea integrativă s-a născut din fuziunea mai multor lumi:
+            Mintea (Știință și Introspecție): Ca psiholog clinician, descifrez
+            împreună cu tine tiparele care te blochează. Această pasiune pentru
+            profunzime s-a materializat și în volumul de versuri „Dincolo”, o
+            introspecție existențială dedicată celor care caută răspunsuri în
+            spațiul dintre cuvinte. Corpul (Performanță și Aliniere):
+          </p>
+          <p>
+            Activitatea mea de antrenor de fitness și statutul de Practician
+            Acreditat în Somatic Alignment îmi permit să lucrez cu biologia ta
+            la un nivel profund. Nu ne ocupăm doar de estetică, ci de eliberarea
+            tensiunii somatice și de alinierea sistemului nervos. Spiritul
+            (Călătoria Interioară): Prin proiectele mele digitale, canalul de
+            YouTube „Gânduri Profunde” și experiențele de explorare din „Inscape
+            Traveler”, împărtășesc perspective despre filozofia vieții și
+            echilibrul interior, prezența mea în diverse podcast-uri fiind o
+            extensie a dorinței de a educa și inspira.
+          </p>
+          <p>
+            De ce această integrare? Pentru că nu poți vindeca mintea dacă ignori
+            biologia corpului și nu poți atinge performanța fizică dacă ești
+            sabotat de propriile gânduri. Arhitectura Sinelui este suma tuturor
+            acestor experiențe, pusă în serviciul evoluției tale.
+          </p>
+          <p>„Ești pregătit să treci dincolo de suprafață?”</p>
         </div>
 
         <div className="content-section reveal body-copy primul-pas">
@@ -624,13 +629,13 @@ function Home() {
 
         <div className="content-section reveal is-visible testimonials-section">
           <h1>Testimoniale (Social Proof)</h1>
-          <p>Urmeaza sa adaug continut.</p>
+          <p className="testimonials-note">Urmeaza sa adaug continut.</p>
         </div>
 
         <hr className="section-divider" />
 
         <div className="content-section reveal body-copy">
-          <h1>Încă ai întrebări? Hai să vorbim.</h1>
+          <h1 className="section-heading-space">Încă ai întrebări? Hai să vorbim.</h1>
           <p>
             <strong>Discovery Call (30 min) – GRATUIT.</strong>
           </p>
@@ -641,7 +646,7 @@ function Home() {
             îți stau la dispoziție pentru a vedea dacă suntem pe aceeași lungime de
             undă.
           </p>
-          <div className="shop-actions row">
+          <div className="shop-actions row discovery-actions">
             <button className="shop-btn shop-action-btn" type="button">
               Programează Apelul Gratuit
             </button>
@@ -651,7 +656,7 @@ function Home() {
         <hr className="section-divider" />
 
         <div className="content-section reveal media-section">
-          <h1>Media</h1>
+          <h1 className="section-heading-space">Media</h1>
           <div className="media-header">
             <h3>Clipuri video</h3>
             <a
