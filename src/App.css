@@ -100,12 +100,14 @@ a {
   margin: 0;
   width: 100%;
   overflow-x: clip;
+  overflow-anchor: none;
 }
 
 .home {
   display: grid;
   gap: 2rem;
   margin: -2rem -1.5rem 0;
+  overflow-anchor: none;
 }
 
 .hero {
@@ -1140,7 +1142,7 @@ a {
 
 .evaluation-content .btn {
   margin-bottom: 30px;
-  background: #e27a45;
+  background: rgb(234, 143, 99);
   border: none;
   color: var(--text);
   font-family: inherit;
@@ -1411,6 +1413,32 @@ body.resurse-body {
 
   .page-home .about-text p:first-of-type {
     padding-top: 3rem;
+  }
+
+  .primul-pas::before {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(245, 241, 230, 0.6) 0%,
+        rgba(245, 241, 230, 0) 45%
+      ),
+      url('./assets/steps.jpg') center bottom / cover no-repeat;
+  }
+
+  .primul-pas-title {
+    background: rgba(120, 120, 120, 0.4);
+  }
+
+  .evaluation-title {
+    background: rgba(120, 120, 120, 0.6);
+  }
+
+  .evaluation-content {
+    background: rgba(120, 120, 120, 0.5);
+  }
+
+  .evaluation-content .btn {
+    background: rgb(224, 130, 92);
   }
 }
 
@@ -2245,6 +2273,32 @@ body.resurse-body {
 
   .page-home .about-divider {
     display: none;
+  }
+
+  .primul-pas::before {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(245, 241, 230, 0.6) 0%,
+        rgba(245, 241, 230, 0) 45%
+      ),
+      url('./assets/steps.jpg') center bottom / cover no-repeat;
+  }
+
+  .primul-pas-title {
+    background: rgba(120, 120, 120, 0.4);
+  }
+
+  .evaluation-title {
+    background: rgba(120, 120, 120, 0.6);
+  }
+
+  .evaluation-content {
+    background: rgba(120, 120, 120, 0.5);
+  }
+
+  .evaluation-content .btn {
+    background: rgb(224, 130, 92);
   }
 
   .hero {
@@ -3312,6 +3366,7 @@ h3 {
   gap: 0.6rem;
   align-items: center;
   margin: 0;
+  min-height: 2.4rem;
 }
 
 .footer-brand {
@@ -3322,6 +3377,7 @@ h3 {
   display: flex;
   gap: 0.75rem;
   align-items: center;
+  min-height: 28px;
 }
 
 .idle-overlay {

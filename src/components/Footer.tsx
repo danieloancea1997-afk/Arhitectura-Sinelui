@@ -30,7 +30,13 @@ function Footer() {
         <div className="footer-social">
           {socialLinks.map((link) => (
             <a key={link.name} href={link.href} aria-label={link.name}>
-              <img className="social-icon" src={link.icon} alt={link.name} loading="lazy" />
+              <img
+                className="social-icon"
+                src={link.icon}
+                alt={link.name}
+                width={28}
+                height={28}
+              />
             </a>
           ))}
         </div>
