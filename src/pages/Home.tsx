@@ -8,6 +8,21 @@ import spiritImage from '../assets/spirit.jpg'
 import portraitImage from '../assets/portret.png'
 import portraitImageTablet from '../assets/portret1.png'
 import h111Image from '../assets/h111.png'
+import testimonial21Image from '../assets/testimonial 2.1.jpeg'
+import testimonial22Image from '../assets/testimonial 2.2.jpeg'
+import testimonial23Image from '../assets/testimonial 2.3.jpeg'
+import testimonial31Image from '../assets/testimonial 3.1.jpeg'
+import testimonial32Image from '../assets/testimonial 3.2.jpeg'
+import testimonial33Image from '../assets/testimonial 3.3.jpeg'
+import testimonial41Image from '../assets/testimonial 4.1.jpeg'
+import testimonial42Image from '../assets/testimonial 4.2.jpeg'
+import testimonial43Image from '../assets/testimonial 4.3.jpeg'
+import testimonial11Image from '../assets/testimonial 1.1.jpeg'
+import testimonial12Image from '../assets/testimonial 1.2.jpeg'
+import testimonial13Image from '../assets/testimonial 1.3.jpeg'
+import testimonial5Image from '../assets/testimonial 5.jpeg'
+import testimonial6Image from '../assets/testimonial 6.jpeg'
+import testimonial7Image from '../assets/testimonial 7.jpeg'
 import { packages, type PackageItem as ShopPackage } from '../data/shopPackages'
 
 type MediaItem = {
@@ -259,13 +274,163 @@ const fitnessPackages: PackageItem[] = [
   },
 ]
 
+const discountedHomePrices: Record<string, string> = {
+  'consiliere-psihologica': '199 LEI',
+  'consultanta-evaluare': '89 LEI',
+  'abonament-4x': '699 LEI',
+  'program-gym': '349 LEI',
+  'ghid-nutritie': '349 LEI',
+  'combo-gym-nutritie': '599 LEI',
+  'arhitectura-miscarii': '599 LEI',
+  'arhitectura-nutritiei': '599 LEI',
+  'master-body': '899 LEI',
+  'reset-challenge': '1,799 LEI',
+}
+
+const parseLeiValue = (value: string) =>
+  Number.parseFloat(value.replace(/lei/i, '').replace(/,/g, '').trim())
+
+const getDiscountBadgeLabel = (oldPrice: string, newPrice: string) => {
+  const oldValue = parseLeiValue(oldPrice)
+  const newValue = parseLeiValue(newPrice)
+  if (!oldValue || !newValue || newValue >= oldValue) {
+    return null
+  }
+  const discount = Math.round(((oldValue - newValue) / oldValue) * 100)
+  return `-${discount}%`
+}
+
+type TestimonialClient = {
+  id: string
+  name: string
+  photos: string[]
+  review: string
+  reviewBottom?: string
+  rating: number
+}
+
+type TestimonialGalleryItem = {
+  id: string
+  name: string
+  rating: number
+  photo: string | null
+}
+
+type TestimonialTextItem = {
+  id: string
+  name: string
+  review: string
+  rating: number
+}
+
+type TestimonialPage =
+  | { id: string; type: 'client'; client: TestimonialClient }
+  | { id: string; type: 'gallery'; items: TestimonialGalleryItem[] }
+  | { id: string; type: 'text'; items: TestimonialTextItem[] }
+
+const testimonialClients: TestimonialClient[] = [
+  {
+    id: 'client-1',
+    name: 'Andrada I.',
+    photos: [testimonial21Image, testimonial22Image, testimonial23Image],
+    review:
+      'Nu este doar un antrenor, ci un om care stie sa inspire. De-a lungul timpului, relatia noastra a trecut dincolo de sala de sport. Din antrenor a devenit prieten, iar asta a facut ca fiecare antrenament sa fie asteptat cu drag. Profesionalismul, rabdarea si modul in care stie sa motiveze fac diferenta, iar atmosfera creata te face sa vii la sala nu din obligatie, ci din placere.',
+    reviewBottom:
+      'Recomand cu toata increderea, pentru ca atunci cand cineva pune suflet in ceea ce face, se simte.',
+    rating: 5,
+  },
+  {
+    id: 'client-2',
+    name: 'Sofia M.',
+    photos: [testimonial31Image, testimonial32Image, testimonial33Image],
+    review:
+      'Colaborarea noastra este mai mult decat antrenamentele din sala. Simt sustinere reala si o abordare atenta la corpul si ritmul meu. M-a ajutat sa-mi construiesc o relatie mai constienta cu miscarea si cu alimentatia. Apreciez ca antrenamentele sunt adaptate nevoilor mele. Este un proces in care ma simt vazuta, ascultata si ghidata cu calm.',
+    rating: 5,
+  },
+  {
+    id: 'client-3',
+    name: 'Alexandru I.',
+    photos: [testimonial41Image, testimonial42Image, testimonial43Image],
+    review: 'Testimonialul este in curs de completare.',
+    rating: 5,
+  },
+  {
+    id: 'client-4',
+    name: 'Calin',
+    photos: [testimonial11Image, testimonial12Image, testimonial13Image],
+    review: 'Testimonialul este in curs de completare.',
+    rating: 5,
+  },
+]
+
+const testimonialPages: TestimonialPage[] = [
+  ...testimonialClients.map((client) => ({ id: client.id, type: 'client' as const, client })),
+  {
+    id: 'client-5',
+    type: 'gallery',
+    items: [
+      { id: 'dragos-m', name: 'Dragos M.', rating: 5, photo: testimonial5Image },
+      { id: 'catalin-m', name: 'Catalin M.', rating: 5, photo: testimonial6Image },
+    ],
+  },
+  {
+    id: 'client-6',
+    type: 'text',
+    items: [
+      {
+        id: 'elena-d',
+        name: 'Elena D.',
+        review:
+          'Vin la aceste antrenamente de 3 ani si 6 luni si pot spune ca fiecare sesiune este un adevarat boost de energie care iti garanteaza o stare de bine. Ce apreciez enorm este faptul ca exercitiile sunt concepute special pentru nevoile fiecaruia, conform varstei. Mai mult, energia grupului este minunata, s-a format o comunitate atat de prietenoasa incat vin la fiecare ora cu multa bucurie si dorinta de revedere.',
+        rating: 5,
+      },
+      {
+        id: 'sofia-m-text',
+        name: 'Sofia M.',
+        review:
+          'Colaborarea noastra este mai mult decat antrenamentele din sala. Simt sustinere reala si o abordare atenta la corpul si ritmul meu. M-a ajutat sa-mi construiesc o relatie mai constienta cu miscarea si cu alimentatia. Apreciez ca antrenamentele sunt adaptate nevoilor mele. Este un proces in care ma simt vazuta, ascultata si ghidata cu calm.',
+        rating: 5,
+      },
+    ],
+  },
+  {
+    id: 'client-7',
+    type: 'text',
+    items: [
+      {
+        id: 'camelia-b',
+        name: 'Camelia B.',
+        review:
+          'Am inceput colaborarea cu Cristi acum 4 ani, intr-un moment in care porneam practic de la zero: aveam multe kilograme in plus, o varsta la care schimbarile par mai greu de facut si mai multe probleme de sanatate. Printre acestea se numarau probleme de circulatie si o neuropatie pe piciorul stang, care imi afectau serios starea generala si mobilitatea. Pe parcursul acestor ani, Cristi nu a fost doar antrenorul meu, ci si al celor doi copii ai mei, lucru care a facut ca experienta noastra sa fie una de familie. Am primit mereu suport nu doar pe partea de antrenament, ci si emotional - exact acel tip de sustinere de care ai nevoie cand incerci sa faci o schimbare reala in viata ta. Am inceput cu pasi mici, dar constanti, iar rezultatele au aparut in timp. Problemele de sanatate s-au ameliorat treptat si, in multe privinte, au disparut. Astazi pot spune ca am un stil de viata complet diferit: mai activ, mai echilibrat si mult mai sanatos. O mare parte din aceasta transformare i se datoreaza lui Cristi, profesionalismului lui, rabdarii si modului in care stie sa motiveze oamenii. Recomand cu incredere tuturor celor care vor sa faca o schimbare reala in viata lor.',
+        rating: 5,
+      },
+    ],
+  },
+  {
+    id: 'client-8',
+    type: 'client',
+    client: {
+      id: 'client-8',
+      name: 'Andreea J.',
+      photos: [testimonial7Image],
+      review:
+        'Cristi este antrenorul care m-a facut sa ma simt bine in corpul meu si sa vin la sala cu drag. In trecut sportul insemna pentru mine doar epuizare fizica - astazi plec de la sala cu bateriile incarcate si cu o stare de spirit excelenta. Il recomand cu tot dragul oricui vrea sa invete sa faca miscare cu placere!',
+      rating: 5,
+    },
+  },
+]
+
 function Home() {
   const [activePillar, setActivePillar] = useState<string | null>(null)
   const selected = pillars.find((pillar) => pillar.id === activePillar)
   const [isFitness, setIsFitness] = useState(false)
+  const [activeTestimonialPhoto, setActiveTestimonialPhoto] = useState(0)
+  const [activeTestimonialClient, setActiveTestimonialClient] = useState(0)
+  const [testimonialAutoResumeAt, setTestimonialAutoResumeAt] = useState(0)
   const [activePackage, setActivePackage] = useState<ShopPackage | null>(null)
   const pillarTitleRef = useRef<HTMLHeadingElement | null>(null)
   const pillarGridRef = useRef<HTMLDivElement | null>(null)
+  const testimonialTouchStartXRef = useRef<number | null>(null)
 
   const formatMeta = (meta: string) => meta.replace('@', '').trim()
   const getPackageDetails = (id: string) =>
@@ -309,12 +474,70 @@ function Home() {
     }, 50)
   }, [selected])
 
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveTestimonialPhoto((prev) => prev + 1)
+    }, 2000)
+
+    return () => window.clearInterval(intervalId)
+  }, [])
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      if (Date.now() < testimonialAutoResumeAt) {
+        return
+      }
+      setActiveTestimonialClient((prev) => (prev + 1) % testimonialPages.length)
+    }, 6000)
+
+    return () => window.clearInterval(intervalId)
+  }, [testimonialAutoResumeAt])
+
   const closePillarDetail = () => {
     setActivePillar(null)
     window.setTimeout(() => {
       pillarGridRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }, 50)
   }
+
+  const goToPreviousTestimonial = () => {
+    setActiveTestimonialClient((prev) => (prev - 1 + testimonialPages.length) % testimonialPages.length)
+    setTestimonialAutoResumeAt(Date.now() + 30000)
+  }
+
+  const goToNextTestimonial = () => {
+    setActiveTestimonialClient((prev) => (prev + 1) % testimonialPages.length)
+    setTestimonialAutoResumeAt(Date.now() + 30000)
+  }
+
+  const handleTestimonialTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    testimonialTouchStartXRef.current = event.touches[0]?.clientX ?? null
+  }
+
+  const handleTestimonialTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    const startX = testimonialTouchStartXRef.current
+    const endX = event.changedTouches[0]?.clientX
+    if (startX == null || endX == null) {
+      testimonialTouchStartXRef.current = null
+      return
+    }
+
+    const deltaX = endX - startX
+    if (Math.abs(deltaX) < 45) {
+      testimonialTouchStartXRef.current = null
+      return
+    }
+
+    if (deltaX < 0) {
+      goToNextTestimonial()
+    } else {
+      goToPreviousTestimonial()
+    }
+
+    testimonialTouchStartXRef.current = null
+  }
+
+  const currentPage = testimonialPages[activeTestimonialClient % testimonialPages.length]
 
   return (
     <section className="home">
@@ -416,16 +639,29 @@ function Home() {
             </div>
           </div>
           <div className="shop-grid full-bleed">
-            {(isFitness ? fitnessPackages : therapyPackages).map((pkg, index) => (
-              <div
-                key={pkg.label}
-                className="shop-card reveal"
-                style={{ transitionDelay: `${index * 120}ms` }}
-              >
+            {(isFitness ? fitnessPackages : therapyPackages).map((pkg, index) => {
+              const discountedPrice = discountedHomePrices[pkg.id]
+              const discountLabel = discountedPrice
+                ? getDiscountBadgeLabel(pkg.price, discountedPrice)
+                : null
+              return (
+                <div
+                  key={pkg.label}
+                  className="shop-card reveal"
+                  style={{ transitionDelay: `${index * 120}ms` }}
+                >
+                  {discountLabel && <span className="shop-sale-badge">{discountLabel}</span>}
                 <div className="shop-top">
                   <p className="shop-label">{pkg.label}</p>
                   <p className="shop-duration">{pkg.duration}</p>
-                  <h1 className="shop-price-title">{pkg.price}</h1>
+                  {discountedPrice ? (
+                    <div className="shop-price-stack">
+                      <h1 className="shop-price-title shop-price-current">{discountedPrice}</h1>
+                      <p className="shop-price-old">{pkg.price}</p>
+                    </div>
+                  ) : (
+                    <h1 className="shop-price-title">{pkg.price}</h1>
+                  )}
                   <div className="shop-spacer" />
                   <div className="shop-cta">
                     {pkg.ctaHref ? (
@@ -463,8 +699,9 @@ function Home() {
                     Vezi detalii
                   </button>
                 </div>
-              </div>
-            ))}
+                </div>
+              )
+            })}
           </div>
           <div className="shop-actions row">
             <Link className="shop-btn shop-action-btn" to="/shop">
@@ -627,10 +864,100 @@ function Home() {
 
         <div className="content-section reveal is-visible testimonials-section">
           <h1>Testimoniale (Social Proof)</h1>
-          <p className="testimonials-note">Urmeaza sa adaug continut.</p>
-        </div>
+          <div className="testimonials-carousel">
+            <button
+              className="testimonial-arrow testimonial-arrow-left"
+              type="button"
+              aria-label="Client anterior"
+              onClick={goToPreviousTestimonial}
+            >
+              {'\u00AB'}
+            </button>
 
-        <hr className="section-divider" />
+            <div
+              className={`testimonials-client-page is-page-${currentPage.id} ${currentPage.type === 'gallery' ? 'is-gallery' : ''} ${currentPage.type === 'text' ? 'is-text' : ''}`}
+              onTouchStart={handleTestimonialTouchStart}
+              onTouchEnd={handleTestimonialTouchEnd}
+            >
+              {currentPage.type === 'client' ? (
+                <>
+                  <div className="testimonial-media">
+                    <img
+                      className="testimonial-image"
+                      src={
+                        currentPage.client.photos[
+                          activeTestimonialPhoto % currentPage.client.photos.length
+                        ] || ''
+                      }
+                      alt={`${currentPage.client.name} progress`}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="testimonial-content">
+                    <p className="testimonial-stars" aria-label={`${currentPage.client.rating} stele`}>
+                      {'\u2605'.repeat(currentPage.client.rating)}
+                    </p>
+                    <p className="testimonial-caption">{currentPage.client.name}</p>
+                    <p className="testimonial-review">{currentPage.client.review}</p>
+                    {currentPage.client.reviewBottom && (
+                      <p className="testimonial-review-inline-tail">{currentPage.client.reviewBottom}</p>
+                    )}
+                  </div>
+                  {currentPage.client.reviewBottom && (
+                    <p className="testimonial-review-full-row">{currentPage.client.reviewBottom}</p>
+                  )}
+                </>
+              ) : currentPage.type === 'gallery' ? (
+                <div className="testimonials-gallery-page">
+                  {currentPage.items.map((item) => (
+                    <article key={item.id} className="testimonial-gallery-card">
+                      <div className="testimonial-gallery-header">
+                        <p className="testimonial-caption">{item.name}</p>
+                        <p className="testimonial-stars" aria-label={`${item.rating} stele`}>
+                          {'\u2605'.repeat(item.rating)}
+                        </p>
+                      </div>
+                      {item.photo ? (
+                        <img className="testimonial-image" src={item.photo} alt={`${item.name} progress`} loading="lazy" />
+                      ) : (
+                        <div className="testimonial-image-placeholder">Poza in curs de adaugare</div>
+                      )}
+                    </article>
+                  ))}
+                </div>
+              ) : (
+                <div
+                  className={`testimonials-text-page ${currentPage.id === 'client-7' ? 'is-single' : ''}`}
+                >
+                  {currentPage.items.map((item) => (
+                    <article key={item.id} className="testimonial-text-card">
+                      <p className="testimonial-caption">{item.name}</p>
+                      <p className="testimonial-stars" aria-label={`${item.rating} stele`}>
+                        {'\u2605'.repeat(item.rating)}
+                      </p>
+                      <p className="testimonial-review">{item.review}</p>
+                    </article>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <button
+              className="testimonial-arrow testimonial-arrow-right"
+              type="button"
+              aria-label="Client urmator"
+              onClick={goToNextTestimonial}
+            >
+              {'\u00BB'}
+            </button>
+          </div>
+
+          <div className="testimonials-pager">
+            <p className="testimonial-page-index">
+              {activeTestimonialClient + 1} / {testimonialPages.length}
+            </p>
+          </div>
+        </div>
 
         <div className="content-section reveal body-copy">
           <h1 className="section-heading-space">Încă ai întrebări? Hai să vorbim.</h1>
@@ -750,3 +1077,4 @@ function Home() {
 }
 
 export default Home
+

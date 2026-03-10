@@ -4,6 +4,32 @@ import somaticIcon from '../assets/somatic.png'
 import psihologieIcon from '../assets/psihologie.png'
 import { packages, type PackageItem } from '../data/shopPackages'
 
+const discountedPrices: Record<string, string> = {
+  'consiliere-psihologica': '199.00 lei',
+  'consultanta-evaluare': '89.00 lei',
+  'abonament-4x': '699.00 lei',
+  'program-gym': '349.00 lei',
+  'ghid-nutritie': '349.00 lei',
+  'combo-gym-nutritie': '599.00 lei',
+  'arhitectura-miscarii': '599.00 lei',
+  'arhitectura-nutritiei': '599.00 lei',
+  'master-body': '899.00 lei',
+  'reset-challenge': '1,799.00 lei',
+}
+
+const parseLeiValue = (value: string) =>
+  Number.parseFloat(value.replace(/lei/i, '').replace(/,/g, '').trim())
+
+const getDiscountBadgeLabel = (oldPrice: string, newPrice: string) => {
+  const oldValue = parseLeiValue(oldPrice)
+  const newValue = parseLeiValue(newPrice)
+  if (!oldValue || !newValue || newValue >= oldValue) {
+    return null
+  }
+  const discount = Math.round(((oldValue - newValue) / oldValue) * 100)
+  return `-${discount}%`
+}
+
 function Products() {
   const categories = [
     { id: 'psihologie', label: 'Psihologie', icon: psihologieIcon },
@@ -22,8 +48,6 @@ function Products() {
     }
     return { duration: meta, price: meta }
   }
-
-  const formatMeta = (meta: string) => meta.replace('@', '').trim()
 
   return (
     <section className="shop-page">
@@ -51,6 +75,10 @@ function Products() {
               {categoryPackages.map((pkg) => {
                 const { duration, price } = parseMeta(pkg.meta)
                 const isFree = price.toLowerCase() === 'gratuit'
+                const discountedPrice = discountedPrices[pkg.id]
+                const discountLabel = discountedPrice
+                  ? getDiscountBadgeLabel(price, discountedPrice)
+                  : null
                 return (
                   <article
                     key={pkg.title}
@@ -65,10 +93,18 @@ function Products() {
                       }
                     }}
                   >
+                    {discountLabel && <span className="shop-sale-badge">{discountLabel}</span>}
                     <div className="shop-mini-top">
-                      <p className={isFree ? 'shop-mini-price is-free' : 'shop-mini-price'}>
-                        {price}
-                      </p>
+                      {isFree ? (
+                        <p className="shop-mini-price is-free">{price}</p>
+                      ) : discountedPrice ? (
+                        <div className="shop-mini-price-wrap">
+                          <p className="shop-mini-price shop-mini-price-new">{discountedPrice}</p>
+                          <p className="shop-mini-price shop-mini-price-old">{price}</p>
+                        </div>
+                      ) : (
+                        <p className="shop-mini-price">{price}</p>
+                      )}
                       <p className="shop-mini-duration">{duration}</p>
                       <h3>{pkg.title}</h3>
                     </div>
@@ -95,7 +131,23 @@ function Products() {
             <div className="row-between">
               <div>
                 <h2>{activePackage.title}</h2>
-                <p className="shop-mini-meta">{formatMeta(activePackage.meta)}</p>
+                {(() => {
+                  const { duration, price } = parseMeta(activePackage.meta)
+                  const discountedPrice = discountedPrices[activePackage.id]
+                  return (
+                    <>
+                      <p className="shop-mini-meta">{duration}</p>
+                      {discountedPrice ? (
+                        <p className="shop-mini-meta shop-mini-meta-price">
+                          <span className="shop-mini-price-new">{discountedPrice}</span>
+                          <span className="shop-mini-price-old">{price}</span>
+                        </p>
+                      ) : (
+                        <p className="shop-mini-meta">{price}</p>
+                      )}
+                    </>
+                  )
+                })()}
               </div>
               <button
                 className="shop-detail-close"
