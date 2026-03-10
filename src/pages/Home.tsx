@@ -424,25 +424,35 @@ const testimonialPagesDesktop: TestimonialPage[] = [
   },
 ]
 
-const testimonialPagesMobile430: TestimonialPage[] = testimonialPagesDesktop.flatMap((page) => {
-  if (page.type === 'gallery') {
-    return page.items.map((item, index) => ({
-      id: `${page.id}-${index + 1}`,
-      type: 'gallery' as const,
-      items: [item],
-    }))
-  }
+const testimonialPagesMobile430: TestimonialPage[] = testimonialPagesDesktop.reduce<TestimonialPage[]>(
+  (acc, page) => {
+    if (page.type === 'gallery') {
+      page.items.forEach((item, index) => {
+        acc.push({
+          id: `${page.id}-${index + 1}`,
+          type: 'gallery',
+          items: [item],
+        })
+      })
+      return acc
+    }
 
-  if (page.type === 'text') {
-    return page.items.map((item, index) => ({
-      id: `${page.id}-${index + 1}`,
-      type: 'text' as const,
-      items: [item],
-    }))
-  }
+    if (page.type === 'text') {
+      page.items.forEach((item, index) => {
+        acc.push({
+          id: `${page.id}-${index + 1}`,
+          type: 'text',
+          items: [item],
+        })
+      })
+      return acc
+    }
 
-  return [page]
-})
+    acc.push(page)
+    return acc
+  },
+  [],
+)
 
 function Home() {
   const [activePillar, setActivePillar] = useState<string | null>(null)
