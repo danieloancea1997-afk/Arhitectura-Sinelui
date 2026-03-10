@@ -889,6 +889,11 @@ function Home() {
               {currentPage.type === 'client' ? (
                 <>
                   <div className="testimonial-media">
+                    {currentPage.client.id === 'client-8' && (
+                      <p className="testimonial-image-name">
+                        Paul-Cristian Borcoș - Psiholog & antrenor fitness
+                      </p>
+                    )}
                     <img
                       className="testimonial-image"
                       src={
@@ -901,10 +906,10 @@ function Home() {
                     />
                   </div>
                   <div className="testimonial-content">
+                    <p className="testimonial-caption">{currentPage.client.name}</p>
                     <p className="testimonial-stars" aria-label={`${currentPage.client.rating} stele`}>
                       {'\u2605'.repeat(currentPage.client.rating)}
                     </p>
-                    <p className="testimonial-caption">{currentPage.client.name}</p>
                     <p className="testimonial-review">{currentPage.client.review}</p>
                     {currentPage.client.reviewBottom && (
                       <p className="testimonial-review-inline-tail">{currentPage.client.reviewBottom}</p>
