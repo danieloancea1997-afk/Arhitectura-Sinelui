@@ -363,7 +363,7 @@ const testimonialClients: TestimonialClient[] = [
   },
 ]
 
-const testimonialPages: TestimonialPage[] = [
+const testimonialPagesDesktop: TestimonialPage[] = [
   ...testimonialClients.map((client) => ({ id: client.id, type: 'client' as const, client })),
   {
     id: 'client-5',
@@ -408,17 +408,50 @@ const testimonialPages: TestimonialPage[] = [
   },
   {
     id: 'client-8',
-    type: 'client',
-    client: {
-      id: 'client-8',
-      name: 'Andreea J.',
-      photos: [testimonial7Image],
-      review:
-        'Cristi este antrenorul care m-a facut sa ma simt bine in corpul meu si sa vin la sala cu drag. In trecut sportul insemna pentru mine doar epuizare fizica - astazi plec de la sala cu bateriile incarcate si cu o stare de spirit excelenta. Il recomand cu tot dragul oricui vrea sa invete sa faca miscare cu placere!',
-      rating: 5,
-    },
+    type: 'text',
+    items: [
+      {
+        id: 'andreea-j',
+        name: 'Andreea J.',
+        review:
+          'Cristi este antrenorul care m-a facut sa ma simt bine in corpul meu si sa vin la sala cu drag. In trecut sportul insemna pentru mine doar epuizare fizica - astazi plec de la sala cu bateriile incarcate si cu o stare de spirit excelenta. Il recomand cu tot dragul oricui vrea sa invete sa faca miscare cu placere!',
+        rating: 5,
+      },
+    ],
+  },
+  {
+    id: 'client-9',
+    type: 'gallery',
+    items: [
+      {
+        id: 'paul-cristian-borcos',
+        name: 'Psiholog & Antrenor Fitness',
+        rating: 5,
+        photo: testimonial7Image,
+      },
+    ],
   },
 ]
+
+const testimonialPagesMobile430: TestimonialPage[] = testimonialPagesDesktop.flatMap((page) => {
+  if (page.type === 'gallery') {
+    return page.items.map((item, index) => ({
+      id: `${page.id}-${index + 1}`,
+      type: 'gallery' as const,
+      items: [item],
+    }))
+  }
+
+  if (page.type === 'text') {
+    return page.items.map((item, index) => ({
+      id: `${page.id}-${index + 1}`,
+      type: 'text' as const,
+      items: [item],
+    }))
+  }
+
+  return [page]
+})
 
 function Home() {
   const [activePillar, setActivePillar] = useState<string | null>(null)
@@ -427,6 +460,7 @@ function Home() {
   const [activeTestimonialPhoto, setActiveTestimonialPhoto] = useState(0)
   const [activeTestimonialClient, setActiveTestimonialClient] = useState(0)
   const [testimonialAutoResumeAt, setTestimonialAutoResumeAt] = useState(0)
+  const [isMobile430, setIsMobile430] = useState(false)
   const [activePackage, setActivePackage] = useState<ShopPackage | null>(null)
   const pillarTitleRef = useRef<HTMLHeadingElement | null>(null)
   const pillarGridRef = useRef<HTMLDivElement | null>(null)
@@ -435,6 +469,21 @@ function Home() {
   const formatMeta = (meta: string) => meta.replace('@', '').trim()
   const getPackageDetails = (id: string) =>
     packages.find((pkg) => pkg.id === id) || null
+  const testimonialPages = isMobile430 ? testimonialPagesMobile430 : testimonialPagesDesktop
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 430px)')
+    const updateMatch = () => setIsMobile430(mediaQuery.matches)
+    updateMatch()
+    mediaQuery.addEventListener('change', updateMatch)
+    return () => mediaQuery.removeEventListener('change', updateMatch)
+  }, [])
+
+  useEffect(() => {
+    setActiveTestimonialClient((prev) =>
+      testimonialPages.length > 0 ? Math.min(prev, testimonialPages.length - 1) : 0,
+    )
+  }, [testimonialPages.length])
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll('.reveal'))
@@ -477,7 +526,7 @@ function Home() {
   useEffect(() => {
     const intervalId = window.setInterval(() => {
       setActiveTestimonialPhoto((prev) => prev + 1)
-    }, 2000)
+    }, 4000)
 
     return () => window.clearInterval(intervalId)
   }, [])
@@ -488,7 +537,7 @@ function Home() {
         return
       }
       setActiveTestimonialClient((prev) => (prev + 1) % testimonialPages.length)
-    }, 6000)
+    }, 12000)
 
     return () => window.clearInterval(intervalId)
   }, [testimonialAutoResumeAt])
@@ -502,12 +551,12 @@ function Home() {
 
   const goToPreviousTestimonial = () => {
     setActiveTestimonialClient((prev) => (prev - 1 + testimonialPages.length) % testimonialPages.length)
-    setTestimonialAutoResumeAt(Date.now() + 30000)
+    setTestimonialAutoResumeAt(Date.now() + 60000)
   }
 
   const goToNextTestimonial = () => {
     setActiveTestimonialClient((prev) => (prev + 1) % testimonialPages.length)
-    setTestimonialAutoResumeAt(Date.now() + 30000)
+    setTestimonialAutoResumeAt(Date.now() + 60000)
   }
 
   const handleTestimonialTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
@@ -889,11 +938,6 @@ function Home() {
               {currentPage.type === 'client' ? (
                 <>
                   <div className="testimonial-media">
-                    {currentPage.client.id === 'client-8' && (
-                      <p className="testimonial-image-name">
-                        Paul-Cristian Borcoș - Psiholog & antrenor fitness
-                      </p>
-                    )}
                     <img
                       className="testimonial-image"
                       src={
@@ -925,9 +969,13 @@ function Home() {
                     <article key={item.id} className="testimonial-gallery-card">
                       <div className="testimonial-gallery-header">
                         <p className="testimonial-caption">{item.name}</p>
-                        <p className="testimonial-stars" aria-label={`${item.rating} stele`}>
-                          {'\u2605'.repeat(item.rating)}
-                        </p>
+                        {item.id === 'paul-cristian-borcos' ? (
+                          <p className="testimonial-subname">Paul-Cristian Borcoș</p>
+                        ) : (
+                          <p className="testimonial-stars" aria-label={`${item.rating} stele`}>
+                            {'\u2605'.repeat(item.rating)}
+                          </p>
+                        )}
                       </div>
                       {item.photo ? (
                         <img className="testimonial-image" src={item.photo} alt={`${item.name} progress`} loading="lazy" />
@@ -977,6 +1025,8 @@ function Home() {
             </p>
           </div>
         </div>
+
+        <hr className="section-divider" />
 
         <div className="content-section reveal body-copy">
           <h1 className="section-heading-space">Încă ai întrebări? Hai să vorbim.</h1>
