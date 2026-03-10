@@ -1483,6 +1483,10 @@ a {
   color: #f5f1e6;
 }
 
+.testimonial-touch-nav {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .testimonials-carousel {
     grid-template-columns: 1fr;
@@ -3952,6 +3956,28 @@ h3 {
     display: none;
   }
 
+  .testimonial-touch-nav {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 16%;
+    min-width: 44px;
+    border: none;
+    background: transparent;
+    z-index: 3;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .testimonial-touch-nav-left {
+    left: 0;
+  }
+
+  .testimonial-touch-nav-right {
+    right: 0;
+  }
+
   .testimonials-client-page {
     grid-column: 1;
     height: 620px;
@@ -4033,6 +4059,28 @@ h3 {
     width: 0;
     height: 0;
     display: none;
+  }
+
+  .testimonials-client-page.is-page-client-7.is-text .testimonials-text-page {
+    overflow-y: scroll !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(245, 241, 230, 0.55) rgba(245, 241, 230, 0.15) !important;
+  }
+
+  .testimonials-client-page.is-page-client-7.is-text .testimonials-text-page::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+    display: block !important;
+  }
+
+  .testimonials-client-page.is-page-client-7.is-text .testimonials-text-page::-webkit-scrollbar-track {
+    background: rgba(245, 241, 230, 0.15);
+    border-radius: 999px;
+  }
+
+  .testimonials-client-page.is-page-client-7.is-text .testimonials-text-page::-webkit-scrollbar-thumb {
+    background: rgba(245, 241, 230, 0.55);
+    border-radius: 999px;
   }
 
   .footer-inner {

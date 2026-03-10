@@ -866,6 +866,13 @@ function Home() {
           <h1>Testimoniale (Social Proof)</h1>
           <div className="testimonials-carousel">
             <button
+              className="testimonial-touch-nav testimonial-touch-nav-left"
+              type="button"
+              aria-label="Testimonial anterior"
+              onClick={goToPreviousTestimonial}
+            />
+
+            <button
               className="testimonial-arrow testimonial-arrow-left"
               type="button"
               aria-label="Client anterior"
@@ -950,6 +957,13 @@ function Home() {
             >
               {'\u00BB'}
             </button>
+
+            <button
+              className="testimonial-touch-nav testimonial-touch-nav-right"
+              type="button"
+              aria-label="Testimonial urmator"
+              onClick={goToNextTestimonial}
+            />
           </div>
 
           <div className="testimonials-pager">
