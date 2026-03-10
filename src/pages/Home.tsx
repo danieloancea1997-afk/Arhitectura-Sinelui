@@ -306,6 +306,8 @@ type TestimonialClient = {
   photos: string[]
   review: string
   reviewBottom?: string
+  roleLabel?: string
+  personLabel?: string
   rating: number
 }
 
@@ -408,28 +410,17 @@ const testimonialPagesDesktop: TestimonialPage[] = [
   },
   {
     id: 'client-8',
-    type: 'text',
-    items: [
-      {
-        id: 'andreea-j',
-        name: 'Andreea J.',
-        review:
-          'Cristi este antrenorul care m-a facut sa ma simt bine in corpul meu si sa vin la sala cu drag. In trecut sportul insemna pentru mine doar epuizare fizica - astazi plec de la sala cu bateriile incarcate si cu o stare de spirit excelenta. Il recomand cu tot dragul oricui vrea sa invete sa faca miscare cu placere!',
-        rating: 5,
-      },
-    ],
-  },
-  {
-    id: 'client-9',
-    type: 'gallery',
-    items: [
-      {
-        id: 'paul-cristian-borcos',
-        name: 'Psiholog & Antrenor Fitness',
-        rating: 5,
-        photo: testimonial7Image,
-      },
-    ],
+    type: 'client',
+    client: {
+      id: 'client-8',
+      name: 'Andreea J.',
+      roleLabel: 'Psiholog & Antrenor Fitness',
+      personLabel: 'Paul-Cristian Borcoș',
+      photos: [testimonial7Image],
+      review:
+        'Cristi este antrenorul care m-a facut sa ma simt bine in corpul meu si sa vin la sala cu drag. In trecut sportul insemna pentru mine doar epuizare fizica - astazi plec de la sala cu bateriile incarcate si cu o stare de spirit excelenta. Il recomand cu tot dragul oricui vrea sa invete sa faca miscare cu placere!',
+      rating: 5,
+    },
   },
 ]
 
@@ -938,6 +929,12 @@ function Home() {
               {currentPage.type === 'client' ? (
                 <>
                   <div className="testimonial-media">
+                    {currentPage.client.id === 'client-8' && (
+                      <div className="testimonial-media-labels">
+                        <p className="testimonial-role-label">Psiholog & Antrenor Fitness</p>
+                        <p className="testimonial-subname">Paul-Cristian Borcoș</p>
+                      </div>
+                    )}
                     <img
                       className="testimonial-image"
                       src={
@@ -969,13 +966,9 @@ function Home() {
                     <article key={item.id} className="testimonial-gallery-card">
                       <div className="testimonial-gallery-header">
                         <p className="testimonial-caption">{item.name}</p>
-                        {item.id === 'paul-cristian-borcos' ? (
-                          <p className="testimonial-subname">Paul-Cristian Borcoș</p>
-                        ) : (
-                          <p className="testimonial-stars" aria-label={`${item.rating} stele`}>
-                            {'\u2605'.repeat(item.rating)}
-                          </p>
-                        )}
+                        <p className="testimonial-stars" aria-label={`${item.rating} stele`}>
+                          {'\u2605'.repeat(item.rating)}
+                        </p>
                       </div>
                       {item.photo ? (
                         <img className="testimonial-image" src={item.photo} alt={`${item.name} progress`} loading="lazy" />
