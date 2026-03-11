@@ -37,18 +37,18 @@ const pillars = [
   {
     id: 'mind',
     title: 'Mind',
-    subtitle: 'Terapie integrativa',
+    subtitle: 'Terapie integrativă',
     intro:
-      'Lucrul cu mintea nu inseamna etichete, scoruri sau evaluari reci. Inseamna intelegere, constientizare si ghidare.',
-    bulletsLabel: 'Abordarea mea in terapia integrativa se bazeaza pe:',
+      'Lucrul cu mintea nu înseamnă etichete, scoruri sau evaluări reci. Înseamnă înțelegere, conștientizare și ghidare.',
+    bulletsLabel: 'Abordarea mea în terapia integrativă se bazează pe:',
     bullets: [
-      'explorarea tiparelor emotionale si comportamentale',
-      'reglarea stresului si a anxietatii',
-      'dezvoltarea claritatii mentale si a increderii in sine',
+      'explorarea tiparelor emoționale și comportamentale',
+      'reglarea stresului și a anxietății',
+      'dezvoltarea clarității mentale și a încrederii în sine',
       'reconectarea cu propriile resurse interioare',
     ],
     outro:
-      'Procesul este unul uman, empatic si adaptat, axat pe dialog real si solutii aplicabile in viata de zi cu zi.',
+      'Procesul este unul uman, empatic și adaptat, axat pe dialog real și soluții aplicabile în viața de zi cu zi.',
     image: mindImage,
   },
   {
@@ -56,41 +56,41 @@ const pillars = [
     title: 'Body',
     subtitle: 'Antrenamente personalizate & Somatic Alignment',
     intro:
-      'Corpul nu este doar un instrument de performanta, ci un sistem inteligent care comunica constant cu mintea.',
-    bulletsLabel: 'Antrenamentele sunt personalizate in functie de:',
+      'Corpul nu este doar un instrument de performanță, ci un sistem inteligent care comunică constant cu mintea.',
+    bulletsLabel: 'Antrenamentele sunt personalizate în funcție de:',
     bullets: [
       'nivelul fizic actual',
-      'obiectivele personale (forta, mobilitate, estetica, sanatate)',
-      'istoricul de accidentari',
-      'nivelul de stres si stilul de viata',
+      'obiectivele personale (forță, mobilitate, estetică, sănătate)',
+      'istoricul de accidentări',
+      'nivelul de stres și stilul de viață',
     ],
-    extraLabel: 'Somatic Alignment reprezinta o abordare care pune accent pe:',
+    extraLabel: 'Somatic Alignment reprezintă o abordare care pune accent pe:',
     extraBullets: [
-      'postura corecta',
-      'miscare constienta',
-      'reconectarea cu senzatiile corpului',
-      'prevenirea dezechilibrelor si durerilor',
+      'postura corectă',
+      'mișcare conștientă',
+      'reconectarea cu senzațiile corpului',
+      'prevenirea dezechilibrelor și durerilor',
     ],
     outro:
-      'Scopul nu este doar "sa tragi de tine", ci sa te misti inteligent, eficient si in siguranta.',
+      'Scopul nu este doar "să tragi de tine", ci să te miști inteligent, eficient și în siguranță.',
     image: bodyImage,
   },
   {
     id: 'spirit',
     title: 'Spirit',
-    subtitle: 'Protocoale de nutritie',
+    subtitle: 'Protocoale de nutriție',
     note: '(longevitate & obiective clasice)',
     intro:
-      'Nutritia este un pilon esential pentru energie, claritate mentala si sanatate pe termen lung.',
-    bulletsLabel: 'Protocoalele sunt adaptate in functie de:',
+      'Nutriția este un pilon esențial pentru energie, claritate mentală și sănătate pe termen lung.',
+    bulletsLabel: 'Protocoalele sunt adaptate în funcție de:',
     bullets: [
-      'obiective clasice (slabire, masa musculara, energie)',
-      'longevitate si sanatate metabolica',
-      'stil de viata si preferinte alimentare',
-      'echilibru hormonal si digestiv',
+      'obiective clasice (slăbire, masă musculară, energie)',
+      'longevitate și sănătate metabolică',
+      'stil de viață și preferințe alimentare',
+      'echilibru hormonal și digestiv',
     ],
     outro:
-      'Nu promovez diete extreme, ci strategii sustenabile, care pot fi integrate usor in viata reala si mentinute pe termen lung.',
+      'Nu promovez diete extreme, ci strategii sustenabile, care pot fi integrate ușor în viața reală și menținute pe termen lung.',
     image: spiritImage,
   },
 ]
@@ -98,28 +98,48 @@ const pillars = [
 const mediaItems: MediaItem[] = [
   {
     id: 1,
-    title:
-      'De ce te pierzi in ceilalti? Limite, Granite si Identitate | Arhitectura Sinelui (I)',
-    url: 'https://www.youtube.com/watch?v=QjBsubCuRYM',
+    title: 'Joci un joc pe care NU îl poți câștiga.',
+    url: 'https://www.youtube.com/watch?v=ILj5v08x2pk',
   },
   {
     id: 2,
-    title: 'De ce finalul de an ne prinde, de fapt, atat de tristi?',
-    url: 'https://www.youtube.com/watch?v=gtPjh2_nkvk&t=25s',
+    title: 'Povara Libertății: De ce preferăm să fim victime?',
+    url: 'https://www.youtube.com/watch?v=4uiC1LCkoXM',
   },
   {
     id: 3,
-    title: 'Dezvaluirile Recorder au declansat ceva periculos in noi',
-    url: 'https://www.youtube.com/watch?v=KqWcY1YY6gY&t=19s',
+    title:
+      'Puterea de a spune NU: Limite, Granițe și Vindecare Somatică | Arhitectura Sinelui (III)',
+    url: 'https://www.youtube.com/watch?v=sbqgvaFkDxA',
   },
   {
     id: 4,
+    title: 'Vinovăția care te paralizează: Limite, Granițe și Traumă | Arhitectura Sinelui (II)',
+    url: 'https://www.youtube.com/watch?v=om6dZLax0uk',
+  },
+  {
+    id: 5,
     title:
-      'Documentarul Recorder m-a zguduit. Dar nu din motivele la care te gandesti.',
+      'De ce te pierzi în ceilalți? Limite, Granițe și Identitate | Arhitectura Sinelui (I)',
+    url: 'https://www.youtube.com/watch?v=QjBsubCuRYM&t=39s',
+  },
+  {
+    id: 6,
+    title: 'De ce finalul de an ne prinde, de fapt, atât de triști?',
+    url: 'https://www.youtube.com/watch?v=gtPjh2_nkvk&t=25s',
+  },
+  {
+    id: 7,
+    title: 'Dezvăluirile Recorder au declanșat ceva periculos în noi',
+    url: 'https://www.youtube.com/watch?v=KqWcY1YY6gY&t=19s',
+  },
+  {
+    id: 8,
+    title:
+      'Documentarul Recorder m-a zguduit. Dar nu din motivele la care te gândești.',
     url: 'https://www.youtube.com/watch?v=KOQ7BknHFCA',
   },
 ]
-
 const getYouTubeId = (url: string) => {
   try {
     const parsed = new URL(url)
@@ -153,62 +173,62 @@ type PackageItem = {
 const therapyPackages: PackageItem[] = [
   {
     id: 'consultanta-evaluare',
-    label: 'Consultanta si evaluare initiala',
+    label: 'Consultanță și evaluare inițială',
     duration: '50 minute',
     price: '100 LEI',
-    ctaText: 'Programeaza acum',
+    ctaText: 'Programează acum',
     items: [
-      '50 minute discutie ghidata',
-      'analiza situatiei actuale',
-      'strategie personalizata',
+      '50 minute discuție ghidată',
+      'analiza situației actuale',
+      'strategie personalizată',
     ],
   },
   {
     id: 'consiliere-psihologica',
-    label: 'Consiliere psihologica',
+    label: 'Consiliere psihologică',
     duration: '50 minute',
     price: '250 LEI',
-    ctaText: 'Programeaza acum',
+    ctaText: 'Programează acum',
     items: [
-      '50 minute sesiune individuala',
-      'explorare tipare si blocaje',
-      'autoreglare si claritate',
+      '50 minute sesiune individuală',
+      'explorare tipare și blocaje',
+      'autoreglare și claritate',
     ],
   },
   {
     id: 'somatic-alignment',
     label: 'Sesiune Somatic Alignment',
-    duration: '1 ora 30 minute',
+    duration: '1 oră 30 minute',
     price: '400 LEI',
-    ctaText: 'Programeaza acum',
+    ctaText: 'Programează acum',
     items: [
       'identificarea zonelor de blocaj',
       'eliberarea tensiunii acumulate',
-      'recalibrarea raspunsului la stres',
+      'recalibrarea răspunsului la stres',
     ],
   },
   {
     id: 'abonament-4x',
     label: 'Abonament 4x consiliere',
-    duration: '4 sedinte',
+    duration: '4 ședințe',
     price: '800 LEI',
-    ctaText: 'Programeaza acum',
+    ctaText: 'Programează acum',
     items: [
       '4 sesiuni individuale',
-      'ritm saptamanal optim',
-      'claritate si rezilienta',
+      'ritm săptămânal optim',
+      'claritate și reziliență',
     ],
   },
   {
     id: 'reset-challenge',
     label: '30-Day Reset Challenge',
-    duration: '9 sedinte',
+    duration: '9 ședințe',
     price: '1,950 LEI',
-    ctaText: 'Programeaza acum',
+    ctaText: 'Programează acum',
     items: [
       'program complet minte-corp',
-      'antrenament + nutritie',
-      'suport si evaluari',
+      'antrenament + nutriție',
+      'suport și evaluări',
     ],
   },
 ]
@@ -216,60 +236,60 @@ const therapyPackages: PackageItem[] = [
 const fitnessPackages: PackageItem[] = [
   {
     id: 'consultanta-evaluare',
-    label: 'Consultanta si evaluare initiala',
+    label: 'Consultanță și evaluare inițială',
     duration: '50 minute',
     price: '100 LEI',
-    ctaText: 'Programeaza acum',
+    ctaText: 'Programează acum',
     items: [
-      '50 minute discutie ghidata',
-      'analiza situatiei actuale',
-      'strategie personalizata',
+      '50 minute discuție ghidată',
+      'analiza situației actuale',
+      'strategie personalizată',
     ],
   },
   {
     id: 'program-gym',
     label: 'Program Gym + Morning Flow',
-    duration: '1 sedinta',
+    duration: '1 ședință',
     price: '400 LEI',
-    ctaText: 'Programeaza acum',
+    ctaText: 'Programează acum',
     items: [
-      'plan sala personalizat',
-      'rutina morning flow',
-      'livrare digitala',
+      'plan sală personalizat',
+      'rutină morning flow',
+      'livrare digitală',
     ],
   },
   {
     id: 'ghid-nutritie',
-    label: 'Ghid nutritie + suplimentare',
-    duration: '1 sedinta',
+    label: 'Ghid nutriție + suplimentare',
+    duration: '1 ședință',
     price: '400 LEI',
-    ctaText: 'Programeaza acum',
+    ctaText: 'Programează acum',
     items: [
       'ghid alimentar personalizat',
       'protocol suplimentare',
-      'livrare in 48 ore',
+      'livrare în 48 ore',
     ],
   },
   {
     id: 'combo-gym-nutritie',
-    label: 'Combo Gym + Nutritie',
-    duration: '2 sedinte',
+    label: 'Combo Gym + Nutriție',
+    duration: '2 ședințe',
     price: '700 LEI',
-    ctaText: 'Programeaza acum',
+    ctaText: 'Programează acum',
     items: [
-      'program sala + morning flow',
-      'ghid nutritie personalizat',
-      'strategie integrata',
+      'program sală + morning flow',
+      'ghid nutriție personalizat',
+      'strategie integrată',
     ],
   },
   {
     id: 'arhitectura-nutritiei',
-    label: 'Arhitectura nutritiei',
-    duration: '2 sedinte',
+    label: 'Arhitectura nutriției',
+    duration: '2 ședințe',
     price: '700 LEI',
-    ctaText: 'Programeaza acum',
+    ctaText: 'Programează acum',
     items: [
-      'ghid + sedinta live',
+      'ghid + ședință live',
       'suport pe chat 30 zile',
       'evaluare chestionar',
     ],
@@ -304,9 +324,9 @@ const getDiscountBadgeLabel = (oldPrice: string, newPrice: string) => {
 
 const maleTestimonialNames = new Set([
   'Alexandru I.',
-  'Calin',
-  'Dragos M.',
-  'Catalin M.',
+  'Călin C.',
+  'Dragoș M.',
+  'Cătălin M.',
   'Paul-Cristian Borcoș',
 ])
 
@@ -349,9 +369,9 @@ const testimonialClients: TestimonialClient[] = [
     name: 'Andrada I.',
     photos: [testimonial21Image, testimonial22Image, testimonial23Image],
     review:
-      'Nu este doar un antrenor, ci un om care stie sa inspire. De-a lungul timpului, relatia noastra a trecut dincolo de sala de sport. Din antrenor a devenit prieten, iar asta a facut ca fiecare antrenament sa fie asteptat cu drag. Profesionalismul, rabdarea si modul in care stie sa motiveze fac diferenta, iar atmosfera creata te face sa vii la sala nu din obligatie, ci din placere.',
+      'Nu este doar un antrenor, ci un om care știe să inspire. De-a lungul timpului, relația noastră a trecut dincolo de sala de sport. Din antrenor a devenit prieten, iar asta a făcut ca fiecare antrenament să fie așteptat cu drag. Profesionalismul, răbdarea și modul în care știe să motiveze fac diferența, iar atmosfera creată te face să vii la sală nu din obligație, ci din plăcere.',
     reviewBottom:
-      'Recomand cu toata increderea, pentru ca atunci cand cineva pune suflet in ceea ce face, se simte.',
+      'Recomand cu toată încrederea, pentru că atunci când cineva pune suflet în ceea ce face, se simte.',
     rating: 5,
   },
   {
@@ -359,21 +379,22 @@ const testimonialClients: TestimonialClient[] = [
     name: 'Sofia M.',
     photos: [testimonial31Image, testimonial32Image, testimonial33Image],
     review:
-      'Colaborarea noastra este mai mult decat antrenamentele din sala. Simt sustinere reala si o abordare atenta la corpul si ritmul meu. M-a ajutat sa-mi construiesc o relatie mai constienta cu miscarea si cu alimentatia. Apreciez ca antrenamentele sunt adaptate nevoilor mele. Este un proces in care ma simt vazuta, ascultata si ghidata cu calm.',
+      'Colaborarea noastră este mai mult decât antrenamentele din sală. Simt susținere reală și o abordare atentă la corpul și ritmul meu. M-a ajutat să-mi construiesc o relație mai conștientă cu mișcarea și cu alimentația. Apreciez că antrenamentele sunt adaptate nevoilor mele. Este un proces în care mă simt văzută, ascultată și ghidată cu calm.',
     rating: 5,
   },
   {
     id: 'client-3',
     name: 'Alexandru I.',
     photos: [testimonial41Image, testimonial42Image, testimonial43Image],
-    review: 'Testimonialul este in curs de completare.',
+    review: 'Testimonialul este în curs de completare.',
     rating: 5,
   },
   {
     id: 'client-4',
-    name: 'Calin',
+    name: 'Călin C.',
     photos: [testimonial11Image, testimonial12Image, testimonial13Image],
-    review: 'Testimonialul este in curs de completare.',
+    review:
+      'Când am început antrenamentele cu Cristi, aveam nevoie de cineva care să mă ghideze, dar am câștigat mult mai mult, un prieten. M-a ajutat să îmi ating rezultatele dorite și să îmi schimb complet relația cu mâncarea. Mi-a deschis ochii către un stil de viață pe care nu credeam că îl pot adopta vreodată. Profesionalismul lui, răbdarea și modul în care știe să te motiveze fac toată diferența. Îl recomand din toată inima oricui vrea rezultate reale și o experiență care îți schimbă viața.',
     rating: 5,
   },
 ]
@@ -384,8 +405,8 @@ const testimonialPagesDesktop: TestimonialPage[] = [
     id: 'client-5',
     type: 'gallery',
     items: [
-      { id: 'dragos-m', name: 'Dragos M.', rating: 5, photo: testimonial5Image },
-      { id: 'catalin-m', name: 'Catalin M.', rating: 5, photo: testimonial6Image },
+      { id: 'dragos-m', name: 'Dragoș M.', rating: 5, photo: testimonial5Image },
+      { id: 'catalin-m', name: 'Cătălin M.', rating: 5, photo: testimonial6Image },
     ],
   },
   {
@@ -396,14 +417,14 @@ const testimonialPagesDesktop: TestimonialPage[] = [
         id: 'elena-d',
         name: 'Elena D.',
         review:
-          'Vin la aceste antrenamente de 3 ani si 6 luni si pot spune ca fiecare sesiune este un adevarat boost de energie care iti garanteaza o stare de bine. Ce apreciez enorm este faptul ca exercitiile sunt concepute special pentru nevoile fiecaruia, conform varstei. Mai mult, energia grupului este minunata, s-a format o comunitate atat de prietenoasa incat vin la fiecare ora cu multa bucurie si dorinta de revedere.',
+          'Vin la aceste antrenamente de 3 ani și 6 luni și pot spune că fiecare sesiune este un adevărat boost de energie care îți garantează o stare de bine. Ce apreciez enorm este faptul că exercițiile sunt concepute special pentru nevoile fiecăruia, conform vârstei. Mai mult, energia grupului este minunată, s-a format o comunitate atât de prietenoasă încât vin la fiecare oră cu multă bucurie și dorință de revedere.',
         rating: 5,
       },
       {
         id: 'sofia-m-text',
         name: 'Sofia M.',
         review:
-          'Colaborarea noastra este mai mult decat antrenamentele din sala. Simt sustinere reala si o abordare atenta la corpul si ritmul meu. M-a ajutat sa-mi construiesc o relatie mai constienta cu miscarea si cu alimentatia. Apreciez ca antrenamentele sunt adaptate nevoilor mele. Este un proces in care ma simt vazuta, ascultata si ghidata cu calm.',
+          'Colaborarea noastră este mai mult decât antrenamentele din sală. Simt susținere reală și o abordare atentă la corpul și ritmul meu. M-a ajutat să-mi construiesc o relație mai conștientă cu mișcarea și cu alimentația. Apreciez că antrenamentele sunt adaptate nevoilor mele. Este un proces în care mă simt văzută, ascultată și ghidată cu calm.',
         rating: 5,
       },
     ],
@@ -416,7 +437,7 @@ const testimonialPagesDesktop: TestimonialPage[] = [
         id: 'camelia-b',
         name: 'Camelia B.',
         review:
-          'Am inceput colaborarea cu Cristi acum 4 ani, intr-un moment in care porneam practic de la zero: aveam multe kilograme in plus, o varsta la care schimbarile par mai greu de facut si mai multe probleme de sanatate. Printre acestea se numarau probleme de circulatie si o neuropatie pe piciorul stang, care imi afectau serios starea generala si mobilitatea. Pe parcursul acestor ani, Cristi nu a fost doar antrenorul meu, ci si al celor doi copii ai mei, lucru care a facut ca experienta noastra sa fie una de familie. Am primit mereu suport nu doar pe partea de antrenament, ci si emotional - exact acel tip de sustinere de care ai nevoie cand incerci sa faci o schimbare reala in viata ta. Am inceput cu pasi mici, dar constanti, iar rezultatele au aparut in timp. Problemele de sanatate s-au ameliorat treptat si, in multe privinte, au disparut. Astazi pot spune ca am un stil de viata complet diferit: mai activ, mai echilibrat si mult mai sanatos. O mare parte din aceasta transformare i se datoreaza lui Cristi, profesionalismului lui, rabdarii si modului in care stie sa motiveze oamenii. Recomand cu incredere tuturor celor care vor sa faca o schimbare reala in viata lor.',
+          'Am început colaborarea cu Cristi acum 4 ani, într-un moment în care porneam practic de la zero: aveam multe kilograme în plus, o vârstă la care schimbările par mai greu de făcut și mai multe probleme de sănătate. Printre acestea se numărau probleme de circulație și o neuropatie pe piciorul stâng, care îmi afectau serios starea generală și mobilitatea. Pe parcursul acestor ani, Cristi nu a fost doar antrenorul meu, ci și al celor doi copii ai mei, lucru care a făcut ca experiența noastră să fie una de familie. Am primit mereu suport nu doar pe partea de antrenament, ci și emoțional, exact acel tip de susținere de care ai nevoie când încerci să faci o schimbare reală în viața ta. Am început cu pași mici, dar constanți, iar rezultatele au apărut în timp. Problemele de sănătate s-au ameliorat treptat și, în multe privințe, au dispărut. Astăzi pot spune că am un stil de viață complet diferit: mai activ, mai echilibrat și mult mai sănătos. O mare parte din această transformare i se datorează lui Cristi, profesionalismului lui, răbdării și modului în care știe să motiveze oamenii. Recomand cu încredere tuturor celor care vor să facă o schimbare reală în viața lor.',
         rating: 5,
       },
     ],
@@ -431,7 +452,7 @@ const testimonialPagesDesktop: TestimonialPage[] = [
       personLabel: 'Paul-Cristian Borcoș',
       photos: [testimonial7Image],
       review:
-        'Cristi este antrenorul care m-a facut sa ma simt bine in corpul meu si sa vin la sala cu drag. In trecut sportul insemna pentru mine doar epuizare fizica - astazi plec de la sala cu bateriile incarcate si cu o stare de spirit excelenta. Il recomand cu tot dragul oricui vrea sa invete sa faca miscare cu placere!',
+        'Cristi este antrenorul care m-a făcut să mă simt bine în corpul meu și să vin la sală cu drag. În trecut sportul însemna pentru mine doar epuizare fizică, astăzi plec de la sală cu bateriile încărcate și cu o stare de spirit excelentă. Îl recomand cu tot dragul oricui vrea să învețe să facă mișcare cu plăcere!',
       rating: 5,
     },
   },
@@ -624,7 +645,7 @@ function Home() {
           <p className="muted hero-subtitle">
             <span className="hero-subtitle-long">
               Psihologie integrativă, Somatic Alignment, nutriție pentru longevitate și
-              antrenament personalizat — un sistem complet de reconstrucție a ființei,
+              antrenament personalizat - un sistem complet de reconstrucție a ființei,
               unde rigoarea științei moderne este ancorată în profunzimea filosofiei
               orientale.
             </span>
@@ -635,12 +656,11 @@ function Home() {
           </p>
           <div className="row hero-actions">
             <Link className="btn" to="/shop">
-              Vezi Pachetele in E-Shop
+              Vezi pachetele în e-shop
             </Link>
           </div>
         </div>
       </div>
-
       <div className="content-wrap">
         <div className="content-section reveal body-copy about-followup about-followup-spaced">
           <h1>Ce înseamnă „Arhitectura Sinelui”?</h1>
@@ -685,7 +705,7 @@ function Home() {
             <div className="shop-heading-text">
               <h1>Pachete</h1>
               <p className="muted">
-                Alege pachetul potrivit si programeaza-te direct in calendar.
+                Alege pachetul potrivit și programează-te direct în calendar.
               </p>
             </div>
             <div className="shop-toggle">
@@ -703,6 +723,8 @@ function Home() {
           </div>
           <div className="shop-grid full-bleed">
             {(isFitness ? fitnessPackages : therapyPackages).map((pkg, index) => {
+              const packageDetails = getPackageDetails(pkg.id)
+              const bookingUrl = packageDetails?.bookingUrl
               const discountedPrice = discountedHomePrices[pkg.id]
               const discountLabel = discountedPrice
                 ? getDiscountBadgeLabel(pkg.price, discountedPrice)
@@ -727,9 +749,9 @@ function Home() {
                   )}
                   <div className="shop-spacer" />
                   <div className="shop-cta">
-                    {pkg.ctaHref ? (
+                    {bookingUrl ? (
                       <a
-                        href={pkg.ctaHref}
+                        href={bookingUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="shop-btn shop-cta-btn"
@@ -828,7 +850,7 @@ function Home() {
               <p>{selected.outro}</p>
               <div className="pillar-detail-footer">
                 <button className="btn" type="button" onClick={closePillarDetail}>
-                                Inchide
+                                Închide
                 </button>
               </div>
             </motion.div>
@@ -910,7 +932,7 @@ function Home() {
                 <strong>Sesiune de Evaluare și Claritate (50 min)</strong>
               </p>
               <p>
-                <strong>Preț: 100 RON</strong>
+                <strong>Preț: 89 RON</strong>
               </p>
               <p>
                 Descriere: „Înainte de orice construcție, avem nevoie de un plan. Această
@@ -918,9 +940,14 @@ function Home() {
                 Minte, Corp și Spirit. Vom identifica împreună blocajele și vom schița
                 structura programului tău personalizat.”
               </p>
-              <button className="btn" type="button">
+              <a
+                className="btn"
+                href={getPackageDetails('consultanta-evaluare')?.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Rezervă Evaluarea
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -1018,7 +1045,7 @@ function Home() {
                       {item.photo ? (
                         <img className="testimonial-image" src={item.photo} alt={`${item.name} progress`} loading="lazy" />
                       ) : (
-                        <div className="testimonial-image-placeholder">Poza in curs de adaugare</div>
+                        <div className="testimonial-image-placeholder">Poza în curs de adăugare</div>
                       )}
                     </article>
                   ))}
@@ -1054,7 +1081,7 @@ function Home() {
             <button
               className="testimonial-arrow testimonial-arrow-right"
               type="button"
-              aria-label="Client urmator"
+              aria-label="Client următor"
               onClick={goToNextTestimonial}
             >
               {'\u00BB'}
@@ -1063,7 +1090,7 @@ function Home() {
             <button
               className="testimonial-touch-nav testimonial-touch-nav-right"
               type="button"
-              aria-label="Testimonial urmator"
+              aria-label="Testimonial următor"
               onClick={goToNextTestimonial}
             />
           </div>
@@ -1080,7 +1107,7 @@ function Home() {
         <div className="content-section reveal body-copy">
           <h1 className="section-heading-space">Încă ai întrebări? Hai să vorbim.</h1>
           <p>
-            <strong>Discovery Call (30 min) – GRATUIT.</strong>
+            <strong>Discovery Call (30 min) - GRATUIT.</strong>
           </p>
           <p>
             Acest apel nu este o ședință de terapie sau antrenament, ci un spațiu
@@ -1090,9 +1117,14 @@ function Home() {
             undă.
           </p>
           <div className="shop-actions row discovery-actions">
-            <button className="shop-btn shop-action-btn" type="button">
+            <a
+              className="shop-btn shop-action-btn"
+              href={getPackageDetails('discovery-call')?.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Programează Apelul Gratuit
-            </button>
+            </a>
           </div>
         </div>
 
@@ -1111,11 +1143,11 @@ function Home() {
               Vezi toate videoclipurile
             </a>
           </div>
-          {mediaItems.length === 0 && (
-            <p className="muted">Inca nu exista clipuri.</p>
+          {mediaItems.slice(0, 6).length === 0 && (
+            <p className="muted">Încă nu există clipuri.</p>
           )}
           <div className="media-grid">
-            {mediaItems.map((item) => {
+            {mediaItems.slice(0, 6).map((item) => {
               const videoId = getYouTubeId(item.url)
               if (!videoId) {
                 return null
@@ -1150,7 +1182,7 @@ function Home() {
                 className="shop-detail-close"
                 type="button"
                 onClick={() => setActivePackage(null)}
-                aria-label="Inchide"
+                aria-label="Închide"
               >
                 X
               </button>
@@ -1183,9 +1215,14 @@ function Home() {
               ))}
             </div>
             <div className="shop-detail-actions">
-              <button className="shop-btn" type="button">
-                Programeaza acum
-              </button>
+              <a
+                className="shop-btn"
+                href={activePackage.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Programează acum
+              </a>
             </div>
           </div>
         </div>
@@ -1195,4 +1232,3 @@ function Home() {
 }
 
 export default Home
-

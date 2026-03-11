@@ -24,7 +24,7 @@ function Footer() {
       <div className="footer-inner">
         <p className="footer-text">
           <span className="footer-brand">Arhitectura Sinelui</span>
-          <span className="muted">Fitness si psihologie pentru echilibru complet.</span>
+          <span className="muted">Fitness și psihologie pentru echilibru complet.</span>
         </p>
 
         <div className="footer-social">

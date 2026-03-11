@@ -8,6 +8,7 @@ export type PackageItem = {
   category: 'psihologie' | 'somatic' | 'fitness'
   title: string
   meta: string
+  bookingUrl: string
   description: string[]
   sections?: PackageSection[]
   notes?: string[]
@@ -17,111 +18,116 @@ export const packages: PackageItem[] = [
   {
     id: 'discovery-call',
     category: 'psihologie',
-    title: 'Discovery Call Gratuit (Apel de Cunoastere)',
+    title: 'Discovery Call Gratuit (Apel de Cunoaștere)',
     meta: '30 minute @ Gratuit',
+    bookingUrl: 'https://l.bttr.to/eldnZ',
     description: [
-      'O discutie scurta si directa pentru a vedea daca rezonam si care dintre pilonii Arhitectura Sinelui - Psihologie, Fitness sau Somatic - este cel mai potrivit pentru obiectivele tale actuale. Nu este o sesiune de consiliere propriu-zisa, ci o etapa de clarificare a directiei tale de evolutie.',
+      'O discuție scurtă și directă pentru a vedea dacă rezonăm și care dintre pilonii Arhitectura Sinelui - Psihologie, Fitness sau Somatic - este cel mai potrivit pentru obiectivele tale actuale. Nu este o sesiune de consiliere propriu-zisă, ci o etapă de clarificare a direcției tale de evoluție.',
     ],
   },
   {
     id: 'consiliere-psihologica',
     category: 'psihologie',
-    title: 'Consiliere Psihologica',
-    meta: '50 minute @ 250.00 lei',
+    title: 'Consiliere Psihologică',
+    meta: '50 minute @ 199.00 lei',
+    bookingUrl: 'https://l.bttr.to/5Fx8y',
     description: [
-      'Aceasta sesiune de consiliere reprezinta primul pas in procesul de proiectare si reconstructie a echilibrului tau interior. Intr-un spatiu sigur si confidential, vom explora impreuna mecanismele care iti guverneaza gandurile si emotiile, identificand fundatia pe care vom cladi noua ta stare de bine.',
+      'Această sesiune de consiliere reprezintă primul pas în procesul de proiectare și reconstrucție a echilibrului tău interior. Într-un spațiu sigur și confidențial, vom explora împreună mecanismele care îți guvernează gândurile și emoțiile, identificând fundația pe care vom clădi noua ta stare de bine.',
     ],
     sections: [
       {
-        title: 'Ce vom aborda in cadrul sesiunii:',
+        title: 'Ce vom aborda în cadrul sesiunii:',
         items: [
-          'Explorarea Arhitecturii Interioare: Identificarea tiparelor de gandire si a blocajelor care te impiedica sa evoluezi.',
-          'Autoreglare si Claritate: Tehnici pentru gestionarea stresului, anxietatii sau a dificultatilor de adaptare.',
-          'Aliniere: Corelarea nevoilor tale emotionale cu realitatea cotidiana pentru a crea o structura de viata autentica si rezilienta.',
+          'Explorarea Arhitecturii Interioare: Identificarea tiparelor de gândire și a blocajelor care te împiedică să evoluezi.',
+          'Autoreglare și Claritate: Tehnici pentru gestionarea stresului, anxietății sau a dificultăților de adaptare.',
+          'Aliniere: Corelarea nevoilor tale emoționale cu realitatea cotidiană pentru a crea o structură de viață autentică și rezilientă.',
         ],
       },
     ],
     notes: [
-      'Fie ca ne intalnim online sau la cabinetul din Arad, scopul nostru este sa transformam introspectia in actiune concreta. Aceasta este mai mult decat o discutie; este inceputul unui proiect dedicat celei mai importante constructii: propriul tau Sine.',
+      'Fie că ne întâlnim online sau la cabinetul din Arad, scopul nostru este să transformăm introspecția în acțiune concretă. Aceasta este mai mult decât o discuție; este începutul unui proiect dedicat celei mai importante construcții: propriul tău Sine.',
     ],
   },
   {
     id: 'consultanta-evaluare',
     category: 'somatic',
-    title: 'Sesiune de Consultanta si Evaluare Initiala: Proiecteaza-ti Schimbarea',
-    meta: '50 minute @ 100.00 lei',
+    title: 'Sesiune de Consultanță și Evaluare Inițială: Proiectează-ți Schimbarea',
+    meta: '50 minute @ 89.00 lei',
+    bookingUrl: 'https://l.bttr.to/zDbJM',
     description: [
-      'Aceasta sesiune de 50 de minute reprezinta primul punct de contact cu ecosistemul Arhitectura Sinelui. Este spatiul in care transformam incertitudinea in claritate si obiectivele vagi in planuri de actiune concrete.',
+      'Această sesiune de 50 de minute reprezintă primul punct de contact cu ecosistemul Arhitectura Sinelui. Este spațiul în care transformăm incertitudinea în claritate și obiectivele vagi în planuri de acțiune concrete.',
     ],
     sections: [
       {
-        title: 'Ce urmarim in cadrul acestei consultante:',
+        title: 'Ce urmărim în cadrul acestei consultanțe:',
         items: [
-          'Analiza Situatiei Actuale: Evaluam starea ta de bine, nivelul de fitness sau echilibrul emotional, in functie de nevoia ta principala.',
-          'Identificarea Blocajelor: Depistam punctele de presiune care te impiedica sa progresezi in acest moment.',
-          'Schitarea Strategiei: Stabilim daca ai nevoie de un program structurat de fitness, de un ghid de nutritie sau de suport psihologic prin consiliere.',
+          'Analiza Situației Actuale: Evaluăm starea ta de bine, nivelul de fitness sau echilibrul emoțional, în funcție de nevoia ta principală.',
+          'Identificarea Blocajelor: Depistăm punctele de presiune care te împiedică să progresezi în acest moment.',
+          'Schițarea Strategiei: Stabilim dacă ai nevoie de un program structurat de fitness, de un ghid de nutriție sau de suport psihologic prin consiliere.',
         ],
       },
       {
-        title: 'Pentru cine este aceasta sesiune:',
+        title: 'Pentru cine este această sesiune:',
         items: [
-          'Pentru cei care nu stiu exact de unde sa inceapa procesul de transformare.',
-          'Pentru cei care doresc o a doua opinie profesionala asupra rutinei lor actuale.',
-          'Pentru oricine doreste sa vada daca abordarea mea integrativa (minte-corp) rezoneaza cu stilul lor.',
+          'Pentru cei care nu știu exact de unde să înceapă procesul de transformare.',
+          'Pentru cei care doresc o a doua opinie profesională asupra rutinei lor actuale.',
+          'Pentru oricine dorește să vadă dacă abordarea mea integrativă (minte-corp) rezonează cu stilul lor.',
         ],
       },
     ],
     notes: [
-      'Locatie: Online (confortul casei tale) sau Fizic (Arad - Cabinet/XOX Gym).',
-      'Rezultat: La finalul discutiei, vei pleca cu o viziune clara asupra pasilor urmatori si cu o recomandare personalizata pentru unul dintre programele Arhitectura Sinelui.',
+      'Locație: Online (confortul casei tale) sau Fizic (Arad - Cabinet/XOX Gym).',
+      'Rezultat: La finalul discuției, vei pleca cu o viziune clară asupra pașilor următori și cu o recomandare personalizată pentru unul dintre programele Arhitectura Sinelui.',
     ],
   },
   {
     id: 'somatic-alignment',
     category: 'somatic',
     title: 'Sesiune Somatic Alignment',
-    meta: '1 ora 30 minute @ 400.00 lei',
+    meta: '1 oră 30 minute @ 400.00 lei',
+    bookingUrl: 'https://l.bttr.to/RX9NP',
     description: [
-      'Somatic Alignment este o metoda de lucru corporal care vizeaza restabilirea echilibrului dintre minte si corp prin interventii directe asupra sistemului nervos si a tensiunilor musculare cronice. Spre deosebire de terapia prin vorbire, aceasta sesiune se concentreaza pe limbajul corpului tau, abordand stresul si trauma acolo unde ele sunt stocate fizic.',
+      'Somatic Alignment este o metodă de lucru corporal care vizează restabilirea echilibrului dintre minte și corp prin intervenții directe asupra sistemului nervos și a tensiunilor musculare cronice. Spre deosebire de terapia prin vorbire, această sesiune se concentrează pe limbajul corpului tău, abordând stresul și trauma acolo unde ele sunt stocate fizic.',
     ],
     sections: [
       {
-        title: 'Ce urmarim:',
+        title: 'Ce urmărim:',
         items: [
           'Identificarea zonelor de blocaj.',
           'Eliberarea tensiunii acumulate.',
-          'Recalibrarea raspunsului sistemului nervos la stres.',
+          'Recalibrarea răspunsului sistemului nervos la stres.',
         ],
       },
     ],
     notes: [
-      'Locatie: Aceasta sesiune se desfasoara exclusiv fizic la cabinetul din B-dul Revolutiei 29, Arad.',
-      'Ideal pentru: Persoane care resimt burnout, tensiuni fizice persistente care nu cedeaza la masaj clasic sau stari de anxietate care se manifesta puternic in corp.',
+      'Locație: Această sesiune se desfășoară exclusiv fizic la cabinetul din B-dul Revoluției 29, Arad.',
+      'Ideal pentru: Persoane care resimt burnout, tensiuni fizice persistente care nu cedează la masaj clasic sau stări de anxietate care se manifestă puternic în corp.',
     ],
   },
   {
     id: 'abonament-4x',
     category: 'psihologie',
-    title: 'Abonament 4x Consiliere Psihologica',
-    meta: '4 sedinte @ 800.00 lei',
+    title: 'Abonament 4x Consiliere Psihologică',
+    meta: '4 ședințe @ 699.00 lei',
+    bookingUrl: 'https://l.bttr.to/FBsrB',
     description: [
-      'Acest abonament este conceput pentru cei care doresc sa treaca de la o simpla explorare la un proces real de reconstructie interioara. Patru sesiuni ofera timpul si spatiul necesar pentru ca schimbarile sa prinda radacini, permitandu-ne sa lucram asezat la fundatia echilibrului tau mental.',
+      'Acest abonament este conceput pentru cei care doresc să treacă de la o simplă explorare la un proces real de reconstrucție interioară. Patru sesiuni oferă timpul și spațiul necesar pentru ca schimbările să prindă rădăcini, permițându-ne să lucrăm așezat la fundația echilibrului tău mental.',
     ],
     sections: [
       {
         title: 'Ce include acest pachet:',
         items: [
-          '4 sesiuni individuale de consiliere psihologica (50 min): Desfasurate online sau fizic la cabinetul din Arad (Bulevardul Revolutiei nr. 29).',
-          'Continuitate si profunzime: Frecventa saptamanala asigura un ritm optim pentru identificarea tiparelor limitative si implementarea unor noi structuri de gandire.',
-          'Abordare integrativa: Vom lucra impreuna pentru a proiecta solutii adaptate realitatii tale, vizand rezilienta si claritatea.',
+          '4 sesiuni individuale de consiliere psihologică (50 min): Desfășurate online sau fizic la cabinetul din Arad (Bulevardul Revoluției nr. 29).',
+          'Continuitate și profunzime: Frecvența săptămânală asigură un ritm optim pentru identificarea tiparelor limitative și implementarea unor noi structuri de gândire.',
+          'Abordare integrativă: Vom lucra împreună pentru a proiecta soluții adaptate realității tale, vizând reziliența și claritatea.',
         ],
       },
       {
         title: 'Reguli de utilizare:',
         items: [
-          'Valabilitate: Toate cele 4 sedinte trebuie programate si efectuate in termen de 30 de zile de la data achizitiei.',
-          'Angajament: Aceasta perioada de valabilitate este menita sa te ajute sa prioritizezi propria evolutie si sa asigure eficienta procesului de consiliere.',
-          'Flexibilitate: Poti alege locatia dorita (Online sau Cabinet) pentru fiecare sesiune in parte, in functie de disponibilitatea afisata in calendar.',
+          'Valabilitate: Toate cele 4 ședințe trebuie programate și efectuate în termen de 30 de zile de la data achiziției.',
+          'Angajament: Această perioadă de valabilitate este menită să te ajute să prioritizezi propria evoluție și să asigure eficiența procesului de consiliere.',
+          'Flexibilitate: Poți alege locația dorită (Online sau Cabinet) pentru fiecare sesiune în parte, în funcție de disponibilitatea afișată în calendar.',
         ],
       },
     ],
@@ -129,71 +135,74 @@ export const packages: PackageItem[] = [
   {
     id: 'program-gym',
     category: 'fitness',
-    title: 'Program Antrenament Gym + Rutina Morning Flow (Fara suport)',
-    meta: '1 sedinta @ 400.00 lei',
+    title: 'Program Antrenament Gym + Rutină Morning Flow (Fără suport)',
+    meta: '1 ședință @ 349.00 lei',
+    bookingUrl: 'https://l.bttr.to/qc0Qu',
     description: [
-      'Construieste-ti corpul si disciplina folosind un plan adaptat nevoilor tale biologice. Acest pachet este creat pentru cei care au nevoie de o structura clara, dar sunt autonomi in executie.',
+      'Construiește-ți corpul și disciplina folosind un plan adaptat nevoilor tale biologice. Acest pachet este creat pentru cei care au nevoie de o structură clară, dar sunt autonomi în execuție.',
     ],
     sections: [
       {
-        title: 'Ce primesti:',
+        title: 'Ce primești:',
         items: [
-          'Program de antrenament pentru sala: Personalizat in functie de obiectivele tale (hipertrofie, forta sau longevitate) si echipamentul disponibil.',
-          'Rutina Morning Yoga/Stretching: Un flux scurt de dimineata conceput pentru detensionare si activarea mobilitatii.',
-          'Livrare digitala: Planul este livrat direct in portalul tau Practice Better sub forma de Protocol.',
+          'Program de antrenament pentru sală: Personalizat în funcție de obiectivele tale (hipertrofie, forță sau longevitate) și echipamentul disponibil.',
+          'Rutină Morning Yoga/Stretching: Un flux scurt de dimineață conceput pentru detensionare și activarea mobilității.',
+          'Livrare digitală: Planul este livrat direct în portalul tău Practice Better sub formă de Protocol.',
         ],
       },
     ],
     notes: [
-      'Nota: Acest pachet nu include sedinte de consiliere live sau suport pe chat. Dupa plata, vei fi redirectionat catre formularul de evaluare obligatoriu.',
+      'Notă: Acest pachet nu include ședințe de consiliere live sau suport pe chat. După plată, vei fi redirecționat către formularul de evaluare obligatoriu.',
     ],
   },
   {
     id: 'ghid-nutritie',
     category: 'fitness',
-    title: 'Ghid Nutritie si Suplimentare Personalizat (Fara suport)',
-    meta: '1 sedinta @ 400.00 lei',
+    title: 'Ghid Nutriție și Suplimentare Personalizat (Fără suport)',
+    meta: '1 ședință @ 349.00 lei',
+    bookingUrl: 'https://l.bttr.to/BKgEg',
     description: [
-      'Optimizeaza-ti biologia prin nutritie adaptata stilului tau de viata si obiectivelor de longevitate. Acest ghid este un instrument de lucru pentru cei care doresc claritate in alegerile alimentare si o schema de suplimentare bazata pe nevoi reale.',
+      'Optimizează-ți biologia prin nutriție adaptată stilului tău de viață și obiectivelor de longevitate. Acest ghid este un instrument de lucru pentru cei care doresc claritate în alegerile alimentare și o schemă de suplimentare bazată pe nevoi reale.',
     ],
     sections: [
       {
-        title: 'Ce primesti:',
+        title: 'Ce primești:',
         items: [
-          'Ghid alimentar personalizat: Structurat pe baza preferintelor si obiectivelor tale (energie, compozitie corporala, sanatate metabolica).',
-          'Protocol de suplimentare: Recomandari specifice pentru optimizarea starii de bine si a performantei.',
-          'Livrare: Ghidul va fi disponibil in portalul tau in maxim 48 de ore de la completarea chestionarului.',
+          'Ghid alimentar personalizat: Structurat pe baza preferințelor și obiectivelor tale (energie, compoziție corporală, sănătate metabolică).',
+          'Protocol de suplimentare: Recomandări specifice pentru optimizarea stării de bine și a performanței.',
+          'Livrare: Ghidul va fi disponibil în portalul tău în maxim 48 de ore de la completarea chestionarului.',
         ],
       },
     ],
     notes: [
-      'Nota: Acest pachet nu include consiliere live sau suport pe chat.',
+      'Notă: Acest pachet nu include consiliere live sau suport pe chat.',
     ],
   },
   {
     id: 'combo-gym-nutritie',
     category: 'fitness',
-    title: 'Combo: Arhitectura Corpului (Gym + Nutritie) - Fara suport',
-    meta: '2 sedinte @ 700.00 lei',
+    title: 'Combo: Arhitectura Mișcării (Gym + Nutriție) - Fără suport',
+    meta: '2 ședințe @ 599.00 lei',
+    bookingUrl: 'https://l.bttr.to/nLVTL',
     description: [
-      'Acest pachet reprezinta solutia completa pentru cei care doresc sa isi reproiecteze stilul de viata, actionand simultan asupra celor doi piloni fundamentali: miscarea si combustibilul biologic. Prin alegerea acestui combo, beneficiezi de o strategie integrata si de o economie de 100 RON fata de achizitia separata a serviciilor.',
+      'Acest pachet reprezintă soluția completă pentru cei care doresc să își reproiecteze stilul de viață, acționând simultan asupra celor doi piloni fundamentali: mișcarea și combustibilul biologic. Prin alegerea acestui combo, beneficiezi de o strategie integrată și de o economie de 100 RON față de achiziția separată a serviciilor.',
     ],
     sections: [
       {
         title: 'Ce include acest pachet integrat:',
         items: [
-          'Pilonul 1: Antrenament & Mobilitate - Program personalizat pentru sala: Adaptat obiectivului tau (forta, hipertrofie sau tonifiere).',
-          'Pilonul 1: Antrenament & Mobilitate - Rutina Morning Flow: Exercitii de stretching si yoga pentru a incepe ziua cu mobilitate si claritate mentala.',
-          'Pilonul 2: Nutritie & Suplimentare - Ghid alimentar personalizat: Nu o dieta restrictiva, ci o structura bazata pe nevoile tale metabolice si preferinte.',
-          'Pilonul 2: Nutritie & Suplimentare - Protocol de suplimentare: Recomandari specifice pentru optimizarea energiei, a somnului si a longevitatii.',
+          'Pilonul 1: Antrenament & Mobilitate - Program personalizat pentru sală: Adaptat obiectivului tău (forță, hipertrofie sau tonifiere).',
+          'Pilonul 1: Antrenament & Mobilitate - Rutină Morning Flow: Exerciții de stretching și yoga pentru a începe ziua cu mobilitate și claritate mentală.',
+          'Pilonul 2: Nutriție & Suplimentare - Ghid alimentar personalizat: Nu o dietă restrictivă, ci o structură bazată pe nevoile tale metabolice și preferințe.',
+          'Pilonul 2: Nutriție & Suplimentare - Protocol de suplimentare: Recomandări specifice pentru optimizarea energiei, a somnului și a longevității.',
         ],
       },
       {
-        title: 'Cum functioneaza (Procesul tau de transformare):',
+        title: 'Cum funcționează (procesul tău de transformare):',
         items: [
-          'Achizitie: Dupa plata, vei primi automat acces la cele doua chestionare detaliate (Fitness si Nutritie).',
-          'Evaluare: Completezi datele solicitate. Aceasta etapa este esentiala pentru a putea proiecta planurile conform realitatii tale biologice.',
-          'Livrare: In maxim 48 de ore, vei primi ambele protocoale direct in portalul tau Practice Better.',
+          'Achiziție: După plată, vei primi automat acces la cele două chestionare detaliate (Fitness și Nutriție).',
+          'Evaluare: Completezi datele solicitate. Această etapă este esențială pentru a putea proiecta planurile conform realității tale biologice.',
+          'Livrare: În maxim 48 de ore, vei primi ambele protocoale direct în portalul tău Practice Better.',
         ],
       },
     ],
@@ -201,136 +210,141 @@ export const packages: PackageItem[] = [
   {
     id: 'arhitectura-nutritiei',
     category: 'fitness',
-    title: 'Arhitectura Nutritiei: Ghid Personalizat + Sedinta Live & Suport Chat',
-    meta: '2 sedinte @ 700.00 lei',
+    title: 'Arhitectura Nutriției: Ghid Personalizat + Ședință Live & Suport Chat',
+    meta: '2 ședințe @ 599.00 lei',
+    bookingUrl: 'https://l.bttr.to/7CTMb',
     description: [
-      'Transforma nutritia dintr-o corvoada intr-un sistem de suport pentru biologia ta. Acest pachet adauga componenta de ghidaj direct la ghidul tau personalizat.',
+      'Transformă nutriția dintr-o corvoadă într-un sistem de suport pentru biologia ta. Acest pachet adaugă componenta de ghidaj direct la ghidul tău personalizat.',
     ],
     sections: [
       {
         title: 'Ce include acest pachet:',
         items: [
-          'Ghid alimentar & suplimentare: O structura adaptata preferintelor tale, stilului de viata si obiectivelor de longevitate.',
-          '1 sedinta individuala (50 min): O sesiune de consultanta (Online sau la Cabinetul din B-dul Revolutiei 29) in care explicam mecanismele din spatele ghidului tau.',
-          'Suport pe chat (30 de zile): Sunt alaturi de tine pentru a depasi momentele dificile, pentru a valida alegerile alimentare in timp real sau pentru a ajusta protocolul de suplimentare.',
-          'Analiza chestionar: Evaluare detaliata a obiceiurilor actuale si a nevoilor metabolice.',
+          'Ghid alimentar & suplimentare: O structură adaptată preferințelor tale, stilului de viață și obiectivelor de longevitate.',
+          '1 ședință individuală (50 min): O sesiune de consultanță (Online sau la Cabinetul din B-dul Revoluției 29) în care explicăm mecanismele din spatele ghidului tău.',
+          'Suport pe chat (30 de zile): Sunt alături de tine pentru a depăși momentele dificile, pentru a valida alegerile alimentare în timp real sau pentru a ajusta protocolul de suplimentare.',
+          'Analiză chestionar: Evaluare detaliată a obiceiurilor actuale și a nevoilor metabolice.',
         ],
       },
     ],
     notes: [
-      'Valabilitate: Toate beneficiile sunt active timp de 30 de zile, oferindu-ti timpul necesar pentru a integra noile obiceiuri alimentare.',
+      'Valabilitate: Toate beneficiile sunt active timp de 30 de zile, oferindu-ți timpul necesar pentru a integra noile obiceiuri alimentare.',
     ],
   },
   {
     id: 'arhitectura-miscarii',
     category: 'fitness',
-    title: 'Arhitectura Miscarii: Plan Fitness + Sedinta Live & Suport Chat',
-    meta: '2 sedinte @ 700.00 lei',
+    title: 'Arhitectura Mișcării: Plan Fitness + Ședință Live & Suport Chat',
+    meta: '2 ședințe @ 599.00 lei',
+    bookingUrl: 'https://l.bttr.to/pEKf1',
     description: [
-      'Aceasta este varianta extinsa a programului de fitness, creata pentru cei care doresc nu doar un plan, ci si certitudinea executiei corecte si monitorizarea progresului in prima luna de transformare.',
+      'Aceasta este varianta extinsă a programului de fitness, creată pentru cei care doresc nu doar un plan, ci și certitudinea execuției corecte și monitorizarea progresului în prima lună de transformare.',
     ],
     sections: [
       {
         title: 'Ce include acest pachet:',
         items: [
           'Plan de antrenament personalizat: Proiectat special pentru obiectivele tale (Gym & Morning Flow).',
-          '1 sedinta individuala (50 min): Ne intalnim fizic la XOX Gym Arad (Calea Romanilor) pentru a regla tehnica exercitiilor sau Online pentru o sesiune de consultanta strategica.',
-          'Suport pe chat (30 de zile): Ai acces direct la mine prin mesageria privata din portal pentru intrebari, ajustari de greutati sau suport motivational.',
-          'Evaluare initiala: Acces la formularul de biometrie si obiective pentru o personalizare precisa.',
+          '1 ședință individuală (50 min): Ne întâlnim fizic la XOX Gym Arad (Calea Romanilor) pentru a regla tehnica exercițiilor sau Online pentru o sesiune de consultanță strategică.',
+          'Suport pe chat (30 de zile): Ai acces direct la mine prin mesageria privată din portal pentru întrebări, ajustări de greutăți sau suport motivațional.',
+          'Evaluare inițială: Acces la formularul de biometrie și obiective pentru o personalizare precisă.',
         ],
       },
     ],
     notes: [
-      'Valabilitate: Pachetul si suportul pe chat expira la 30 de zile de la achizitie, asigurand un ritm de lucru sustinut si eficient.',
+      'Valabilitate: Pachetul și suportul pe chat expiră la 30 de zile de la achiziție, asigurând un ritm de lucru susținut și eficient.',
     ],
   },
   {
     id: 'master-body',
     category: 'fitness',
-    title: 'Master your body: Arhitectura corpului (Gym + Nutritie) + Suport Live & Chat',
-    meta: '3 sedinte @ 1,000.00 lei',
+    title: 'Master your body: Arhitectura corpului (Gym + Nutriție) + Suport Live & Chat',
+    meta: '3 ședințe @ 899.00 lei',
+    bookingUrl: 'https://l.bttr.to/jxv6A',
     description: [
-      'Acest Master Plan integreaza ambii piloni - fitness si nutritie - intr-o singura strategie coerenta, sustinuta de asistenta directa.',
+      'Acest Master Plan integrează ambii piloni - fitness și nutriție - într-o singură strategie coerentă, susținută de asistență directă.',
     ],
     sections: [
       {
         title: 'Ce include acest Master Plan:',
         items: [
-          'Arhitectura Miscarii: Program complet de antrenament (Gym) si rutina de mobilitate (Morning Flow).',
-          'Arhitectura Nutritiei: Ghid alimentar personalizat si protocol de suplimentare pentru energie si longevitate.',
-          '1 sedinta individuala (50 min): Consultanta premium desfasurata la XOX Gym, la Cabinet sau Online, pentru a pune cap la cap intreaga strategie.',
-          'Suport prioritar pe chat (30 de zile): Mesagerie directa pentru orice tine de antrenament sau alimentatie, eliminand orice urma de dubiu in procesul tau.',
-          'Evaluare integrata: Completarea ambelor formulare de fitness si nutritie pentru un plan 100% personalizat.',
+          'Arhitectura Mișcării: Program complet de antrenament (Gym) și rutină de mobilitate (Morning Flow).',
+          'Arhitectura Nutriției: Ghid alimentar personalizat și protocol de suplimentare pentru energie și longevitate.',
+          '1 ședință individuală (50 min): Consultanță premium desfășurată la XOX Gym, la Cabinet sau Online, pentru a pune cap la cap întreaga strategie.',
+          'Suport prioritar pe chat (30 de zile): Mesagerie directă pentru orice ține de antrenament sau alimentație, eliminând orice urmă de dubiu în procesul tău.',
+          'Evaluare integrată: Completarea ambelor formulare de fitness și nutriție pentru un plan 100% personalizat.',
         ],
       },
     ],
     notes: [
-      'Beneficiu: Reprezinta cea mai eficienta investitie, oferind economii substantiale fata de achizitia separata si cel mai inalt nivel de suport pe care il ofer in segmentul fitness/nutritie.',
+      'Beneficiu: Reprezintă cea mai eficientă investiție, oferind economii substanțiale față de achiziția separată și cel mai înalt nivel de suport pe care îl ofer în segmentul fitness/nutriție.',
     ],
   },
   {
     id: 'protocol-aliniere',
     category: 'somatic',
-    title: 'Protocol Aliniere Somatica: Pregatire - Aliniere - Integrare',
-    meta: '3 sedinte @ 800.00 lei',
+    title: 'Protocol Aliniere Somatică: Pregătire - Aliniere - Integrare',
+    meta: '3 ședințe @ 800.00 lei',
+    bookingUrl: 'https://l.bttr.to/6oXpK',
     description: [
-      'Acesta este un protocol terapeutic structurat, conceput pentru a oferi un cadru sigur si complet procesului de eliberare somatica. Nu lucram doar cu corpul, ci ne asiguram ca mintea poate procesa si integra schimbarile aparute.',
+      'Acesta este un protocol terapeutic structurat, conceput pentru a oferi un cadru sigur și complet procesului de eliberare somatică. Nu lucrăm doar cu corpul, ci ne asigurăm că mintea poate procesa și integra schimbările apărute.',
     ],
     sections: [
       {
         title: 'Structura protocolului (cele 3 etape):',
         items: [
-          'Sesiunea de Pregatire (50 min - Consiliere): Analizam starea actuala si pregatim spatiul mental si emotional pentru lucrul somatic. Stabilim obiectivele si cadrul de siguranta necesar eliberarii.',
-          'Sesiunea de Somatic Alignment (50 min - Lucru Corporal): Interventia propriu-zisa la cabinet. Lucram fizic pentru a debloca tensiunile si a regla fluxul de energie si prezenta in corp.',
-          'Sesiunea de Integrare (50 min - Consiliere): Traducem senzatiile si eliberarile corporale in intelegere cognitiva. Ne asiguram ca noua stare de echilibru este stabilizata si integrata in viata ta cotidiana.',
+          'Sesiunea de Pregătire (50 min - Consiliere): Analizăm starea actuală și pregătim spațiul mental și emoțional pentru lucrul somatic. Stabilim obiectivele și cadrul de siguranță necesar eliberării.',
+          'Sesiunea de Somatic Alignment (50 min - Lucru Corporal): Intervenția propriu-zisă la cabinet. Lucrăm fizic pentru a debloca tensiunile și a regla fluxul de energie și prezența în corp.',
+          'Sesiunea de Integrare (50 min - Consiliere): Traducem senzațiile și eliberările corporale în înțelegere cognitivă. Ne asigurăm că noua stare de echilibru este stabilizată și integrată în viața ta cotidiană.',
         ],
       },
     ],
     notes: [
-      'Locatie: Toate cele 3 intalniri au loc fizic, la adresa: B-dul Revolutiei 29, Ap. 10, Etaj 2, Arad.',
-      'Beneficiu: Aceasta structura tripartita elimina riscul de re-traumatizare sau confuzie, oferind o punte solida intre experienta corporala si viata ta psihica.',
+      'Locație: Toate cele 3 întâlniri au loc fizic, la adresa: B-dul Revoluției 29, Ap. 10, Etaj 2, Arad.',
+      'Beneficiu: Această structură tripartită elimină riscul de re-traumatizare sau confuzie, oferind o punte solidă între experiența corporală și viața ta psihică.',
     ],
   },
   {
     id: 'reset-challenge',
     category: 'fitness',
     title: 'Arhitectura Sinelui: 30-Day Reset Challenge',
-    meta: '9 sedinte @ 1,950.00 lei',
+    meta: '9 ședințe @ 1,799.00 lei',
+    bookingUrl: 'https://l.bttr.to/PhXF6',
     description: [
-      'Cea mai intensa si completa experienta de transformare din ecosistemul Arhitectura Sinelui. Timp de 30 de zile, lucram integrat pe toate planurile biologice si psihologice pentru a reconstrui fundatia starii tale de bine. Nu este doar un program de fitness sau de terapie, ci o recalibrare totala a modului in care traiesti, simti si te misti.',
+      'Cea mai intensă și completă experiență de transformare din ecosistemul Arhitectura Sinelui. Timp de 30 de zile, lucrăm integrat pe toate planurile biologice și psihologice pentru a reconstrui fundația stării tale de bine. Nu este doar un program de fitness sau de terapie, ci o recalibrare totală a modului în care trăiești, simți și te miști.',
     ],
     sections: [
       {
-        title: 'Pilonul Minte (Psihologie Clinica):',
+        title: 'Pilonul Minte (Psihologie Clinică):',
         items: [
-          '4 sesiuni de consiliere psihologica (1/saptamana): Focus pe deblocarea mentala, gestionarea stresului si stabilirea unor noi tipare de gandire.',
+          '4 sesiuni de consiliere psihologică (1/săptămână): Focus pe deblocarea mentală, gestionarea stresului și stabilirea unor noi tipare de gândire.',
         ],
       },
       {
-        title: 'Pilonul Corp (Fitness & Nutritie):',
+        title: 'Pilonul Corp (Fitness & Nutriție):',
         items: [
-          'Plan de antrenament personalizat (Gym & Morning Flow): Adaptat nivelului tau de energie.',
-          'Ghid de nutritie & suplimentare: Protocol alimentar si de micronutrienti pentru optimizarea metabolismului si a focusului.',
+          'Plan de antrenament personalizat (Gym & Morning Flow): Adaptat nivelului tău de energie.',
+          'Ghid de nutriție & suplimentare: Protocol alimentar și de micronutrienți pentru optimizarea metabolismului și a focusului.',
         ],
       },
       {
         title: 'Pilonul Somatic (Sistem Nervos):',
         items: [
-          '2 sesiuni de Somatic Alignment: O sesiune de deblocare la inceputul programului si o sesiune de stabilizare spre final, pentru a elibera tensiunea fizica stocata si a regla sistemul nervos.',
+          '2 sesiuni de Somatic Alignment: O sesiune de deblocare la începutul programului și o sesiune de stabilizare spre final, pentru a elibera tensiunea fizică stocată și a regla sistemul nervos.',
         ],
       },
       {
-        title: 'Monitorizare si evaluare:',
+        title: 'Monitorizare și evaluare:',
         items: [
-          'Sesiune de evaluare initiala (Ziua 1): Stabilirea obiectivelor, analiza biometrica si scanarea starii actuale.',
-          'Sesiune de evaluare finala (Ziua 30): Analiza progresului, masuratori si planul de mentinere post-challenge.',
-          'Suport zilnic pe chat: Acces prioritar la mine in portal pentru orice ajustare necesara pe parcursul celor 30 de zile.',
+          'Sesiune de evaluare inițială (Ziua 1): Stabilirea obiectivelor, analiza biometrică și scanarea stării actuale.',
+          'Sesiune de evaluare finală (Ziua 30): Analiza progresului, măsurători și planul de menținere post-challenge.',
+          'Suport zilnic pe chat: Acces prioritar la mine în portal pentru orice ajustare necesară pe parcursul celor 30 de zile.',
         ],
       },
     ],
     notes: [
-      'Locatii de desfasurare: Fizic (Cabinet Arad - B-dul Revolutiei 29 & XOX Gym - Calea Romanilor) sau Digital (acces complet in aplicatia Practice Better pentru planuri, chat/videochat).',
-      'Pret program: 1.950 RON (valoare reala servicii individuale: peste 2.400 RON. Discount de 20% aplicat pentru formatul de Challenge).',
+      'Locații de desfășurare: Fizic (Cabinet Arad - B-dul Revoluției 29 & XOX Gym - Calea Romanilor) sau Digital (acces complet în aplicația Practice Better pentru planuri, chat/videochat).',
+      'Preț program: 1.950 RON (valoare reală servicii individuale: peste 2.400 RON. Discount de 20% aplicat pentru formatul de Challenge).',
     ],
   },
 ]

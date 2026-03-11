@@ -54,8 +54,8 @@ function Products() {
       <div className="shop-page-header">
         <h1>Pachete</h1>
         <p className="muted">
-          Alege pachetul potrivit pentru directia ta de evolutie. Detaliile si
-          structura fiecarui program sunt prezentate mai jos.
+          Alege pachetul potrivit pentru direcția ta de evoluție. Detaliile și
+          structura fiecărui program sunt prezentate mai jos.
         </p>
       </div>
 
@@ -153,7 +153,7 @@ function Products() {
                 className="shop-detail-close"
                 type="button"
                 onClick={() => setActivePackage(null)}
-                aria-label="Inchide"
+                aria-label="Închide"
               >
                 X
               </button>
@@ -186,9 +186,14 @@ function Products() {
               ))}
             </div>
             <div className="shop-detail-actions">
-              <button className="shop-btn" type="button">
-                Programeaza acum
-              </button>
+              <a
+                className="shop-btn"
+                href={activePackage.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Programează acum
+              </a>
             </div>
           </div>
         </div>

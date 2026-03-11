@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 type FaqItem = {
   id: string
@@ -9,39 +10,39 @@ type FaqItem = {
 const faqItems: FaqItem[] = [
   {
     id: 'q1',
-    question: 'Cum incep colaborarea?',
+    question: 'Cum încep colaborarea?',
     answer:
-      'Incepi printr-un apel scurt de clarificare, apoi alegem pachetul potrivit obiectivelor tale.',
+      'Începi printr-un apel scurt de clarificare, apoi alegem pachetul potrivit obiectivelor tale.',
   },
   {
     id: 'q2',
-    question: 'Sedintele se pot face si online?',
+    question: 'Ședințele se pot face și online?',
     answer:
-      'Da, sedintele pot fi organizate online, in functie de tipul serviciului ales.',
+      'Da, ședințele pot fi organizate online, în funcție de tipul serviciului ales.',
   },
   {
     id: 'q3',
-    question: 'Cat dureaza pana vad rezultate?',
+    question: 'Cât durează până văd rezultate?',
     answer:
-      'Primele schimbari apar de obicei in primele saptamani, daca urmezi consecvent planul stabilit.',
+      'Primele schimbări apar de obicei în primele săptămâni, dacă urmezi consecvent planul stabilit.',
   },
   {
     id: 'q4',
-    question: 'Pot combina terapie, nutritie si antrenament?',
+    question: 'Pot combina terapie, nutriție și antrenament?',
     answer:
-      'Da, exact asta este ideea programului integrativ: un plan unitar minte-corp-stil de viata.',
+      'Da, exact asta este ideea programului integrativ: un plan unitar minte-corp-stil de viață.',
   },
   {
     id: 'q5',
     question: 'Programul este personalizat pentru fiecare client?',
     answer:
-      'Da, fiecare recomandare este ajustata dupa obiective, nivel si ritm personal.',
+      'Da, fiecare recomandare este ajustată după obiective, nivel și ritm personal.',
   },
   {
     id: 'q6',
-    question: 'Ce fac daca nu sunt sigur ce pachet mi se potriveste?',
+    question: 'Ce fac dacă nu sunt sigur ce pachet mi se potrivește?',
     answer:
-      'Iti recomand sesiunea de evaluare initiala, unde stabilim clar directia si pasii urmatori.',
+      'Îți recomand sesiunea de evaluare inițială, unde stabilim clar direcția și pașii următori.',
   },
 ]
 
@@ -50,14 +51,13 @@ function Faq() {
 
   return (
     <section className="content-section faq-page">
-      <h1>Intrebari frecvente</h1>
+      <h1>Întrebări frecvente</h1>
       <h3 className="faq-intro">
-        Iata cele mai intalnite intrebari despre Arhitectura Sinelui. Daca nu gasesti
-        raspunsul cautat, intra in pagina{' '}
-        <a className="faq-contact-link" href="/contact">
-          Contacte
-        </a>
-        .
+        Iată cele mai întâlnite întrebări despre Arhitectura Sinelui. Dacă nu găsești
+        răspunsul căutat, intră în pagina{' '}
+        <Link className="faq-contact-link" to="/contact">
+          Contact.
+        </Link>
       </h3>
       <div className="faq-list">
         {faqItems.map((item) => {

@@ -86,15 +86,15 @@ function AppShell() {
             <button
               className="idle-close"
               type="button"
-              aria-label="Inchide"
+              aria-label="Închide"
               onClick={() => setShowIdlePrompt(false)}
             >
               ×
             </button>
-            <h3 className="idle-title">Sesiune gratuita de 30 min</h3>
+            <h3 className="idle-title">Sesiune gratuită de 30 min</h3>
             <p className="idle-text">
-              Nu ești sigur ce ți se potrivește? Programează o sesiune gratuită
-              de 30 min.
+              Nu ești sigur ce ți se potrivește? Programează o sesiune gratuită de
+              30 min.
             </p>
             <a className="btn idle-cta" href="/shop">
               Programează acum

@@ -28,37 +28,53 @@ const getYouTubeId = (url: string) => {
 const resourceVideos: ResourceVideo[] = [
   {
     id: 1,
-    title:
-      'De ce te pierzi in ceilalti? Limite, Granite si Identitate | Arhitectura Sinelui (I)',
-    url: 'https://www.youtube.com/watch?v=QjBsubCuRYM&t=39s',
+    title: 'Joci un joc pe care NU îl poți câștiga.',
+    url: 'https://www.youtube.com/watch?v=ILj5v08x2pk',
   },
   {
     id: 2,
-    title: 'Vinovatia care te paralizeaza: Limite, Granite si Trauma | Arhitectura Sinelui (II)',
-    url: 'https://www.youtube.com/watch?v=om6dZLax0uk',
+    title: 'Povara Libertății: De ce preferăm să fim victime?',
+    url: 'https://www.youtube.com/watch?v=4uiC1LCkoXM',
   },
   {
     id: 3,
     title:
-      'Umbra lui Jung (Partea I) | Ce este si de ce ne sperie partea noastra intunecata',
-    url: 'https://www.youtube.com/watch?v=OBLrLfNON5I',
+      'Puterea de a spune NU: Limite, Granițe și Vindecare Somatică | Arhitectura Sinelui (III)',
+    url: 'https://www.youtube.com/watch?v=sbqgvaFkDxA',
   },
   {
     id: 4,
-    title:
-      'Umbra lui Jung (Partea II) | Cum sa-ti integrezi partea intunecata si sa o transformi in putere',
-    url: 'https://www.youtube.com/watch?v=S3B_MIJJcOI',
+    title: 'Vinovăția care te paralizează: Limite, Granițe și Traumă | Arhitectura Sinelui (II)',
+    url: 'https://www.youtube.com/watch?v=om6dZLax0uk',
   },
   {
     id: 5,
     title:
-      'Ce sens are tot ce fac? - Reverberatie, Intentie si Drumul Nevazut catre Sens',
-    url: 'https://www.youtube.com/watch?v=gvSwdBS0hf4',
+      'De ce te pierzi în ceilalți? Limite, Granițe și Identitate | Arhitectura Sinelui (I)',
+    url: 'https://www.youtube.com/watch?v=QjBsubCuRYM&t=39s',
   },
   {
     id: 6,
     title:
-      'De ce ne blocam in aceleasi povesti dureroase? Adevarul despre tiparele tale!',
+      'Umbra lui Jung (Partea I) | Ce este și de ce ne sperie partea noastră întunecată',
+    url: 'https://www.youtube.com/watch?v=OBLrLfNON5I',
+  },
+  {
+    id: 7,
+    title:
+      'Umbra lui Jung (Partea II) | Cum să-ți integrezi partea întunecată și să o transformi în putere',
+    url: 'https://www.youtube.com/watch?v=S3B_MIJJcOI',
+  },
+  {
+    id: 8,
+    title:
+      'Ce sens are tot ce fac? - Reverberație, Intenție și Drumul Nevăzut către Sens',
+    url: 'https://www.youtube.com/watch?v=gvSwdBS0hf4',
+  },
+  {
+    id: 9,
+    title:
+      'De ce ne blocăm în aceleași povești dureroase? Adevărul despre tiparele tale!',
     url: 'https://www.youtube.com/watch?v=5Qq7mdXyvIw',
   },
 ]
@@ -67,8 +83,8 @@ function Blog() {
   return (
     <section className="stack blog-page resurse-page">
       <div className="card resurse-header">
-        <h1>Resurse pentru minte, corp si stil de viata</h1>
-        <p className="muted">Informatii utile, structurate simplu si aplicabil.</p>
+        <h1>Resurse pentru minte, corp și stil de viață</h1>
+        <p className="muted">Informații utile, structurate simplu și aplicabil.</p>
       </div>
 
       <div className="card">

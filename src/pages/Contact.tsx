@@ -11,10 +11,10 @@ function Contact() {
     <section className="contact-page">
       <div className="contact-grid">
         <div className="card contact-details contact-slide-left">
-          <h2>Contacteaza-ne</h2>
+          <h2>Contactează-ne</h2>
           <p className="contact-text">
-            Fie ca iti doresti o schimbare fizica sau un echilibru interior, nu
-            ezita sa ma contactezi.
+            Fie că îți dorești o schimbare fizică sau un echilibru interior, nu
+            ezita să mă contactezi.
           </p>
           <div className="contact-details-list">
             <div className="contact-detail">
@@ -42,19 +42,19 @@ function Contact() {
 
         <div className="card form contact-slide-right">
           <div className="form-header">
-            <h2>Ai intrebari?</h2>
-            <p className="form-note">Te redirectionam catre formularul nostru.</p>
+            <h2>Ai întrebări?</h2>
+            <p className="form-note">Te redirecționăm către formularul nostru.</p>
           </div>
           <div className="contact-quick-links">
             <p className="contact-text">
-              Ai o intrebare rapida? Poate gasesti raspunsul imediat mai jos.
+              Ai o întrebare rapidă? Poate găsești răspunsul imediat mai jos.
             </p>
             <Link className="contact-link" to="/faq">
               <span className="contact-link-arrow" aria-hidden="true">
                 &rarr;
               </span>
               <span className="contact-link-text">
-                Vezi sectiunea Intrebari frecvente
+                Vezi secțiunea Întrebări frecvente
               </span>
             </Link>
             <Link className="contact-link" to="/shop">
