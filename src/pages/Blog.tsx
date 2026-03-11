@@ -1,140 +1,110 @@
-import { useEffect } from 'react'
-import spiritImage from '../assets/spirit.jpg'
-
-type Article = {
+type ResourceVideo = {
   id: number
   title: string
-  content: string
-  date?: string
-  image_url?: string | null
+  url: string
 }
 
-const formatDate = (value: string) => {
-  const parts = value.split('-')
-  if (parts.length === 3) {
-    return `${parts[2]} ${parts[1]} ${parts[0]}`
+const getYouTubeId = (url: string) => {
+  try {
+    const parsed = new URL(url)
+    if (parsed.hostname.includes('youtu.be')) {
+      return parsed.pathname.replace('/', '')
+    }
+    const v = parsed.searchParams.get('v')
+    if (v) {
+      return v
+    }
+    const parts = parsed.pathname.split('/')
+    const embedIndex = parts.findIndex((part) => part === 'embed')
+    if (embedIndex !== -1 && parts[embedIndex + 1]) {
+      return parts[embedIndex + 1]
+    }
+  } catch {
+    return ''
   }
-  return value
+  return ''
 }
 
-const staticArticles: Article[] = [
+const resourceVideos: ResourceVideo[] = [
   {
-    id: 1000,
-    title: 'Articol 1: Echilibrul dintre minte si corp',
-    content:
-      'Echilibrul real nu apare atunci cand fortam lucrurile, ci atunci cand incepem sa le intelegem. Relatia dintre minte si corp este una profunda, iar modul in care gandim influenteaza direct felul in care ne miscam, ne odihnim si ne recuperam.\n\nPrin miscare constienta si atentie asupra propriilor nevoi, putem construi o rutina care sustine atat sanatatea fizica, cat si claritatea mentala. Progresul nu este liniar, dar consecventa face diferenta.',
-    image_url: spiritImage,
+    id: 1,
+    title:
+      'De ce te pierzi in ceilalti? Limite, Granite si Identitate | Arhitectura Sinelui (I)',
+    url: 'https://www.youtube.com/watch?v=QjBsubCuRYM&t=39s',
   },
   {
-    id: 1001,
-    title: 'Articol 2: De ce consecventa este mai importanta decat motivatia',
-    content:
-      'Motivatia vine si pleaca, insa consecventa este cea care produce rezultate reale. Zilele in care nu ai chef sunt, de multe ori, cele care conteaza cel mai mult.\n\nUn program bine structurat, adaptat stilului tau de viata, te ajuta sa ramai pe directie chiar si atunci cand energia scade. Nu este nevoie de perfectiune, ci de continuitate.',
+    id: 2,
+    title: 'Vinovatia care te paralizeaza: Limite, Granite si Trauma | Arhitectura Sinelui (II)',
+    url: 'https://www.youtube.com/watch?v=om6dZLax0uk',
   },
   {
-    id: 1002,
-    title: 'Articol 3: Miscarea ca forma de reglare emotionala',
-    content:
-      'Miscarea nu este doar despre estetica sau performanta. Este si un instrument extrem de eficient pentru reglarea emotionala si reducerea stresului.\n\nAntrenamentele adaptate nivelului tau pot deveni un spatiu sigur in care corpul elibereaza tensiunea acumulata, iar mintea capata claritate. In timp, acest proces contribuie la o stare generala de echilibru si stabilitate.',
+    id: 3,
+    title:
+      'Umbra lui Jung (Partea I) | Ce este si de ce ne sperie partea noastra intunecata',
+    url: 'https://www.youtube.com/watch?v=OBLrLfNON5I',
   },
   {
-    id: 1003,
-    title: 'Articol 4: Rutine simple pentru rezultate sustenabile',
-    content:
-      'Rutinele simple, aplicate constant, sunt mult mai eficiente decat solutiile rapide si extreme. Fie ca vorbim despre miscare, alimentatie sau odihna, pasii mici facuti zilnic construiesc rezultate pe termen lung.\n\nCheia este adaptarea: ceea ce functioneaza pentru tine trebuie sa se potriveasca ritmului si realitatii tale, nu invers.',
+    id: 4,
+    title:
+      'Umbra lui Jung (Partea II) | Cum sa-ti integrezi partea intunecata si sa o transformi in putere',
+    url: 'https://www.youtube.com/watch?v=S3B_MIJJcOI',
   },
   {
-    id: 1004,
-    title: 'Articol 5: Miscarea ca forma de reglare emotionala',
-    content:
-      'Miscarea nu este doar despre estetica sau performanta. Este si un instrument extrem de eficient pentru reglarea emotionala si reducerea stresului.\n\nAntrenamentele adaptate nivelului tau pot deveni un spatiu sigur in care corpul elibereaza tensiunea acumulata, iar mintea capata claritate. In timp, acest proces contribuie la o stare generala de echilibru si stabilitate.',
+    id: 5,
+    title:
+      'Ce sens are tot ce fac? - Reverberatie, Intentie si Drumul Nevazut catre Sens',
+    url: 'https://www.youtube.com/watch?v=gvSwdBS0hf4',
   },
   {
-    id: 1005,
-    title: 'Articol 6: Rutine simple pentru rezultate sustenabile',
-    content:
-      'Rutinele simple, aplicate constant, sunt mult mai eficiente decat solutiile rapide si extreme. Fie ca vorbim despre miscare, alimentatie sau odihna, pasii mici facuti zilnic construiesc rezultate pe termen lung.\n\nCheia este adaptarea: ceea ce functioneaza pentru tine trebuie sa se potriveasca ritmului si realitatii tale, nu invers.',
+    id: 6,
+    title:
+      'De ce ne blocam in aceleasi povesti dureroase? Adevarul despre tiparele tale!',
+    url: 'https://www.youtube.com/watch?v=5Qq7mdXyvIw',
   },
 ]
 
 function Blog() {
-  useEffect(() => {
-    const elements = Array.from(document.querySelectorAll('.reveal'))
-    if (elements.length === 0) {
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-          } else {
-            entry.target.classList.remove('is-visible')
-          }
-        })
-      },
-      { threshold: 0.2, rootMargin: '0px 0px -10% 0px' },
-    )
-
-    elements.forEach((element) => observer.observe(element))
-
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <section className="stack blog-page resurse-page">
-      <div className="card reveal resurse-header">
+      <div className="card resurse-header">
         <h1>Resurse pentru minte, corp si stil de viata</h1>
         <p className="muted">Informatii utile, structurate simplu si aplicabil.</p>
       </div>
-      {staticArticles.length === 0 && (
-        <p className="muted">Inca nu exista articole.</p>
-      )}
 
-      <div className="stack">
-        {staticArticles.map((article, index) =>
-          index === 0 ? (
-            <article key={article.id} className="card blog-entry blog-article reveal">
-              <section className="blog-body">
-                <h2>{article.title}</h2>
-                {article.image_url && (
-                  <img
-                    className="blog-image-inline"
-                    src={article.image_url}
-                    alt={article.title}
+      <div className="card">
+        <div className="media-header">
+          <h3>Clipuri YouTube</h3>
+          <a
+            className="media-link"
+            href="https://www.youtube.com/@arhitecturasinelui-ro"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Vezi toate clipurile
+          </a>
+        </div>
+        <div className="media-grid">
+          {resourceVideos.map((video) => {
+            const videoId = getYouTubeId(video.url)
+            if (!videoId) {
+              return null
+            }
+            return (
+              <div key={video.id} className="media-card">
+                <div className="media-item">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${videoId}`}
+                    title={video.title}
                     loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
                   />
-                )}
-                <p className="article-content muted">{article.content}</p>
-                <div className="blog-date">09.01.2026</div>
-              </section>
-              {article.image_url && (
-                <aside className="blog-aside">
-                  <img
-                    className="blog-image"
-                    src={article.image_url}
-                    alt={article.title}
-                    loading="lazy"
-                  />
-                </aside>
-              )}
-            </article>
-          ) : (
-            <article key={article.id} className="card blog-article reveal">
-              <h2>{article.title}</h2>
-              <p className="article-content muted">{article.content}</p>
-              {article.id === 1001 && (
-                <>
-                  <div className="blog-date">10.01.2026</div>
-                </>
-              )}
-              {article.date && article.id !== 1001 && (
-                <div className="blog-date">Postat in {formatDate(article.date)}</div>
-              )}
-            </article>
-          ),
-        )}
+                </div>
+                <h3 className="media-title">{video.title}</h3>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

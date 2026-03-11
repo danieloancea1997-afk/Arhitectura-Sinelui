@@ -1104,7 +1104,7 @@ function Home() {
             <h3>Clipuri video</h3>
             <a
               className="media-link"
-              href="https://www.youtube.com/@ganduriprofunde"
+              href="https://www.youtube.com/@arhitecturasinelui-ro"
               target="_blank"
               rel="noopener noreferrer"
             >
