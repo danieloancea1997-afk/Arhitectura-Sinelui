@@ -34,6 +34,96 @@ function AppShell() {
   }, [isResurse])
 
   useEffect(() => {
+    const defaultTitle = 'Arhitectura Sinelui | Psiholog, Somatic Alignment și Fitness în Arad'
+    const defaultDescription =
+      'Arhitectura Sinelui oferă consiliere psihologică în Arad, Somatic Alignment, antrenament personalizat și nutriție pentru longevitate.'
+    const routeMeta: Record<string, { title: string; description: string; canonical: string }> = {
+      '/': {
+        title: defaultTitle,
+        description: defaultDescription,
+        canonical: 'https://arhitecturasinelui.ro/',
+      },
+      '/shop': {
+        title: 'Pachete | Arhitectura Sinelui',
+        description:
+          'Vezi pachetele Arhitectura Sinelui pentru consiliere psihologică, Somatic Alignment, antrenament personalizat și nutriție.',
+        canonical: 'https://arhitecturasinelui.ro/shop',
+      },
+      '/products': {
+        title: 'Pachete | Arhitectura Sinelui',
+        description:
+          'Vezi pachetele Arhitectura Sinelui pentru consiliere psihologică, Somatic Alignment, antrenament personalizat și nutriție.',
+        canonical: 'https://arhitecturasinelui.ro/shop',
+      },
+      '/contact': {
+        title: 'Contact | Arhitectura Sinelui',
+        description:
+          'Contactează Arhitectura Sinelui pentru consiliere psihologică în Arad, antrenament personalizat, Somatic Alignment și întrebări despre pachete.',
+        canonical: 'https://arhitecturasinelui.ro/contact',
+      },
+      '/faq': {
+        title: 'Întrebări frecvente | Arhitectura Sinelui',
+        description:
+          'Găsește răspunsuri la cele mai frecvente întrebări despre consiliere psihologică, programări, pachete și Arhitectura Sinelui.',
+        canonical: 'https://arhitecturasinelui.ro/faq',
+      },
+      '/blog': {
+        title: 'Resurse | Arhitectura Sinelui',
+        description:
+          'Explorează resurse video despre psihologie, limite personale, traumă, Somatic Alignment și dezvoltare personală.',
+        canonical: 'https://arhitecturasinelui.ro/blog',
+      },
+    }
+
+    const meta = routeMeta[location.pathname] ?? {
+      title: defaultTitle,
+      description: defaultDescription,
+      canonical: `https://arhitecturasinelui.ro${location.pathname}`,
+    }
+
+    const setMetaByName = (name: string, content: string) => {
+      let element = document.head.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null
+      if (!element) {
+        element = document.createElement('meta')
+        element.setAttribute('name', name)
+        document.head.appendChild(element)
+      }
+      element.setAttribute('content', content)
+    }
+
+    const setMetaByProperty = (property: string, content: string) => {
+      let element = document.head.querySelector(
+        `meta[property="${property}"]`,
+      ) as HTMLMetaElement | null
+      if (!element) {
+        element = document.createElement('meta')
+        element.setAttribute('property', property)
+        document.head.appendChild(element)
+      }
+      element.setAttribute('content', content)
+    }
+
+    const setCanonical = (href: string) => {
+      let element = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
+      if (!element) {
+        element = document.createElement('link')
+        element.setAttribute('rel', 'canonical')
+        document.head.appendChild(element)
+      }
+      element.setAttribute('href', href)
+    }
+
+    document.title = meta.title
+    setMetaByName('description', meta.description)
+    setMetaByProperty('og:title', meta.title)
+    setMetaByProperty('og:description', meta.description)
+    setMetaByProperty('og:url', meta.canonical)
+    setMetaByName('twitter:title', meta.title)
+    setMetaByName('twitter:description', meta.description)
+    setCanonical(meta.canonical)
+  }, [location.pathname])
+
+  useEffect(() => {
     const storageKey = 'idlePromptShown'
     if (sessionStorage.getItem(storageKey)) {
       return
