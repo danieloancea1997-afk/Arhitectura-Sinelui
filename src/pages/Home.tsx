@@ -23,6 +23,8 @@ import testimonial13Image from '../assets/testimonial 1.3.jpeg'
 import testimonial5Image from '../assets/testimonial 5.jpeg'
 import testimonial6Image from '../assets/testimonial 6.jpeg'
 import testimonial7Image from '../assets/testimonial 7.jpeg'
+import userManIcon from '../assets/usermen.png'
+import userWomanIcon from '../assets/userwomen.png'
 import { packages, type PackageItem as ShopPackage } from '../data/shopPackages'
 
 type MediaItem = {
@@ -299,6 +301,17 @@ const getDiscountBadgeLabel = (oldPrice: string, newPrice: string) => {
   const discount = Math.round(((oldValue - newValue) / oldValue) * 100)
   return `-${discount}%`
 }
+
+const maleTestimonialNames = new Set([
+  'Alexandru I.',
+  'Calin',
+  'Dragos M.',
+  'Catalin M.',
+  'Paul-Cristian Borcoș',
+])
+
+const getTestimonialAvatarByName = (name: string) =>
+  maleTestimonialNames.has(name.trim()) ? userManIcon : userWomanIcon
 
 type TestimonialClient = {
   id: string
@@ -957,10 +970,21 @@ function Home() {
                     />
                   </div>
                   <div className="testimonial-content">
-                    <p className="testimonial-caption">{currentPage.client.name}</p>
-                    <p className="testimonial-stars" aria-label={`${currentPage.client.rating} stele`}>
-                      {'\u2605'.repeat(currentPage.client.rating)}
-                    </p>
+                    <div className="testimonial-identity">
+                      <img
+                        className="testimonial-user-icon"
+                        src={getTestimonialAvatarByName(currentPage.client.name)}
+                        alt=""
+                        aria-hidden="true"
+                        loading="lazy"
+                      />
+                      <div className="testimonial-identity-text">
+                        <p className="testimonial-caption">{currentPage.client.name}</p>
+                        <p className="testimonial-stars" aria-label={`${currentPage.client.rating} stele`}>
+                          {'\u2605'.repeat(currentPage.client.rating)}
+                        </p>
+                      </div>
+                    </div>
                     <p className="testimonial-review">{currentPage.client.review}</p>
                     {currentPage.client.reviewBottom && (
                       <p className="testimonial-review-inline-tail">{currentPage.client.reviewBottom}</p>
@@ -975,10 +999,21 @@ function Home() {
                   {currentPage.items.map((item) => (
                     <article key={item.id} className="testimonial-gallery-card">
                       <div className="testimonial-gallery-header">
-                        <p className="testimonial-caption">{item.name}</p>
-                        <p className="testimonial-stars" aria-label={`${item.rating} stele`}>
-                          {'\u2605'.repeat(item.rating)}
-                        </p>
+                        <div className="testimonial-identity">
+                          <img
+                            className="testimonial-user-icon"
+                            src={getTestimonialAvatarByName(item.name)}
+                            alt=""
+                            aria-hidden="true"
+                            loading="lazy"
+                          />
+                          <div className="testimonial-identity-text">
+                            <p className="testimonial-caption">{item.name}</p>
+                            <p className="testimonial-stars" aria-label={`${item.rating} stele`}>
+                              {'\u2605'.repeat(item.rating)}
+                            </p>
+                          </div>
+                        </div>
                       </div>
                       {item.photo ? (
                         <img className="testimonial-image" src={item.photo} alt={`${item.name} progress`} loading="lazy" />
@@ -994,10 +1029,21 @@ function Home() {
                 >
                   {currentPage.items.map((item) => (
                     <article key={item.id} className="testimonial-text-card">
-                      <p className="testimonial-caption">{item.name}</p>
-                      <p className="testimonial-stars" aria-label={`${item.rating} stele`}>
-                        {'\u2605'.repeat(item.rating)}
-                      </p>
+                      <div className="testimonial-identity">
+                        <img
+                          className="testimonial-user-icon"
+                          src={getTestimonialAvatarByName(item.name)}
+                          alt=""
+                          aria-hidden="true"
+                          loading="lazy"
+                        />
+                        <div className="testimonial-identity-text">
+                          <p className="testimonial-caption">{item.name}</p>
+                          <p className="testimonial-stars" aria-label={`${item.rating} stele`}>
+                            {'\u2605'.repeat(item.rating)}
+                          </p>
+                        </div>
+                      </div>
                       <p className="testimonial-review">{item.review}</p>
                     </article>
                   ))}

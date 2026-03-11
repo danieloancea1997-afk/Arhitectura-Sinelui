@@ -4,6 +4,10 @@
   background-color: var(--bg);
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -1337,6 +1341,24 @@ a {
   display: grid;
   gap: 0.15rem;
   margin-bottom: 0.45rem;
+}
+
+.testimonial-identity {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: start;
+  column-gap: 0.3rem;
+}
+
+.testimonial-user-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  display: block;
+}
+
+.testimonial-identity-text {
+  min-width: 0;
 }
 
 .testimonial-review {
@@ -3996,6 +4018,146 @@ h3 {
   padding: 0 1.5rem;
 }
 
+.faq-page {
+  width: min(100%, 850px);
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.faq-page h1 {
+  margin: 0 0 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+.faq-intro {
+  margin: 0 0 1.6rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+.faq-page p,
+.faq-page .faq-question-text {
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+.faq-contact-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2.2rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.faq-item {
+  width: 100%;
+  max-width: 100%;
+  border-top: 1px solid rgba(45, 41, 38, 0.2);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 0;
+  background: transparent;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.faq-question {
+  width: 100%;
+  max-width: 100%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  text-align: left;
+  padding: 0.95rem 1rem;
+  cursor: pointer;
+  font: inherit;
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+.faq-question-text {
+  font-weight: 700;
+}
+
+.faq-arrow {
+  width: 11px;
+  height: 11px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+  opacity: 0.85;
+}
+
+.faq-item.is-open .faq-arrow {
+  transform: rotate(225deg) scale(1.18);
+}
+
+.faq-answer {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 1rem 1rem;
+  box-sizing: border-box;
+}
+
+.faq-answer p {
+  margin: 0;
+  line-height: 1.5;
+  color: rgba(45, 41, 38, 0.72);
+  font-weight: 600;
+}
+
+@media (max-width: 1440px) {
+  .faq-page {
+    width: min(100%, 850px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .faq-page {
+    width: min(100%, 800px);
+    padding: 1.8rem 0 2.6rem;
+  }
+
+  .faq-list {
+    margin-top: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-page {
+    width: min(100%, 700px);
+    padding: 1.5rem 0 2.2rem;
+  }
+
+  .faq-intro {
+    font-size: 1.05rem;
+  }
+
+  .faq-list {
+    margin-top: 1.4rem;
+  }
+}
+
 @media (max-width: 600px) {
   .row-between {
     flex-direction: column;
@@ -4015,6 +4177,40 @@ h3 {
 }
 
 @media (max-width: 430px) {
+  .faq-page {
+    width: 100%;
+    padding: 1.2rem 0 1.8rem;
+  }
+
+  .faq-page h1,
+  .faq-intro {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .faq-page p,
+  .faq-page .faq-question-text {
+    padding-right: 0.85rem;
+  }
+
+  .faq-list {
+    margin-top: 1.2rem;
+    gap: 0.55rem;
+  }
+
+  .faq-question {
+    padding: 0.8rem 0.85rem;
+  }
+
+  .faq-answer {
+    padding: 0 0.85rem 0.85rem;
+  }
+
+  .faq-arrow {
+    width: 10px;
+    height: 10px;
+  }
+
   .page-home .hero-actions .btn {
     background: rgba(233, 131, 40, 0.72);
   }
@@ -4260,6 +4456,12 @@ h3 {
 .testimonials-section .testimonial-gallery-header {
   gap: 0 !important;
 }
+
+.testimonials-section .testimonial-identity {
+  grid-template-columns: 44px minmax(0, 1fr) !important;
+  column-gap: 0.3rem !important;
+}
+
 
 .testimonials-section .testimonial-review,
 .testimonials-section .testimonial-review-inline-tail,
