@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import phoneIcon from '../assets/phone.png'
 import emailIcon from '../assets/email.png'
 import scheduleIcon from '../assets/schedule.png'
@@ -48,20 +49,20 @@ function Contact() {
             <p className="contact-text">
               Ai o intrebare rapida? Poate gasesti raspunsul imediat mai jos.
             </p>
-            <a className="contact-link" href="/faq">
+            <Link className="contact-link" to="/faq">
               <span className="contact-link-arrow" aria-hidden="true">
                 &rarr;
               </span>
               <span className="contact-link-text">
                 Vezi sectiunea Intrebari frecvente
               </span>
-            </a>
-            <a className="contact-link" href="/shop">
+            </Link>
+            <Link className="contact-link" to="/shop">
               <span className="contact-link-arrow" aria-hidden="true">
                 &rarr;
               </span>
               <span className="contact-link-text">Vezi toate pachetele</span>
-            </a>
+            </Link>
           </div>
           <div className="contact-cta">
             <div className="shop-details-arrow" aria-hidden="true">
