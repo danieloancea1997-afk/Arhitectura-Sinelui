@@ -13,8 +13,9 @@ function Contact() {
         <div className="card contact-details contact-slide-left">
           <h2>Contactează-ne</h2>
           <p className="contact-text">
-            Fie că îți dorești o schimbare fizică sau un echilibru interior, nu
-            ezita să mă contactezi.
+            Dacă ești în căutarea unui psiholog în Arad sau vrei să lucrezi cu
+            Paul-Cristian Borcoș pentru echilibru interior, fitness și Somatic
+            Alignment, nu ezita să mă contactezi.
           </p>
           <div className="contact-details-list">
             <div className="contact-detail">

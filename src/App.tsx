@@ -34,9 +34,9 @@ function AppShell() {
   }, [isResurse])
 
   useEffect(() => {
-    const defaultTitle = 'Arhitectura Sinelui | Psiholog, Somatic Alignment și Fitness în Arad'
+    const defaultTitle = 'Paul-Cristian Borcoș | Psiholog în Arad - Arhitectura Sinelui'
     const defaultDescription =
-      'Arhitectura Sinelui oferă consiliere psihologică în Arad, Somatic Alignment, antrenament personalizat și nutriție pentru longevitate.'
+      'Paul-Cristian Borcoș, psiholog în Arad și fondator Arhitectura Sinelui, oferă consiliere psihologică, Somatic Alignment, antrenament personalizat și nutriție pentru longevitate.'
     const routeMeta: Record<string, { title: string; description: string; canonical: string }> = {
       '/': {
         title: defaultTitle,
@@ -56,9 +56,9 @@ function AppShell() {
         canonical: 'https://arhitecturasinelui.ro/shop',
       },
       '/contact': {
-        title: 'Contact | Arhitectura Sinelui',
+        title: 'Contact Paul-Cristian Borcoș | Arhitectura Sinelui',
         description:
-          'Contactează Arhitectura Sinelui pentru consiliere psihologică în Arad, antrenament personalizat, Somatic Alignment și întrebări despre pachete.',
+          'Contactează-l pe Paul-Cristian Borcoș pentru consiliere psihologică în Arad, antrenament personalizat, Somatic Alignment și întrebări despre pachete.',
         canonical: 'https://arhitecturasinelui.ro/contact',
       },
       '/faq': {

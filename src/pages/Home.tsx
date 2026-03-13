@@ -500,6 +500,7 @@ function Home() {
   const pillarTitleRef = useRef<HTMLHeadingElement | null>(null)
   const pillarGridRef = useRef<HTMLDivElement | null>(null)
   const testimonialTouchStartXRef = useRef<number | null>(null)
+  const testimonialSwipeTriggeredRef = useRef(false)
 
   const formatMeta = (meta: string) => meta.replace('@', '').trim()
   const getPackageDetails = (id: string) =>
@@ -594,11 +595,16 @@ function Home() {
     setTestimonialAutoResumeAt(Date.now() + 60000)
   }
 
-  const handleTestimonialTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+  const handleTestimonialTouchStart = (
+    event: React.TouchEvent<HTMLDivElement | HTMLButtonElement>,
+  ) => {
     testimonialTouchStartXRef.current = event.touches[0]?.clientX ?? null
+    testimonialSwipeTriggeredRef.current = false
   }
 
-  const handleTestimonialTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+  const handleTestimonialTouchEnd = (
+    event: React.TouchEvent<HTMLDivElement | HTMLButtonElement>,
+  ) => {
     const startX = testimonialTouchStartXRef.current
     const endX = event.changedTouches[0]?.clientX
     if (startX == null || endX == null) {
@@ -612,6 +618,8 @@ function Home() {
       return
     }
 
+    testimonialSwipeTriggeredRef.current = true
+
     if (deltaX < 0) {
       goToNextTestimonial()
     } else {
@@ -619,6 +627,22 @@ function Home() {
     }
 
     testimonialTouchStartXRef.current = null
+  }
+
+  const handleTouchNavPreviousClick = () => {
+    if (testimonialSwipeTriggeredRef.current) {
+      testimonialSwipeTriggeredRef.current = false
+      return
+    }
+    goToPreviousTestimonial()
+  }
+
+  const handleTouchNavNextClick = () => {
+    if (testimonialSwipeTriggeredRef.current) {
+      testimonialSwipeTriggeredRef.current = false
+      return
+    }
+    goToNextTestimonial()
   }
 
   const currentPage = testimonialPages[activeTestimonialClient % testimonialPages.length]
@@ -959,7 +983,9 @@ function Home() {
               className="testimonial-touch-nav testimonial-touch-nav-left"
               type="button"
               aria-label="Testimonial anterior"
-              onClick={goToPreviousTestimonial}
+              onClick={handleTouchNavPreviousClick}
+              onTouchStart={handleTestimonialTouchStart}
+              onTouchEnd={handleTestimonialTouchEnd}
             />
 
             <button
@@ -1091,7 +1117,9 @@ function Home() {
               className="testimonial-touch-nav testimonial-touch-nav-right"
               type="button"
               aria-label="Testimonial următor"
-              onClick={goToNextTestimonial}
+              onClick={handleTouchNavNextClick}
+              onTouchStart={handleTestimonialTouchStart}
+              onTouchEnd={handleTestimonialTouchEnd}
             />
           </div>
 
