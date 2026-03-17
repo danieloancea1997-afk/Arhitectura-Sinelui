@@ -45,8 +45,15 @@ const getDiscountBadgeLabel = (oldPrice: string, newPrice: string) => {
   return `-${discount}%`
 }
 
+type ShopCategory = {
+  id: string
+  label: string
+  icon: string
+  packageIds?: string[]
+}
+
 function Products() {
-  const categories = [
+  const categories: ShopCategory[] = [
     {
       id: 'primii-pasi',
       label: 'Primii pași spre transformare',
@@ -62,7 +69,7 @@ function Products() {
       icon: crownIcon,
       packageIds: ['reset-challenge'],
     },
-  ] as const
+  ]
   const [activePackage, setActivePackage] = useState<PackageItem | null>(null)
 
   const parseMeta = (meta: string) => {
@@ -89,7 +96,7 @@ function Products() {
       {categories.map((category) => {
         const categoryPackages =
           'packageIds' in category
-            ? packages.filter((pkg) => category.packageIds.includes(pkg.id))
+            ? packages.filter((pkg) => category.packageIds?.includes(pkg.id))
             : packages.filter(
                 (pkg) =>
                   pkg.category === category.id &&
