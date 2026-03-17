@@ -42,7 +42,8 @@ function AppShell() {
       'Paul-Cristian Borcoș, psiholog în Arad și fondator Arhitectura Sinelui, oferă consiliere psihologică, Somatic Alignment, antrenament personalizat și nutriție pentru longevitate.'
     const routeMeta: Record<string, { title: string; description: string; canonical: string }> = {
       '/': {
-        title: defaultTitle,
+        title:
+          'Arhitectura Sinelui: Paul-Cristian Borcoș | Psihologie - Somatic - Fitness',
         description: defaultDescription,
         canonical: 'https://arhitecturasinelui.ro/',
       },
