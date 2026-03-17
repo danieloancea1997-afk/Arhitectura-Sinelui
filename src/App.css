@@ -413,6 +413,7 @@ a {
   gap: 0.85rem;
   align-content: space-between;
   height: 275px;
+  position: relative;
   transition: box-shadow 0.25s ease;
   cursor: pointer;
   opacity: 0;
@@ -438,6 +439,8 @@ a {
   font-weight: 700;
   letter-spacing: 0.04em;
   box-shadow: 0 6px 14px rgba(80, 20, 8, 0.24);
+  z-index: 3;
+  pointer-events: none;
 }
 
 .shop-mini-card:hover {
@@ -699,6 +702,11 @@ a {
   min-height: 230px;
 }
 
+.page-home .shop-top {
+  grid-template-rows: auto auto auto 1fr auto;
+  align-content: start;
+}
+
 .shop-card-footer {
   margin-top: auto;
   display: grid;
@@ -713,6 +721,7 @@ a {
   padding: 0;
   color: var(--accent-warm);
   font-size: 0.85rem;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
   cursor: pointer;
 }
@@ -927,6 +936,13 @@ a {
   align-items: baseline;
   gap: 0.7rem;
   flex-wrap: wrap;
+}
+
+.page-home .shop-top > .shop-price-title,
+.page-home .shop-top > .shop-price-stack {
+  min-height: 3.75rem;
+  display: flex;
+  align-items: flex-end;
 }
 
 .shop-price-current {
@@ -1909,6 +1925,42 @@ body.resurse-body {
   .page-home .about-text p:first-of-type {
     padding-top: 3rem;
   }
+
+  .page-home .shop-details-link,
+  .page-home .shop-card-footer .shop-details-link,
+  .page-home button.shop-details-link {
+    font-size: 1.1rem;
+  }
+
+  .page-home .shop-label {
+    min-height: 2.4em;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .page-home .shop-top {
+    grid-template-rows: minmax(2.4em, auto) auto minmax(3.75rem, auto) 1fr auto;
+  }
+
+  .page-home .shop-cta {
+    margin-bottom: 3rem;
+  }
+
+  .page-home .shop-list {
+    gap: 0.05rem;
+    margin-top: 0;
+  }
+
+  .page-home .shop-list li {
+    line-height: 1.08;
+  }
+
+  .page-home .shop-list li:first-child {
+    margin-top: 1.6rem;
+  }
 }
 
 @media (max-width: 1440px) {
@@ -1989,6 +2041,12 @@ body.resurse-body {
     font-family: 'Cormorant Garamond', serif;
   }
 
+  .page-home .shop-details-link,
+  .page-home .shop-card-footer .shop-details-link,
+  .page-home button.shop-details-link {
+    font-size: 1.1rem;
+  }
+
   .page-home .shop-cta-btn,
   .page-home .shop-action-btn {
     font-size: 0.75rem;
@@ -1998,9 +2056,9 @@ body.resurse-body {
   }
 
   .page-home .shop-label {
-    font-size: 0.7rem;
+    font-size: 0.76rem;
     line-height: 1.2;
-    min-height: 2.4em;
+    height: 2.6em;
     display: -webkit-box;
     line-clamp: 2;
     -webkit-line-clamp: 2;
@@ -2009,7 +2067,7 @@ body.resurse-body {
   }
 
   .page-home .shop-duration {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
   }
 
   .page-home .shop-heading-text h1 {
@@ -2026,7 +2084,19 @@ body.resurse-body {
   }
 
   .page-home .shop-price-title {
-    font-size: 1.5rem;
+    font-size: 1.38rem;
+  }
+
+  .page-home .shop-top {
+    min-height: 128px;
+    gap: 0;
+    margin-bottom: 0.08rem;
+    grid-template-rows: 2.6em auto 2.35rem 1fr auto;
+  }
+
+  .page-home .shop-top > .shop-price-title,
+  .page-home .shop-top > .shop-price-stack {
+    min-height: 2.35rem;
   }
 
   .page-home .shop-list li {
@@ -2046,10 +2116,6 @@ body.resurse-body {
     margin: 0;
   }
 
-  .page-home .shop-details-link {
-    font-size: 0.7rem;
-  }
-
   .page-home .shop-details-arrow {
     gap: 0.2rem;
     margin-bottom: 0.8rem;
@@ -2063,17 +2129,18 @@ body.resurse-body {
   }
 
   .page-home .shop-card-footer {
-    margin-bottom: -1.1rem;
+    margin-bottom: -0.35rem;
   }
 
-  .page-home .shop-card {
-    padding: 1.25rem;
-    height: auto;
-    min-height: 420px;
-  }
+.page-home .shop-card {
+  padding: 1.25rem;
+  height: auto;
+  min-height: 420px;
+  grid-template-rows: auto 1fr auto;
+}
 
   .page-home .shop-spacer {
-    height: 0.3rem;
+    height: 1.8rem;
   }
 
   .page-home .shop-cta {
@@ -2082,15 +2149,6 @@ body.resurse-body {
 
   .page-home .shop-cta-btn {
     margin-bottom: 0.3rem;
-  }
-
-  .page-home .shop-top {
-    min-height: 0;
-    margin-bottom: 0.4rem;
-  }
-
-  .page-home .shop-top {
-    gap: 0.3rem;
   }
 
   .page-contact-wide {
@@ -2325,6 +2383,45 @@ body.resurse-body {
   .page-home .about-image-mobile,
   .page-home .about-image-tablet {
     display: none;
+  }
+}
+
+@media (max-width: 1355px) {
+  .page-home .shop-section .shop-price-title {
+    font-size: 1.35rem;
+  }
+
+  .page-home .shop-section .shop-price-old {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 1245px) and (min-width: 1025px) {
+  .page-home .shop-grid.full-bleed {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .page-home .shop-price-stack {
+    gap: 0.4rem;
+    flex-wrap: nowrap;
+  }
+
+  .page-home .shop-price-title {
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+
+  .page-home .shop-price-old {
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1225px) and (min-width: 431px) {
+  .page-home .shop-details-link,
+  .page-home .shop-card-footer .shop-details-link,
+  .page-home button.shop-details-link {
+    font-size: 1rem;
   }
 }
 
@@ -4206,6 +4303,23 @@ h3 {
   .faq-page {
     width: 100%;
     padding: 1.2rem 0 1.8rem;
+  }
+
+  .page-home .shop-duration,
+  .page-home .shop-card .shop-list,
+  .page-home .shop-card .shop-list li {
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .page-home .shop-details-link,
+  .page-home .shop-card-footer .shop-details-link,
+  .page-home button.shop-details-link {
+    font-size: 1rem !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+    line-height: 1.2 !important;
   }
 
   .faq-page h1,

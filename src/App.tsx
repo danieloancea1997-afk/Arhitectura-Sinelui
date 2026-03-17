@@ -8,6 +8,7 @@ import Contact from './pages/Contact'
 import Faq from './pages/Faq'
 import Home from './pages/Home'
 import Products from './pages/Products'
+import { packages } from './data/shopPackages'
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function AppShell() {
   const isContact = location.pathname.startsWith('/contact')
   const isResurse = location.pathname.startsWith('/blog')
   const [showIdlePrompt, setShowIdlePrompt] = useState(false)
+  const discoveryCallUrl =
+    packages.find((pkg) => pkg.id === 'discovery-call')?.bookingUrl ?? '/shop'
 
   useEffect(() => {
     document.body.classList.toggle('resurse-body', isResurse)
@@ -186,7 +189,12 @@ function AppShell() {
               Nu ești sigur ce ți se potrivește? Programează o sesiune gratuită de
               30 min.
             </p>
-            <a className="btn idle-cta" href="/shop">
+            <a
+              className="btn idle-cta"
+              href={discoveryCallUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Programează acum
             </a>
           </div>

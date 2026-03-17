@@ -2,6 +2,8 @@ import { useState } from 'react'
 import fitnessIcon from '../assets/fitness.png'
 import somaticIcon from '../assets/somatic.png'
 import psihologieIcon from '../assets/psihologie.png'
+import crownIcon from '../assets/crown.png'
+import stepIcon from '../assets/step.png'
 import { packages, type PackageItem } from '../data/shopPackages'
 
 const discountedPrices: Record<string, string> = {
@@ -15,6 +17,19 @@ const discountedPrices: Record<string, string> = {
   'arhitectura-nutritiei': '599.00 lei',
   'master-body': '899.00 lei',
   'reset-challenge': '1,799.00 lei',
+}
+
+const originalPrices: Record<string, string> = {
+  'consiliere-psihologica': '250.00 lei',
+  'consultanta-evaluare': '100.00 lei',
+  'abonament-4x': '800.00 lei',
+  'program-gym': '400.00 lei',
+  'ghid-nutritie': '400.00 lei',
+  'combo-gym-nutritie': '700.00 lei',
+  'arhitectura-miscarii': '700.00 lei',
+  'arhitectura-nutritiei': '700.00 lei',
+  'master-body': '1,000.00 lei',
+  'reset-challenge': '1,950.00 lei',
 }
 
 const parseLeiValue = (value: string) =>
@@ -32,9 +47,21 @@ const getDiscountBadgeLabel = (oldPrice: string, newPrice: string) => {
 
 function Products() {
   const categories = [
+    {
+      id: 'primii-pasi',
+      label: 'Primii pași spre transformare',
+      icon: stepIcon,
+      packageIds: ['discovery-call', 'consultanta-evaluare'],
+    },
     { id: 'psihologie', label: 'Psihologie', icon: psihologieIcon },
     { id: 'somatic', label: 'Somatic', icon: somaticIcon },
     { id: 'fitness', label: 'Fitness', icon: fitnessIcon },
+    {
+      id: 'protocol-complet',
+      label: 'Protocolul Complet (Psihologie - Somatic - Fitness)',
+      icon: crownIcon,
+      packageIds: ['reset-challenge'],
+    },
   ] as const
   const [activePackage, setActivePackage] = useState<PackageItem | null>(null)
 
@@ -60,15 +87,22 @@ function Products() {
       </div>
 
       {categories.map((category) => {
-        const categoryPackages = packages.filter(
-          (pkg) => pkg.category === category.id,
-        )
+        const categoryPackages =
+          'packageIds' in category
+            ? packages.filter((pkg) => category.packageIds.includes(pkg.id))
+            : packages.filter(
+                (pkg) =>
+                  pkg.category === category.id &&
+                  !['discovery-call', 'consultanta-evaluare', 'reset-challenge'].includes(
+                    pkg.id,
+                  ),
+              )
 
         return (
           <section key={category.id} className="shop-category">
             <div className="shop-category-header">
-              <h2 className="shop-category-title">{category.label}</h2>
               <img className="shop-category-icon" src={category.icon} alt="" />
+              <h2 className="shop-category-title">{category.label}</h2>
             </div>
             <hr className="shop-category-divider" />
             <div className="shop-category-grid">
@@ -76,8 +110,9 @@ function Products() {
                 const { duration, price } = parseMeta(pkg.meta)
                 const isFree = price.toLowerCase() === 'gratuit'
                 const discountedPrice = discountedPrices[pkg.id]
+                const originalPrice = originalPrices[pkg.id] ?? price
                 const discountLabel = discountedPrice
-                  ? getDiscountBadgeLabel(price, discountedPrice)
+                  ? getDiscountBadgeLabel(originalPrice, discountedPrice)
                   : null
                 return (
                   <article
@@ -100,7 +135,7 @@ function Products() {
                       ) : discountedPrice ? (
                         <div className="shop-mini-price-wrap">
                           <p className="shop-mini-price shop-mini-price-new">{discountedPrice}</p>
-                          <p className="shop-mini-price shop-mini-price-old">{price}</p>
+                          <p className="shop-mini-price shop-mini-price-old">{originalPrice}</p>
                         </div>
                       ) : (
                         <p className="shop-mini-price">{price}</p>
@@ -134,13 +169,14 @@ function Products() {
                 {(() => {
                   const { duration, price } = parseMeta(activePackage.meta)
                   const discountedPrice = discountedPrices[activePackage.id]
+                  const originalPrice = originalPrices[activePackage.id] ?? price
                   return (
                     <>
                       <p className="shop-mini-meta">{duration}</p>
                       {discountedPrice ? (
                         <p className="shop-mini-meta shop-mini-meta-price">
                           <span className="shop-mini-price-new">{discountedPrice}</span>
-                          <span className="shop-mini-price-old">{price}</span>
+                          <span className="shop-mini-price-old">{originalPrice}</span>
                         </p>
                       ) : (
                         <p className="shop-mini-meta">{price}</p>

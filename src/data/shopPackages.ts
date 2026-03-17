@@ -139,20 +139,21 @@ export const packages: PackageItem[] = [
     meta: '1 ședință @ 349.00 lei',
     bookingUrl: 'https://l.bttr.to/qc0Qu',
     description: [
-      'Construiește-ți corpul și disciplina folosind un plan adaptat nevoilor tale biologice. Acest pachet este creat pentru cei care au nevoie de o structură clară, dar sunt autonomi în execuție.',
+      'Construiește-ți corpul și disciplina folosind un plan de antrenament adaptat nevoilor tale. Acest pachet este creat pentru cei care au nevoie de o structură clară și de un sistem eficient, dar preferă să se antreneze autonom.',
     ],
     sections: [
       {
-        title: 'Ce primești:',
+        title: 'Ce primești în acest pachet:',
         items: [
-          'Program de antrenament pentru sală: Personalizat în funcție de obiectivele tale (hipertrofie, forță sau longevitate) și echipamentul disponibil.',
-          'Rutină Morning Yoga/Stretching: Un flux scurt de dimineață conceput pentru detensionare și activarea mobilității.',
-          'Livrare digitală: Planul este livrat direct în portalul tău Practice Better sub formă de Protocol.',
+          'Program de antrenament pentru sală: Personalizat în funcție de obiectivele tale (masă musculară, forță sau longevitate) și de echipamentul pe care îl ai la dispoziție.',
+          'Rutină Morning Flow: Un flux scurt de yoga și stretching pentru dimineață, conceput pentru a-ți trezi corpul, a elimina tensiunea și a-ți oferi claritate mentală pentru restul zilei.',
+          'Livrare Digitală: Planul tău va fi încărcat direct în portalul securizat Practice Better, sub formă de Protocol ușor de urmărit.',
         ],
       },
     ],
     notes: [
-      'Notă: Acest pachet nu include ședințe de consiliere live sau suport pe chat. După plată, vei fi redirecționat către formularul de evaluare obligatoriu.',
+      'Cum funcționează: După efectuarea plății, vei fi redirecționat către un formular de evaluare obligatoriu. Pe baza răspunsurilor tale, eu voi „proiecta” programul astfel încât să se potrivească perfect cu nivelul și țintele tale.',
+      'Notă: Acest serviciu este oferit de BORCOȘ D. PAUL-CRISTIAN - CABINET INDIVIDUAL DE PSIHOLOGIE și reprezintă o intervenție de psihologia sănătății pentru optimizarea stilului de viață. Pachetul nu include ședințe de consiliere live sau suport pe chat.',
     ],
   },
   {
@@ -162,20 +163,21 @@ export const packages: PackageItem[] = [
     meta: '1 ședință @ 349.00 lei',
     bookingUrl: 'https://l.bttr.to/BKgEg',
     description: [
-      'Optimizează-ți biologia prin nutriție adaptată stilului tău de viață și obiectivelor de longevitate. Acest ghid este un instrument de lucru pentru cei care doresc claritate în alegerile alimentare și o schemă de suplimentare bazată pe nevoi reale.',
+      'Optimizează-ți biologia prin nutriție adaptată stilului tău de viață și obiectivelor tale de sănătate. Acest ghid este instrumentul tău de lucru dacă vrei claritate în alegerile alimentare și o schemă de suplimente bazată pe nevoi biologice reale, nu pe ghicite.',
     ],
     sections: [
       {
-        title: 'Ce primești:',
+        title: 'Ce primești în acest ghid:',
         items: [
-          'Ghid alimentar personalizat: Structurat pe baza preferințelor și obiectivelor tale (energie, compoziție corporală, sănătate metabolică).',
-          'Protocol de suplimentare: Recomandări specifice pentru optimizarea stării de bine și a performanței.',
-          'Livrare: Ghidul va fi disponibil în portalul tău în maxim 48 de ore de la completarea chestionarului.',
+          'Ghid alimentar personalizat: Nu o dietă restrictivă, ci o structură bazată pe preferințele tale și pe obiectivele tale (energie, compoziție corporală sau sănătate metabolică). Este un suport real pentru a-ți schimba obiceiurile pe termen lung.',
+          'Protocol de suplimentare: Recomandări specifice pentru a-ți susține starea de bine, calitatea somnului și performanța cognitivă (focus și claritate).',
+          'Livrare rapidă: Ghidul va fi disponibil în portalul tău securizat în maxim 48 de ore de la completarea chestionarului de evaluare.',
         ],
       },
     ],
     notes: [
-      'Notă: Acest pachet nu include consiliere live sau suport pe chat.',
+      'Cum funcționează: După plată, vei completa un formular detaliat despre stilul tău de viață și preferințe. Pe baza acestuia, eu îți voi „proiecta” strategia nutrițională și de suplimentare.',
+      'Notă: Serviciile sunt furnizate de BORCOȘ D. PAUL-CRISTIAN - CABINET INDIVIDUAL DE PSIHOLOGIE. Această intervenție face parte din sfera psihologiei sănătății (modificarea comportamentului alimentar) și nu înlocuiește un tratament medical sau sfatul unui dietetician.',
     ],
   },
   {
@@ -185,26 +187,29 @@ export const packages: PackageItem[] = [
     meta: '2 ședințe @ 599.00 lei',
     bookingUrl: 'https://l.bttr.to/nLVTL',
     description: [
-      'Acest pachet reprezintă soluția completă pentru cei care doresc să își reproiecteze stilul de viață, acționând simultan asupra celor doi piloni fundamentali: mișcarea și combustibilul biologic. Prin alegerea acestui combo, beneficiezi de o strategie integrată și de o economie de 100 RON față de achiziția separată a serviciilor.',
+      'Acest pachet este soluția completă dacă vrei să-ți reproiectezi stilul de viață de la zero, acționând simultan pe cele mai importante direcții: cum te miști și cum te hrănești. Prin alegerea acestui combo, primești o strategie integrată pentru corp și minte, profitând în plus de o economie de 100 RON față de achiziția separată a programelor.',
     ],
     sections: [
       {
-        title: 'Ce include acest pachet integrat:',
+        title: 'Ce primești în acest pachet:',
         items: [
-          'Pilonul 1: Antrenament & Mobilitate - Program personalizat pentru sală: Adaptat obiectivului tău (forță, hipertrofie sau tonifiere).',
-          'Pilonul 1: Antrenament & Mobilitate - Rutină Morning Flow: Exerciții de stretching și yoga pentru a începe ziua cu mobilitate și claritate mentală.',
-          'Pilonul 2: Nutriție & Suplimentare - Ghid alimentar personalizat: Nu o dietă restrictivă, ci o structură bazată pe nevoile tale metabolice și preferințe.',
-          'Pilonul 2: Nutriție & Suplimentare - Protocol de suplimentare: Recomandări specifice pentru optimizarea energiei, a somnului și a longevității.',
+          'Pilonul 1: Antrenament & Mobilitate - Program personalizat pentru sală: Creat special pentru obiectivul tău (forță, masă musculară sau longevitate) și adaptat la ce echipament ai la dispoziție.',
+          'Pilonul 1: Antrenament & Mobilitate - Rutină Morning Flow: Un flux scurt de exerciții de stretching și yoga pentru a-ți începe ziua cu energie și claritate mentală.',
+          'Pilonul 2: Nutriție & Suplimente - Ghid alimentar personalizat: Nu e o dietă restrictivă, ci o structură clară bazată pe nevoile tale metabolice și preferințele tale alimentare.',
+          'Pilonul 2: Nutriție & Suplimente - Protocol de suplimentare: Recomandări specifice pentru a-ți optimiza nivelul de energie, calitatea somnului și sănătatea pe termen lung.',
         ],
       },
       {
-        title: 'Cum funcționează (procesul tău de transformare):',
+        title: 'Cum funcționează (Pașii tăi):',
         items: [
-          'Achiziție: După plată, vei primi automat acces la cele două chestionare detaliate (Fitness și Nutriție).',
-          'Evaluare: Completezi datele solicitate. Această etapă este esențială pentru a putea proiecta planurile conform realității tale biologice.',
-          'Livrare: În maxim 48 de ore, vei primi ambele protocoale direct în portalul tău Practice Better.',
+          'Chestionarele: După plată, vei primi acces la două formulare detaliate (Fitness și Nutriție).',
+          'Personalizarea: Analizez datele tale pentru a-ți „proiecta” planurile conform obiectivelor și stilului tău de viață.',
+          'Livrarea: În maxim 48 de ore, vei primi ambele protocoale direct în portalul tău securizat Practice Better.',
         ],
       },
+    ],
+    notes: [
+      'Notă: Serviciile sunt furnizate de BORCOȘ D. PAUL-CRISTIAN - CABINET INDIVIDUAL DE PSIHOLOGIE și vizează optimizarea stilului de viață prin schimbarea obiceiurilor. Aceste planuri nu înlocuiesc sfatul medicului sau al unui dietetician autorizat.',
     ],
   },
   {
@@ -214,21 +219,22 @@ export const packages: PackageItem[] = [
     meta: '2 ședințe @ 599.00 lei',
     bookingUrl: 'https://l.bttr.to/7CTMb',
     description: [
-      'Transformă nutriția dintr-o corvoadă într-un sistem de suport pentru biologia ta. Acest pachet adaugă componenta de ghidaj direct la ghidul tău personalizat.',
+      'Transformă nutriția dintr-o corvoadă într-un sistem care să lucreze pentru tine, nu împotriva ta. Acest pachet este creat pentru cei care nu vor doar un plan pe hârtie, ci au nevoie de ghidaj direct și monitorizare pentru a se asigura că noile obiceiuri „se prind”.',
     ],
     sections: [
       {
         title: 'Ce include acest pachet:',
         items: [
-          'Ghid alimentar & suplimentare: O structură adaptată preferințelor tale, stilului de viață și obiectivelor de longevitate.',
-          '1 ședință individuală (50 min): O sesiune de consultanță (Online sau la Cabinetul din B-dul Revoluției 29) în care explicăm mecanismele din spatele ghidului tău.',
-          'Suport pe chat (30 de zile): Sunt alături de tine pentru a depăși momentele dificile, pentru a valida alegerile alimentare în timp real sau pentru a ajusta protocolul de suplimentare.',
-          'Analiză chestionar: Evaluare detaliată a obiceiurilor actuale și a nevoilor metabolice.',
+          'Ghid Alimentar & Suplimentare: O structură personalizată în funcție de preferințele tale, stilul de viață și obiectivele tale de longevitate. Fără rețete complicate, doar claritate.',
+          '1 Ședință Individuală (50 min): Ne întâlnim Online sau la Cabinet (B-dul Revoluției 29) pentru a descifra mecanismele din spatele ghidului tău și pentru a personaliza strategia până la ultimul detaliu.',
+          'Suport pe Chat (30 de zile): Sunt alături de tine prin mesageria privată din portal. Te ajut să treci peste momentele dificile, să-ți validezi alegerile alimentare în timp real sau să ajustăm protocolul de suplimente pe parcurs.',
+          'Evaluare detaliată: Analizăm obiceiurile tale actuale și nevoile tale metabolice pentru a „proiecta” un sistem care să funcționeze cu adevărat pentru biologia ta.',
         ],
       },
     ],
     notes: [
-      'Valabilitate: Toate beneficiile sunt active timp de 30 de zile, oferindu-ți timpul necesar pentru a integra noile obiceiuri alimentare.',
+      'Valabilitate: Toate beneficiile (ședința și accesul pe chat) sunt active timp de 30 de zile de la achiziție, oferindu-ți timpul necesar pentru o integrare eficientă.',
+      'Notă: Serviciile sunt furnizate de BORCOȘ D. PAUL-CRISTIAN - CABINET INDIVIDUAL DE PSIHOLOGIE. Această intervenție face parte din sfera psihologiei sănătății (modificarea comportamentului alimentar) și nu înlocuiește un tratament medical specializat sau sfatul unui dietetician.',
     ],
   },
   {
@@ -238,21 +244,21 @@ export const packages: PackageItem[] = [
     meta: '2 ședințe @ 599.00 lei',
     bookingUrl: 'https://l.bttr.to/pEKf1',
     description: [
-      'Aceasta este varianta extinsă a programului de fitness, creată pentru cei care doresc nu doar un plan, ci și certitudinea execuției corecte și monitorizarea progresului în prima lună de transformare.',
+      'Aceasta este varianta extinsă pentru cei care nu vor doar un simplu document, ci vor să se asigure că execută mișcările corect și că au pe cine să întrebe atunci când se blochează în prima lună.',
     ],
     sections: [
       {
         title: 'Ce include acest pachet:',
         items: [
-          'Plan de antrenament personalizat: Proiectat special pentru obiectivele tale (Gym & Morning Flow).',
-          '1 ședință individuală (50 min): Ne întâlnim fizic la XOX Gym Arad (Calea Romanilor) pentru a regla tehnica exercițiilor sau Online pentru o sesiune de consultanță strategică.',
-          'Suport pe chat (30 de zile): Ai acces direct la mine prin mesageria privată din portal pentru întrebări, ajustări de greutăți sau suport motivațional.',
-          'Evaluare inițială: Acces la formularul de biometrie și obiective pentru o personalizare precisă.',
+          'Plan de Antrenament Personalizat: Un program creat special pentru tine (Gym & Morning Flow), adaptat obiectivelor tale și echipamentului pe care îl ai.',
+          '1 Ședință Individuală (50 min): Ne întâlnim față în față la XOX Gym Arad (Calea Romanilor) ca să verificăm tehnica exercițiilor sau Online pentru a pune la punct strategia de lucru.',
+          'Suport pe Chat (30 de zile): Îmi poți scrie oricând în mesageria privată din portal. Sunt acolo pentru întrebări despre greutăți, ajustări ale planului sau un „șut în fund” motivațional când ai nevoie.',
+          'Evaluare Inițială: Înainte de toate, completezi formularul de obiective pentru ca eu să pot proiecta planul exact pe măsura ta.',
         ],
       },
     ],
     notes: [
-      'Valabilitate: Pachetul și suportul pe chat expiră la 30 de zile de la achiziție, asigurând un ritm de lucru susținut și eficient.',
+      'Notă: Serviciile sunt oferite de BORCOȘ D. PAUL-CRISTIAN - CABINET INDIVIDUAL DE PSIHOLOGIE și vizează optimizarea stilului de viață prin mișcare. Pachetul și suportul pe chat sunt valabile timp de 30 de zile de la achiziție.',
     ],
   },
   {
@@ -262,22 +268,23 @@ export const packages: PackageItem[] = [
     meta: '3 ședințe @ 899.00 lei',
     bookingUrl: 'https://l.bttr.to/jxv6A',
     description: [
-      'Acest Master Plan integrează ambii piloni - fitness și nutriție - într-o singură strategie coerentă, susținută de asistență directă.',
+      'Acest Master Plan este soluția supremă pentru cineva care vrea să elimine orice urmă de presupunere. Integrăm ambii piloni — fitness și nutriție — într-o singură strategie coerentă, susținută de asistență directă și monitorizare constantă din partea mea.',
     ],
     sections: [
       {
         title: 'Ce include acest Master Plan:',
         items: [
-          'Arhitectura Mișcării: Program complet de antrenament (Gym) și rutină de mobilitate (Morning Flow).',
-          'Arhitectura Nutriției: Ghid alimentar personalizat și protocol de suplimentare pentru energie și longevitate.',
-          '1 ședință individuală (50 min): Consultanță premium desfășurată la XOX Gym, la Cabinet sau Online, pentru a pune cap la cap întreaga strategie.',
-          'Suport prioritar pe chat (30 de zile): Mesagerie directă pentru orice ține de antrenament sau alimentație, eliminând orice urmă de dubiu în procesul tău.',
-          'Evaluare integrată: Completarea ambelor formulare de fitness și nutriție pentru un plan 100% personalizat.',
+          'Arhitectura Mișcării: Un program complet de antrenament (Gym) și o rutină de mobilitate (Morning Flow), ambele adaptate obiectivelor tale de forță și longevitate.',
+          'Arhitectura Nutriției: Ghid alimentar personalizat și un protocol de suplimentare gândit să-ți susțină energia, somnul și performanța cognitivă.',
+          '1 Ședință Individuală (50 min): Ne întâlnim pentru a pune cap la cap întreaga strategie. Poți alege să ne vedem fizic la XOX Gym, la Cabinet (B-dul Revoluției) sau Online, în funcție de ce ai nevoie să reglăm (tehnică sau strategie).',
+          'Suport Prioritar pe Chat (30 de zile): Ai acces direct la mine prin mesageria privată. Orice dubiu legat de antrenament sau alimentație este rezolvat pe loc, astfel încât să nu pierzi ritmul.',
+          'Evaluare Integrată: Analizăm ambele chestionare (Fitness și Nutriție) pentru a proiecta un plan 100% personalizat conform realității tale biologice.',
         ],
       },
     ],
     notes: [
-      'Beneficiu: Reprezintă cea mai eficientă investiție, oferind economii substanțiale față de achiziția separată și cel mai înalt nivel de suport pe care îl ofer în segmentul fitness/nutriție.',
+      'Beneficiu: Acesta este cel mai eficient mod de a lucra cu mine. Oferă o economie substanțială față de achiziția separată a modulelor și cel mai înalt nivel de suport pe care îl pun la dispoziție.',
+      'Notă: Serviciile sunt furnizate de BORCOȘ D. PAUL-CRISTIAN - CABINET INDIVIDUAL DE PSIHOLOGIE. Această intervenție vizează optimizarea stilului de viață prin schimbarea comportamentelor fundamentale și nu înlocuiește actul medical sau dietetic specializat.',
     ],
   },
   {
@@ -311,40 +318,41 @@ export const packages: PackageItem[] = [
     meta: '9 ședințe @ 1,799.00 lei',
     bookingUrl: 'https://l.bttr.to/PhXF6',
     description: [
-      'Cea mai intensă și completă experiență de transformare din ecosistemul Arhitectura Sinelui. Timp de 30 de zile, lucrăm integrat pe toate planurile biologice și psihologice pentru a reconstrui fundația stării tale de bine. Nu este doar un program de fitness sau de terapie, ci o recalibrare totală a modului în care trăiești, simți și te miști.',
+      'Cea mai intensă și completă experiență de transformare din ecosistemul Arhitectura Sinelui. Timp de 30 de zile, lucrăm integrat pentru a reconstrui fundația stării tale de bine. Nu este doar un program de fitness sau de nutriție, ci o recalibrare totală a modului în care trăiești, simți și te miști.',
     ],
     sections: [
       {
-        title: 'Pilonul Minte (Psihologie Clinică):',
+        title: '1. PILONUL MINTE (Consiliere Psihologică)',
         items: [
-          '4 sesiuni de consiliere psihologică (1/săptămână): Focus pe deblocarea mentală, gestionarea stresului și stabilirea unor noi tipare de gândire.',
+          '4 Sesiuni de Consiliere Individuală (1/săptămână): Ne concentrăm pe deblocarea mentală, gestionarea stresului și instalarea unor noi tipare de gândire care să susțină schimbarea.',
         ],
       },
       {
-        title: 'Pilonul Corp (Fitness & Nutriție):',
+        title: '2. PILONUL CORP (Fitness & Nutriție)',
         items: [
-          'Plan de antrenament personalizat (Gym & Morning Flow): Adaptat nivelului tău de energie.',
-          'Ghid de nutriție & suplimentare: Protocol alimentar și de micronutrienți pentru optimizarea metabolismului și a focusului.',
+          'Plan de Antrenament Personalizat: Un program complet (Gym & Morning Flow) adaptat nivelului tău actual.',
+          'Ghid de Nutriție & Suplimentare: Protocol alimentar și de micronutrienți pentru a-ți optimiza energia și focusul.',
         ],
       },
       {
-        title: 'Pilonul Somatic (Sistem Nervos):',
+        title: '3. PILONUL SOMATIC (Reglarea Sistemului Nervos)',
         items: [
-          '2 sesiuni de Somatic Alignment: O sesiune de deblocare la începutul programului și o sesiune de stabilizare spre final, pentru a elibera tensiunea fizică stocată și a regla sistemul nervos.',
+          '2 Sesiuni de Somatic Alignment: O sesiune la început și una spre finalul programului. Rolul lor este de a elibera tensiunea fizică acumulată și de a-ți învăța sistemul nervos să revină la o stare de calm și echilibru.',
         ],
       },
       {
-        title: 'Monitorizare și evaluare:',
+        title: '4. MONITORIZARE ȘI EVALUARE',
         items: [
-          'Sesiune de evaluare inițială (Ziua 1): Stabilirea obiectivelor, analiza biometrică și scanarea stării actuale.',
-          'Sesiune de evaluare finală (Ziua 30): Analiza progresului, măsurători și planul de menținere post-challenge.',
-          'Suport zilnic pe chat: Acces prioritar la mine în portal pentru orice ajustare necesară pe parcursul celor 30 de zile.',
+          'Evaluare Inițială & Finală: Sesiuni dedicate în Ziua 1 și Ziua 30 pentru a măsura progresul, analiza biometria și a stabili planul de menținere.',
+          'Suport Zilnic pe Chat: Acces prioritar la mine prin mesageria privată pentru orice ajustare necesară pe parcursul celor 30 de zile.',
         ],
       },
     ],
     notes: [
-      'Locații de desfășurare: Fizic (Cabinet Arad - B-dul Revoluției 29 & XOX Gym - Calea Romanilor) sau Digital (acces complet în aplicația Practice Better pentru planuri, chat/videochat).',
-      'Preț program: 1.950 RON (valoare reală servicii individuale: peste 2.400 RON. Discount de 20% aplicat pentru formatul de Challenge).',
+      'Locații de desfășurare: Fizic: Cabinet Arad (B-dul Revoluției 29) & XOX Gym (Calea Romanilor).',
+      'Digital: Acces complet în aplicația Practice Better (pentru planuri, chat și videochat).',
+      'Preț Program: 1.950 RON (Economisești 20% față de achiziția separată a serviciilor).',
+      'Notă legală: Serviciile sunt furnizate de BORCOȘ D. PAUL-CRISTIAN - CABINET INDIVIDUAL DE PSIHOLOGIE. Programul reprezintă o intervenție intensivă de psihologia sănătății și optimizarea stilului de viață.',
     ],
   },
 ]
