@@ -4271,6 +4271,287 @@ h3 {
   }
 }
 
+@media (max-width: 500px) and (min-width: 431px) {
+  .page-home .about-text p:first-of-type {
+    padding-top: 3rem;
+  }
+
+  .primul-pas::before {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(245, 241, 230, 0.6) 0%,
+        rgba(245, 241, 230, 0) 45%
+      ),
+      url('./assets/steps.jpg') center bottom / cover no-repeat;
+  }
+
+  .primul-pas-title {
+    background: rgba(120, 120, 120, 0.4);
+  }
+
+  .evaluation-title {
+    background: rgba(120, 120, 120, 0.6);
+  }
+
+  .evaluation-content {
+    background: rgba(120, 120, 120, 0.5);
+  }
+
+  .evaluation-content .btn {
+    background: rgb(224, 130, 92);
+  }
+
+  .page-home .media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-subtitle-long {
+    display: none;
+  }
+
+  .hero-subtitle-short {
+    display: inline;
+  }
+
+  .page-home .about-section {
+    grid-template-columns: 1fr;
+  }
+
+  .page-home .about-image {
+    order: -1;
+    justify-self: stretch;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .page-home .about-image img {
+    display: none;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .page-home .about-image,
+  .page-home .about-image img,
+  .page-home .about-image-mobile,
+  .page-home .about-image-desktop {
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .page-home .about-image-tablet {
+    display: none !important;
+  }
+
+  .page-home .about-image-mobile,
+  .page-home .about-image-desktop {
+    display: block !important;
+  }
+
+  .page-home .about-image-overlay {
+    display: grid;
+    gap: 0.2rem;
+    position: absolute;
+    inset: 0;
+    padding: 1rem;
+    align-content: start;
+    color: #ffffff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0) 65%
+    );
+  }
+
+  .page-home .about-image-overlay h1,
+  .page-home .about-image-overlay h3 {
+    color: var(--bg);
+  }
+
+  .page-home .about-text h1,
+  .page-home .about-text h3 {
+    display: none;
+  }
+
+  .page-home .hero-intro h1 {
+    font-size: 1.7rem;
+    line-height: 1.15;
+    margin-bottom: 0;
+  }
+
+  .page-home .hero-intro .hero-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.45;
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+  }
+
+  .page-home .content-wrap .content-section:not(.shop-section):not(.media-section):not(.primul-pas) h1,
+  .page-home .content-wrap .content-section:not(.shop-section):not(.media-section):not(.primul-pas) h2,
+  .page-home .content-wrap .content-section:not(.shop-section):not(.media-section):not(.primul-pas) h3,
+  .page-home .content-wrap .content-section:not(.shop-section):not(.media-section):not(.primul-pas) p,
+  .page-home .about-section .about-text p {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .page-home .about-image {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .about-divider {
+    display: none;
+  }
+
+  html,
+  body,
+  .page-home {
+    overflow-x: hidden;
+  }
+
+  .page {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-home {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .page-home .home {
+    width: 100%;
+    max-width: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page-home .home > * {
+    min-width: 0;
+  }
+
+  .page-home .hero-intro,
+  .page-home .content-wrap {
+    width: 100%;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .page-home .reveal.is-visible,
+  .page-home .shop-header.content-section,
+  .page-home .shop-actions.row,
+  .page-home .shop-grid.full-bleed {
+    max-width: 100% !important;
+  }
+
+  .page-home .shop-header.content-section,
+  .page-home .shop-actions.row,
+  .page-home .shop-grid.full-bleed {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .page-home .shop-grid.full-bleed {
+    grid-template-columns: minmax(0, 1fr) !important;
+    column-gap: 0.75rem;
+  }
+
+  .page-home .shop-grid.full-bleed .shop-card {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    justify-self: center;
+    box-sizing: border-box !important;
+    min-height: 470px;
+    height: auto;
+  }
+
+  .page-home .full-bleed {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .page-home .shop-cta-btn,
+  .page-home .shop-cta-btn::after {
+    animation: none;
+  }
+
+  .page-home .shop-actions .shop-btn {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.7rem;
+    min-width: 180px;
+  }
+
+  .page-home .shop-actions .shop-btn:first-child {
+    margin-top: 0.8rem;
+  }
+
+  .page-home .shop-duration,
+  .page-home .shop-card .shop-list,
+  .page-home .shop-card .shop-list li {
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .page-home .shop-cta-btn {
+    font-size: 1rem !important;
+  }
+
+  .page-home .shop-details-link,
+  .page-home .shop-card-footer .shop-details-link,
+  .page-home button.shop-details-link {
+    font-size: 1rem !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+    line-height: 1.2 !important;
+  }
+
+  .footer-inner {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-text {
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-text .footer-brand,
+  .footer-text .muted {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-social {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 600px) {
   .row-between {
     flex-direction: column;
@@ -4310,6 +4591,10 @@ h3 {
   .page-home .shop-card .shop-list li {
     font-size: 1rem !important;
     line-height: 1.2 !important;
+  }
+
+  .page-home .shop-cta-btn {
+    font-size: 1rem !important;
   }
 
   .page-home .shop-details-link,
