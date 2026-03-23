@@ -136,7 +136,7 @@ export const packages: PackageItem[] = [
     id: 'program-gym',
     category: 'fitness',
     title: 'Program Antrenament Gym + Rutină Morning Flow (Fără suport)',
-    meta: '1 ședință @ 349.00 lei',
+    meta: '1 ședință @ 249.00 lei',
     bookingUrl: 'https://l.bttr.to/qc0Qu',
     description: [
       'Construiește-ți corpul și disciplina folosind un plan de antrenament adaptat nevoilor tale. Acest pachet este creat pentru cei care au nevoie de o structură clară și de un sistem eficient, dar preferă să se antreneze autonom.',
@@ -160,7 +160,7 @@ export const packages: PackageItem[] = [
     id: 'ghid-nutritie',
     category: 'fitness',
     title: 'Ghid Nutriție și Suplimentare Personalizat (Fără suport)',
-    meta: '1 ședință @ 349.00 lei',
+    meta: '1 ședință @ 249.00 lei',
     bookingUrl: 'https://l.bttr.to/BKgEg',
     description: [
       'Optimizează-ți biologia prin nutriție adaptată stilului tău de viață și obiectivelor tale de sănătate. Acest ghid este instrumentul tău de lucru dacă vrei claritate în alegerile alimentare și o schemă de suplimente bazată pe nevoi biologice reale, nu pe ghicite.',
@@ -183,8 +183,8 @@ export const packages: PackageItem[] = [
   {
     id: 'combo-gym-nutritie',
     category: 'fitness',
-    title: 'Combo: Arhitectura Mișcării (Gym + Nutriție) - Fără suport',
-    meta: '2 ședințe @ 599.00 lei',
+    title: 'Combo: Arhitectura Mișcării (Gym + Nutriție) – Fără suport',
+    meta: '2 ședințe @ 449.00 lei',
     bookingUrl: 'https://l.bttr.to/nLVTL',
     description: [
       'Acest pachet este soluția completă dacă vrei să-ți reproiectezi stilul de viață de la zero, acționând simultan pe cele mai importante direcții: cum te miști și cum te hrănești. Prin alegerea acestui combo, primești o strategie integrată pentru corp și minte, profitând în plus de o economie de 100 RON față de achiziția separată a programelor.',
@@ -216,7 +216,7 @@ export const packages: PackageItem[] = [
     id: 'arhitectura-nutritiei',
     category: 'fitness',
     title: 'Arhitectura Nutriției: Ghid Personalizat + Ședință Live & Suport Chat',
-    meta: '2 ședințe @ 599.00 lei',
+    meta: '2 ședințe @ 449.00 lei',
     bookingUrl: 'https://l.bttr.to/7CTMb',
     description: [
       'Transformă nutriția dintr-o corvoadă într-un sistem care să lucreze pentru tine, nu împotriva ta. Acest pachet este creat pentru cei care nu vor doar un plan pe hârtie, ci au nevoie de ghidaj direct și monitorizare pentru a se asigura că noile obiceiuri „se prind”.',
@@ -241,7 +241,7 @@ export const packages: PackageItem[] = [
     id: 'arhitectura-miscarii',
     category: 'fitness',
     title: 'Arhitectura Mișcării: Plan Fitness + Ședință Live & Suport Chat',
-    meta: '2 ședințe @ 599.00 lei',
+    meta: '2 ședințe @ 449.00 lei',
     bookingUrl: 'https://l.bttr.to/pEKf1',
     description: [
       'Aceasta este varianta extinsă pentru cei care nu vor doar un simplu document, ci vor să se asigure că execută mișcările corect și că au pe cine să întrebe atunci când se blochează în prima lună.',
@@ -265,7 +265,7 @@ export const packages: PackageItem[] = [
     id: 'master-body',
     category: 'fitness',
     title: 'Master your body: Arhitectura corpului (Gym + Nutriție) + Suport Live & Chat',
-    meta: '3 ședințe @ 899.00 lei',
+    meta: '3 ședințe @ 799.00 lei',
     bookingUrl: 'https://l.bttr.to/jxv6A',
     description: [
       'Acest Master Plan este soluția supremă pentru cineva care vrea să elimine orice urmă de presupunere. Integrăm ambii piloni — fitness și nutriție — într-o singură strategie coerentă, susținută de asistență directă și monitorizare constantă din partea mea.',

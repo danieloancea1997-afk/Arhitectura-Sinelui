@@ -300,12 +300,12 @@ const discountedHomePrices: Record<string, string> = {
   'consiliere-psihologica': '199 LEI',
   'consultanta-evaluare': '89 LEI',
   'abonament-4x': '699 LEI',
-  'program-gym': '349 LEI',
-  'ghid-nutritie': '349 LEI',
-  'combo-gym-nutritie': '599 LEI',
-  'arhitectura-miscarii': '599 LEI',
-  'arhitectura-nutritiei': '599 LEI',
-  'master-body': '899 LEI',
+  'program-gym': '249 LEI',
+  'ghid-nutritie': '249 LEI',
+  'combo-gym-nutritie': '449 LEI',
+  'arhitectura-miscarii': '449 LEI',
+  'arhitectura-nutritiei': '449 LEI',
+  'master-body': '799 LEI',
   'reset-challenge': '1,799 LEI',
 }
 
