@@ -4,7 +4,7 @@ import emailIcon from '../assets/email.png'
 import scheduleIcon from '../assets/schedule.png'
 
 const PRACTICE_BETTER_FORM =
-  'https://my.practicebetter.io/#/696fca8b131720479d800ab1/forms?f=696fcfb9dc4dcd0b101c3dc2'
+  'https://docs.google.com/forms/d/e/1FAIpQLSfYMW2b8pIvsn7NgCe9iUpbOdeg017ERvx8RTEwkcG8zOT5sA/viewform?usp=publish-editor'
 
 function Contact() {
   return (

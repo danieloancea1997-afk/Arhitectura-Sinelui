@@ -7,16 +7,16 @@ import stepIcon from '../assets/step.png'
 import { packages, type PackageItem } from '../data/shopPackages'
 
 const discountedPrices: Record<string, string> = {
-  'consiliere-psihologica': '199.00 lei',
-  'consultanta-evaluare': '89.00 lei',
-  'abonament-4x': '699.00 lei',
-  'program-gym': '249.00 lei',
-  'ghid-nutritie': '249.00 lei',
-  'combo-gym-nutritie': '449.00 lei',
-  'arhitectura-miscarii': '449.00 lei',
-  'arhitectura-nutritiei': '449.00 lei',
-  'master-body': '799.00 lei',
-  'reset-challenge': '1,799.00 lei',
+  'consiliere-psihologica': '199,99 lei',
+  'consultanta-evaluare': '89,99 lei',
+  'abonament-4x': '699,99 lei',
+  'program-gym': '249,99 lei',
+  'ghid-nutritie': '249,99 lei',
+  'combo-gym-nutritie': '449,99 lei',
+  'arhitectura-miscarii': '449,99 lei',
+  'arhitectura-nutritiei': '449,99 lei',
+  'master-body': '799,99 lei',
+  'reset-challenge': '1799 lei',
 }
 
 const originalPrices: Record<string, string> = {
