@@ -309,8 +309,39 @@ const discountedHomePrices: Record<string, string> = {
   'reset-challenge': '1799 LEI',
 }
 
-const parseLeiValue = (value: string) =>
-  Number.parseFloat(value.replace(/lei/i, '').replace(/,/g, '').trim())
+const parseLeiValue = (value: string) => {
+  const normalized = value
+    .toLowerCase()
+    .replace(/(lei|ron)/g, '')
+    .replace(/\s+/g, '')
+  const lastComma = normalized.lastIndexOf(',')
+  const lastDot = normalized.lastIndexOf('.')
+
+  if (lastComma !== -1 && lastDot !== -1) {
+    if (lastComma > lastDot) {
+      return Number.parseFloat(normalized.replace(/\./g, '').replace(',', '.'))
+    }
+    return Number.parseFloat(normalized.replace(/,/g, ''))
+  }
+
+  if (lastComma !== -1) {
+    const decimalDigits = normalized.length - lastComma - 1
+    if (decimalDigits === 2) {
+      return Number.parseFloat(normalized.replace(',', '.'))
+    }
+    return Number.parseFloat(normalized.replace(/,/g, ''))
+  }
+
+  if (lastDot !== -1) {
+    const decimalDigits = normalized.length - lastDot - 1
+    if (decimalDigits === 2) {
+      return Number.parseFloat(normalized)
+    }
+    return Number.parseFloat(normalized.replace(/\./g, ''))
+  }
+
+  return Number.parseFloat(normalized)
+}
 
 const getDiscountBadgeLabel = (oldPrice: string, newPrice: string) => {
   const oldValue = parseLeiValue(oldPrice)
