@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import fitnessIcon from '../assets/fitness.png'
 import somaticIcon from '../assets/somatic.png'
 import psihologieIcon from '../assets/psihologie.png'
@@ -76,6 +76,39 @@ const getDiscountBadgeLabel = (oldPrice: string, newPrice: string) => {
   return `-${discount}%`
 }
 
+const noteLabelsToBold = new Set([
+  'Locație',
+  'Rezultat',
+  'TERMENI ȘI CONDIȚII',
+  'Natura Serviciului (Triaj)',
+  'Confidențialitate',
+  'Politică de Anulare',
+  'Consimțământ',
+])
+
+const renderNote = (note: string) => {
+  if (note.endsWith(':') && noteLabelsToBold.has(note.slice(0, -1))) {
+    return <strong>{note}</strong>
+  }
+
+  const colonIndex = note.indexOf(':')
+  if (colonIndex === -1) {
+    return note
+  }
+
+  const label = note.slice(0, colonIndex)
+  if (!noteLabelsToBold.has(label)) {
+    return note
+  }
+
+  return (
+    <>
+      <strong>{label}:</strong>
+      {note.slice(colonIndex + 1)}
+    </>
+  )
+}
+
 type ShopCategory = {
   id: string
   label: string
@@ -102,6 +135,9 @@ function Products() {
     },
   ]
   const [activePackage, setActivePackage] = useState<PackageItem | null>(null)
+  const [initialEvalConsent, setInitialEvalConsent] = useState(false)
+  const detailBodyRef = useRef<HTMLDivElement | null>(null)
+  const termsRef = useRef<HTMLParagraphElement | null>(null)
 
   const parseMeta = (meta: string) => {
     const parts = meta.split('@')
@@ -112,6 +148,10 @@ function Products() {
       }
     }
     return { duration: meta, price: meta }
+  }
+
+  const scrollToTerms = () => {
+    termsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
@@ -156,12 +196,16 @@ function Products() {
                   <article
                     key={pkg.title}
                     className="shop-mini-card"
-                    onClick={() => setActivePackage(pkg)}
+                    onClick={() => {
+                      setInitialEvalConsent(false)
+                      setActivePackage(pkg)
+                    }}
                     role="button"
                     tabIndex={0}
                     onKeyDown={(event) => {
                       if (event.key === 'Enter' || event.key === ' ') {
                         event.preventDefault()
+                        setInitialEvalConsent(false)
                         setActivePackage(pkg)
                       }
                     }}
@@ -186,6 +230,7 @@ function Products() {
                       type="button"
                       onClick={(event) => {
                         event.stopPropagation()
+                        setInitialEvalConsent(false)
                         setActivePackage(pkg)
                       }}
                     >
@@ -226,13 +271,16 @@ function Products() {
               <button
                 className="shop-detail-close"
                 type="button"
-                onClick={() => setActivePackage(null)}
+                onClick={() => {
+                  setActivePackage(null)
+                  setInitialEvalConsent(false)
+                }}
                 aria-label="Închide"
               >
                 X
               </button>
             </div>
-            <div className="shop-detail-body">
+            <div className="shop-detail-body" ref={detailBodyRef}>
               {activePackage.description.map((paragraph, index) => (
                 <p key={`${activePackage.title}-desc-${index}`} className="shop-page-text">
                   {paragraph}
@@ -254,17 +302,52 @@ function Products() {
                 </div>
               ))}
               {activePackage.notes?.map((note, index) => (
-                <p key={`${activePackage.title}-note-${index}`} className="shop-page-note">
-                  {note}
+                <p
+                  key={`${activePackage.title}-note-${index}`}
+                  className="shop-page-note"
+                  ref={note === 'TERMENI ȘI CONDIȚII:' ? termsRef : undefined}
+                >
+                  {renderNote(note)}
                 </p>
               ))}
             </div>
             <div className="shop-detail-actions">
+              {activePackage.id === 'consultanta-evaluare' && (
+                <label className="shop-consent">
+                  <input
+                    type="checkbox"
+                    checked={initialEvalConsent}
+                    onChange={(event) => setInitialEvalConsent(event.target.checked)}
+                  />
+                  <span className="shop-consent-prefix">Am citit și sunt de acord cu</span>
+                  <span>
+                    Am citit și sunt de acord cu Termenii și Condițiile de evaluare
+                    inițială
+                  </span>
+                  <button
+                    type="button"
+                    className="shop-consent-link"
+                    onClick={(event) => {
+                      event.preventDefault()
+                      scrollToTerms()
+                    }}
+                  >
+                    Termenii și Condițiile
+                  </button>
+                  <span className="shop-consent-tail">de evaluare inițială</span>
+                </label>
+              )}
               <a
                 className="shop-btn"
                 href={activePackage.bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-disabled={activePackage.id === 'consultanta-evaluare' && !initialEvalConsent}
+                onClick={(event) => {
+                  if (activePackage.id === 'consultanta-evaluare' && !initialEvalConsent) {
+                    event.preventDefault()
+                  }
+                }}
               >
                 Programează acum
               </a>

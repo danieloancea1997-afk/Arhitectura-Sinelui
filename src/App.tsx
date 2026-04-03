@@ -25,6 +25,7 @@ function AppShell() {
   const isHome = location.pathname === '/'
   const isContact = location.pathname.startsWith('/contact')
   const isResurse = location.pathname.startsWith('/blog')
+  const idlePromptEnabled = false
   const [showIdlePrompt, setShowIdlePrompt] = useState(false)
   const discoveryCallUrl =
     packages.find((pkg) => pkg.id === 'discovery-call')?.bookingUrl ?? '/shop'
@@ -128,6 +129,10 @@ function AppShell() {
   }, [location.pathname])
 
   useEffect(() => {
+    if (!idlePromptEnabled) {
+      return
+    }
+
     const storageKey = 'idlePromptShown'
     if (sessionStorage.getItem(storageKey)) {
       return
@@ -151,7 +156,7 @@ function AppShell() {
       window.removeEventListener('scroll', handleScroll)
       window.clearTimeout(timer)
     }
-  }, [])
+  }, [idlePromptEnabled])
 
   return (
     <div className="app">
