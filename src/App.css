@@ -3068,23 +3068,23 @@ body.resurse-body {
   }
 
   .shop-page {
-    max-width: 500px;
+    max-width: 515px;
   }
 
   .content-wrap {
-    max-width: 500px;
+    max-width: 515px;
   }
 
   .hero-intro {
-    max-width: 500px;
+    max-width: 515px;
   }
 
   .page-home .content-wrap {
-    max-width: 500px;
+    max-width: 515px;
   }
 
   .page-home .hero-intro {
-    max-width: 500px;
+    max-width: 515px;
   }
 
   .page-home h1 {
@@ -3215,7 +3215,7 @@ body.resurse-body {
   }
 
   .page-home .about-image-overlay-inner {
-    max-width: 500px;
+    max-width: 515px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
@@ -3241,7 +3241,7 @@ body.resurse-body {
 
 
   .reveal.is-visible {
-    max-width: 500px;
+    max-width: 515px;
   }
 
   .shop-category-grid {
@@ -4361,7 +4361,7 @@ h3 {
   }
 }
 
-@media (max-width: 500px) and (min-width: 431px) {
+@media (max-width: 515px) and (min-width: 431px) {
   .page-home .about-text p:first-of-type {
     padding-top: 3rem;
   }
@@ -4615,6 +4615,23 @@ h3 {
     line-height: 1.2 !important;
   }
 
+  .page-home .hero-actions .btn {
+    background: rgba(233, 131, 40, 0.72);
+  }
+
+  .shop-detail-modal {
+    width: 94vw;
+    max-height: 80dvh;
+  }
+
+  .shop-detail-actions .shop-btn {
+    width: auto;
+    min-width: 220px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    white-space: nowrap;
+  }
+
   .footer-inner {
     justify-content: center;
     align-items: center;
@@ -4665,6 +4682,19 @@ h3 {
     font-size: 1.02rem;
     line-height: 1.35;
     font-weight: 700;
+  }
+
+  .shop-detail-modal {
+    width: 94vw;
+    max-height: 80dvh;
+  }
+
+  .shop-detail-actions .shop-btn {
+    width: auto;
+    min-width: 220px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    white-space: nowrap;
   }
 
   .resurse-page .media-header h3 {
