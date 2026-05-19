@@ -1,10 +1,14 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import fitnessIcon from '../assets/fitness.png'
 import somaticIcon from '../assets/somatic.png'
 import psihologieIcon from '../assets/psihologie.png'
 import crownIcon from '../assets/crown.png'
+import courseIcon from '../assets/course.png'
+import courseImage from '../assets/curs1.png'
 import stepIcon from '../assets/step.png'
 import { packages, type PackageItem } from '../data/shopPackages'
+import { trackInitiateCheckout, trackViewContent } from '../lib/metaPixel'
 
 const discountedPrices: Record<string, string> = {
   'consiliere-psihologica': '199,99 lei',
@@ -117,6 +121,7 @@ type ShopCategory = {
 }
 
 function Products() {
+  const location = useLocation()
   const categories: ShopCategory[] = [
     {
       id: 'primii-pasi',
@@ -133,11 +138,16 @@ function Products() {
       icon: crownIcon,
       packageIds: ['reset-challenge'],
     },
+    {
+      id: 'cursuri',
+      label: 'Cursuri',
+      icon: courseIcon,
+      packageIds: [],
+    },
   ]
   const [activePackage, setActivePackage] = useState<PackageItem | null>(null)
   const [initialEvalConsent, setInitialEvalConsent] = useState(false)
   const detailBodyRef = useRef<HTMLDivElement | null>(null)
-  const termsRef = useRef<HTMLParagraphElement | null>(null)
 
   const parseMeta = (meta: string) => {
     const parts = meta.split('@')
@@ -150,8 +160,34 @@ function Products() {
     return { duration: meta, price: meta }
   }
 
-  const scrollToTerms = () => {
-    termsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  useEffect(() => {
+    if (
+      location.state &&
+      typeof location.state === 'object' &&
+      'acceptedInitialEvalTerms' in location.state
+    ) {
+      const state = location.state as {
+        acceptedInitialEvalTerms?: boolean
+        reopenPackageId?: string
+        returnScrollY?: number
+      }
+      if (state.acceptedInitialEvalTerms) {
+        const packageToOpen =
+          packages.find((pkg) => pkg.id === (state.reopenPackageId ?? 'consultanta-evaluare')) ??
+          packages.find((pkg) => pkg.id === 'consultanta-evaluare')
+        if (packageToOpen) {
+          window.scrollTo({ top: state.returnScrollY ?? 0, behavior: 'auto' })
+          setActivePackage(packageToOpen)
+          setInitialEvalConsent(true)
+        }
+      }
+    }
+  }, [location.state])
+
+  const openPackageDetails = (pkg: PackageItem) => {
+    setInitialEvalConsent(false)
+    setActivePackage(pkg)
+    trackViewContent(pkg.title)
   }
 
   return (
@@ -184,6 +220,21 @@ function Products() {
             </div>
             <hr className="shop-category-divider" />
             <div className="shop-category-grid">
+              {category.id === 'cursuri' && (
+                <div className="shop-course-wrap">
+                  <span className="shop-course-badge">Nou</span>
+                  <Link className="shop-mini-card shop-course-card" to="/cursuri">
+                    <img
+                      className="shop-course-image"
+                      src={courseImage}
+                      alt="Neurobiologia și Psihologia Adicției: O Abordare Integrativă"
+                    />
+                    <div className="shop-course-copy">
+                      <h3>CURS: Neurobiologia și Psihologia Adicției: O Abordare Integrativă</h3>
+                    </div>
+                  </Link>
+                </div>
+              )}
               {categoryPackages.map((pkg) => {
                 const { duration, price } = parseMeta(pkg.meta)
                 const isFree = price.toLowerCase() === 'gratuit'
@@ -197,16 +248,14 @@ function Products() {
                     key={pkg.title}
                     className="shop-mini-card"
                     onClick={() => {
-                      setInitialEvalConsent(false)
-                      setActivePackage(pkg)
+                      openPackageDetails(pkg)
                     }}
                     role="button"
                     tabIndex={0}
                     onKeyDown={(event) => {
                       if (event.key === 'Enter' || event.key === ' ') {
                         event.preventDefault()
-                        setInitialEvalConsent(false)
-                        setActivePackage(pkg)
+                        openPackageDetails(pkg)
                       }
                     }}
                   >
@@ -230,8 +279,7 @@ function Products() {
                       type="button"
                       onClick={(event) => {
                         event.stopPropagation()
-                        setInitialEvalConsent(false)
-                        setActivePackage(pkg)
+                        openPackageDetails(pkg)
                       }}
                     >
                       Vezi detalii
@@ -302,11 +350,7 @@ function Products() {
                 </div>
               ))}
               {activePackage.notes?.map((note, index) => (
-                <p
-                  key={`${activePackage.title}-note-${index}`}
-                  className="shop-page-note"
-                  ref={note === 'TERMENI ȘI CONDIȚII:' ? termsRef : undefined}
-                >
+                <p key={`${activePackage.title}-note-${index}`} className="shop-page-note">
                   {renderNote(note)}
                 </p>
               ))}
@@ -324,16 +368,18 @@ function Products() {
                     Am citit și sunt de acord cu Termenii și Condițiile de evaluare
                     inițială
                   </span>
-                  <button
-                    type="button"
+                  <Link
                     className="shop-consent-link"
-                    onClick={(event) => {
-                      event.preventDefault()
-                      scrollToTerms()
+                    to="/termeni-si-conditii"
+                    state={{
+                      returnTo: '/shop',
+                      acceptedStateKey: 'acceptedInitialEvalTerms',
+                      reopenPackageId: 'consultanta-evaluare',
+                      returnScrollY: window.scrollY,
                     }}
                   >
                     Termenii și Condițiile
-                  </button>
+                  </Link>
                   <span className="shop-consent-tail">de evaluare inițială</span>
                 </label>
               )}
@@ -346,7 +392,10 @@ function Products() {
                 onClick={(event) => {
                   if (activePackage.id === 'consultanta-evaluare' && !initialEvalConsent) {
                     event.preventDefault()
+                    return
                   }
+
+                  trackInitiateCheckout(activePackage.title)
                 }}
               >
                 Programează acum

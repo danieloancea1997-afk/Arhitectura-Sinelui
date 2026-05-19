@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import phoneIcon from '../assets/phone.png'
 import emailIcon from '../assets/email.png'
 import scheduleIcon from '../assets/schedule.png'
+import { trackLead } from '../lib/metaPixel'
 
 const PRACTICE_BETTER_FORM =
   'https://docs.google.com/forms/d/e/1FAIpQLSfYMW2b8pIvsn7NgCe9iUpbOdeg017ERvx8RTEwkcG8zOT5sA/viewform?usp=publish-editor'
@@ -76,6 +77,7 @@ function Contact() {
               href={PRACTICE_BETTER_FORM}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackLead('Contact Form')}
             >
               Trimite mesaj
             </a>

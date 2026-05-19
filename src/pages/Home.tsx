@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import heroVideo from '../assets/hero.mp4'
 import mindImage from '../assets/mind.jpg'
 import bodyImage from '../assets/body.jpg'
@@ -26,6 +26,7 @@ import testimonial7Image from '../assets/testimonial 7.jpeg'
 import userManIcon from '../assets/usermen.png'
 import userWomanIcon from '../assets/userwomen.png'
 import { packages, type PackageItem as ShopPackage } from '../data/shopPackages'
+import { trackInitiateCheckout, trackViewContent } from '../lib/metaPixel'
 
 type MediaItem = {
   id: number
@@ -553,6 +554,7 @@ const testimonialPagesMobile430: TestimonialPage[] = testimonialPagesDesktop.red
 )
 
 function Home() {
+  const location = useLocation()
   const [activePillar, setActivePillar] = useState<string | null>(null)
   const selected = pillars.find((pillar) => pillar.id === activePillar)
   const [isFitness, setIsFitness] = useState(false)
@@ -563,7 +565,6 @@ function Home() {
   const [activePackage, setActivePackage] = useState<ShopPackage | null>(null)
   const [initialEvalConsent, setInitialEvalConsent] = useState(false)
   const detailBodyRef = useRef<HTMLDivElement | null>(null)
-  const termsRef = useRef<HTMLParagraphElement | null>(null)
   const pillarTitleRef = useRef<HTMLHeadingElement | null>(null)
   const pillarGridRef = useRef<HTMLDivElement | null>(null)
   const testimonialTouchStartXRef = useRef<number | null>(null)
@@ -572,8 +573,37 @@ function Home() {
   const formatMeta = (meta: string) => meta.replace('@', '').trim()
   const getPackageDetails = (id: string) =>
     packages.find((pkg) => pkg.id === id) || null
-  const scrollToTerms = () => {
-    termsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  useEffect(() => {
+    if (
+      location.state &&
+      typeof location.state === 'object' &&
+      'acceptedInitialEvalTerms' in location.state
+    ) {
+      const state = location.state as {
+        acceptedInitialEvalTerms?: boolean
+        reopenPackageId?: string
+        returnScrollY?: number
+      }
+      if (state.acceptedInitialEvalTerms) {
+        const packageToOpen =
+          packages.find((pkg) => pkg.id === (state.reopenPackageId ?? 'consultanta-evaluare')) ??
+          packages.find((pkg) => pkg.id === 'consultanta-evaluare')
+        if (packageToOpen) {
+          window.scrollTo({ top: state.returnScrollY ?? 0, behavior: 'auto' })
+          setActivePackage(packageToOpen)
+          setInitialEvalConsent(true)
+        }
+      }
+    }
+  }, [location.state])
+  const openPackageDetails = (pkg: ShopPackage | null) => {
+    if (!pkg) {
+      return
+    }
+
+    setInitialEvalConsent(false)
+    setActivePackage(pkg)
+    trackViewContent(pkg.title)
   }
   const testimonialPages = isMobile430 ? testimonialPagesMobile430 : testimonialPagesDesktop
 
@@ -848,8 +878,7 @@ function Home() {
                         className="shop-btn shop-cta-btn"
                         type="button"
                         onClick={() => {
-                          setInitialEvalConsent(false)
-                          setActivePackage(packageDetails ?? null)
+                          openPackageDetails(packageDetails)
                         }}
                       >
                         {pkg.ctaText}
@@ -860,6 +889,7 @@ function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="shop-btn shop-cta-btn"
+                        onClick={() => trackInitiateCheckout(pkg.label)}
                       >
                         {pkg.ctaText}
                       </a>
@@ -885,8 +915,7 @@ function Home() {
                     className="shop-details-link"
                     type="button"
                     onClick={() => {
-                      setInitialEvalConsent(false)
-                      setActivePackage(getPackageDetails(pkg.id))
+                      openPackageDetails(getPackageDetails(pkg.id))
                     }}
                   >
                     Vezi detalii
@@ -1053,6 +1082,7 @@ function Home() {
                 href={getPackageDetails('consultanta-evaluare')?.bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackInitiateCheckout('Consultanță și evaluare inițială')}
               >
                 Rezervă Evaluarea
               </a>
@@ -1234,6 +1264,7 @@ function Home() {
               href={getPackageDetails('discovery-call')?.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackInitiateCheckout('Discovery Call Gratuit (Apel de Cunoaștere)')}
             >
               Programează Apelul Gratuit
             </a>
@@ -1324,11 +1355,7 @@ function Home() {
                 </div>
               ))}
               {activePackage.notes?.map((note, index) => (
-                <p
-                  key={`${activePackage.title}-note-${index}`}
-                  className="shop-page-note"
-                  ref={note === 'TERMENI ȘI CONDIȚII:' ? termsRef : undefined}
-                >
+                <p key={`${activePackage.title}-note-${index}`} className="shop-page-note">
                   {renderNote(note)}
                 </p>
               ))}
@@ -1346,16 +1373,18 @@ function Home() {
                     Am citit și sunt de acord cu Termenii și Condițiile de evaluare
                     inițială
                   </span>
-                  <button
-                    type="button"
+                  <Link
                     className="shop-consent-link"
-                    onClick={(event) => {
-                      event.preventDefault()
-                      scrollToTerms()
+                    to="/termeni-si-conditii"
+                    state={{
+                      returnTo: '/',
+                      acceptedStateKey: 'acceptedInitialEvalTerms',
+                      reopenPackageId: 'consultanta-evaluare',
+                      returnScrollY: window.scrollY,
                     }}
                   >
                     Termenii și Condițiile
-                  </button>
+                  </Link>
                   <span className="shop-consent-tail">de evaluare inițială</span>
                 </label>
               )}
@@ -1368,7 +1397,10 @@ function Home() {
                 onClick={(event) => {
                   if (activePackage.id === 'consultanta-evaluare' && !initialEvalConsent) {
                     event.preventDefault()
+                    return
                   }
+
+                  trackInitiateCheckout(activePackage.title)
                 }}
               >
                 Programează acum

@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import './App.css'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
+import Courses from './pages/Courses'
 import Faq from './pages/Faq'
 import Home from './pages/Home'
 import Products from './pages/Products'
+import ThankYou from './pages/ThankYou'
+import Terms from './pages/Terms'
 import { packages } from './data/shopPackages'
+import { trackPageView } from './lib/metaPixel'
 
 function App() {
   return (
@@ -24,7 +28,7 @@ function AppShell() {
   const location = useLocation()
   const isHome = location.pathname === '/'
   const isContact = location.pathname.startsWith('/contact')
-  const isResurse = location.pathname.startsWith('/blog')
+  const isResurse = location.pathname.startsWith('/resurse')
   const idlePromptEnabled = false
   const [showIdlePrompt, setShowIdlePrompt] = useState(false)
   const discoveryCallUrl =
@@ -36,6 +40,23 @@ function AppShell() {
       document.body.classList.remove('resurse-body')
     }
   }, [isResurse])
+
+  useEffect(() => {
+    const state =
+      location.state && typeof location.state === 'object'
+        ? (location.state as { returnScrollY?: number })
+        : undefined
+
+    if (typeof state?.returnScrollY === 'number') {
+      return
+    }
+
+    window.scrollTo({ top: 0, behavior: 'auto' })
+  }, [location.pathname, location.state])
+
+  useEffect(() => {
+    trackPageView()
+  }, [location.pathname])
 
   useEffect(() => {
     const defaultTitle = 'Paul-Cristian Borcoș | Psiholog în Arad - Arhitectura Sinelui'
@@ -72,12 +93,33 @@ function AppShell() {
           'Găsește răspunsuri la cele mai frecvente întrebări despre consiliere psihologică, programări, pachete și Arhitectura Sinelui.',
         canonical: 'https://arhitecturasinelui.ro/faq',
       },
-      '/blog': {
+      '/resurse': {
         title: 'Resurse | Arhitectura Sinelui',
         description:
           'Explorează resurse video despre psihologie, limite personale, traumă, Somatic Alignment și dezvoltare personală.',
-        canonical: 'https://arhitecturasinelui.ro/blog',
+        canonical: 'https://arhitecturasinelui.ro/resurse',
       },
+    }
+
+    routeMeta['/multumesc'] = {
+      title: 'Mulțumesc | Arhitectura Sinelui',
+      description:
+        'Confirmarea investiției tale în ecosistemul Arhitectura Sinelui și următorii pași ai colaborării.',
+      canonical: 'https://arhitecturasinelui.ro/multumesc',
+    }
+
+    routeMeta['/cursuri'] = {
+      title: 'Cursuri | Arhitectura Sinelui',
+      description:
+        'Explorează programul Neurobiologia și Psihologia Adicției: O Abordare Integrativă din ecosistemul Arhitectura Sinelui.',
+      canonical: 'https://arhitecturasinelui.ro/cursuri',
+    }
+
+    routeMeta['/termeni-si-conditii'] = {
+      title: 'Termeni și Condiții | Arhitectura Sinelui',
+      description:
+        'Termenii și condițiile generale pentru programele, cursurile și serviciile Arhitectura Sinelui.',
+      canonical: 'https://arhitecturasinelui.ro/termeni-si-conditii',
     }
 
     const meta = routeMeta[location.pathname] ?? {
@@ -174,9 +216,13 @@ function AppShell() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/shop" element={<Products />} />
+          <Route path="/cursuri" element={<Courses />} />
+          <Route path="/termeni-si-conditii" element={<Terms />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<Faq />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/resurse" element={<Blog />} />
+          <Route path="/blog" element={<Navigate to="/resurse" replace />} />
+          <Route path="/multumesc" element={<ThankYou />} />
         </Routes>
       </main>
       {showIdlePrompt && (

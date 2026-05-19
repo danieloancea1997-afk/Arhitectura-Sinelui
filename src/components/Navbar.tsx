@@ -1,16 +1,18 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
 const navItems = [
   { label: 'Home', to: '/' },
   { label: 'Pachete', to: '/shop' },
+  { label: 'Cursuri', to: '/cursuri' },
   { label: 'Contact', to: '/contact' },
-  { label: 'Resurse', to: '/blog' },
+  { label: 'Resurse', to: '/resurse' },
 ]
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
 
   return (
     <nav className="navbar">
@@ -38,9 +40,14 @@ function Navbar() {
             key={item.to}
             to={item.to}
             end={item.to === '/'}
-            className={({ isActive }) =>
-              isActive ? 'nav-link nav-link-active' : 'nav-link'
-            }
+            className={({ isActive }) => {
+              const isThankYouShopState =
+                item.to === '/shop' && location.pathname === '/multumesc'
+
+              return isActive || isThankYouShopState
+                ? 'nav-link nav-link-active'
+                : 'nav-link'
+            }}
             onClick={() => setMenuOpen(false)}
           >
             {item.label}

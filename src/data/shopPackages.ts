@@ -81,13 +81,6 @@ export const packages: PackageItem[] = [
     notes: [
       'Locație: Online (confortul casei tale) sau Fizic (Arad - Cabinet/XOX Gym).',
       'Rezultat: La finalul discuției, vei pleca cu o viziune clară asupra pașilor următori și cu o recomandare personalizată pentru unul dintre programele Arhitectura Sinelui.',
-      'TERMENI ȘI CONDIȚII:',
-      'Înainte de a merge către calendarul de programare și plată, te rugăm să parcurgi acești termeni care reglementează desfășurarea primei noastre interacțiuni:',
-      'Natura Serviciului (Triaj): Acest apel de 50 de minute (89 lei) reprezintă o etapă de evaluare și orientare pre-terapeutică. Scopul sesiunii este identificarea nevoilor tale și stabilirea compatibilității, fără a constitui un proces de consiliere psihologică sau consiliere pe termen lung la acest stadiu.',
-      'Confidențialitate: Toate informațiile împărtășite în cadrul acestui apel sunt strict confidențiale, conform reglementărilor Colegiului Psihologilor din România (Legea 213/2004).',
-      'Facturare și Date (GDPR): Prin continuarea programării, ești de acord cu furnizarea datelor necesare (Nume, E-mail, Adresă) pentru emiterea facturii fiscale prin sistemul FGO / BT Go. Plata este procesată securizat prin Stripe.',
-      'Politică de Anulare: Având în vedere timpul rezervat acestei evaluări, suma de 89 lei nu este rambursabilă în caz de neprezentare (no-show). Reprogramarea este posibilă cu minimum 24 de ore înainte.',
-      'Consimțământ: Prin bifarea căsuței "Sunt de acord cu Termenii și Condițiile de evaluare inițială" confirmi că ai înțeles și accepți acești termeni, acest act având valoarea unui contract de adeziune pentru serviciul solicitat.',
     ],
   },
   {
