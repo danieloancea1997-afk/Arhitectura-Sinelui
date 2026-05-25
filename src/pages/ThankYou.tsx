@@ -1,7 +1,48 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import thankYouCover from '../assets/trankyoucover.jpeg'
+import { trackPurchase } from '../lib/metaPixel'
+
+const parsePurchaseValue = (rawValue: string | null) => {
+  if (!rawValue) {
+    return undefined
+  }
+
+  const normalized = rawValue.replace(',', '.').trim()
+  const parsedValue = Number.parseFloat(normalized)
+
+  if (!Number.isFinite(parsedValue)) {
+    return undefined
+  }
+
+  return parsedValue
+}
+
 function ThankYou() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search)
+    const value = parsePurchaseValue(params.get('value'))
+    const packageName = params.get('package')?.trim()
+
+    if (typeof value === 'undefined' && !packageName) {
+      return
+    }
+
+    trackPurchase({
+      value,
+      packageName: packageName || undefined,
+    })
+  }, [location.search])
+
   return (
     <section className="thank-you-page">
       <div className="card thank-you-card">
+        <div className="thank-you-hero">
+          <img className="thank-you-cover" src={thankYouCover} alt="Arhitectura Sinelui" />
+        </div>
+
         <p className="thank-you-kicker">Arhitectura Sinelui</p>
         <h1>Felicitări!</h1>
 

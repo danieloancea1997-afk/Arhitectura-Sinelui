@@ -6,7 +6,10 @@ function Terms() {
     location.state && typeof location.state === 'object'
       ? (location.state as {
           returnTo?: string
-          acceptedStateKey?: 'acceptedTerms' | 'acceptedInitialEvalTerms'
+          acceptedStateKey?:
+            | 'acceptedTerms'
+            | 'acceptedInitialEvalTerms'
+            | 'acceptedPackageTerms'
           reopenPackageId?: string
           returnScrollY?: number
         })
@@ -20,6 +23,12 @@ function Terms() {
           reopenPackageId: state.reopenPackageId ?? 'consultanta-evaluare',
           returnScrollY: state.returnScrollY ?? 0,
         }
+      : state?.acceptedStateKey === 'acceptedPackageTerms'
+        ? {
+            acceptedPackageTerms: true,
+            reopenPackageId: state.reopenPackageId,
+            returnScrollY: state.returnScrollY ?? 0,
+          }
       : { acceptedTerms: true, returnScrollY: state?.returnScrollY ?? 0 }
 
   return (

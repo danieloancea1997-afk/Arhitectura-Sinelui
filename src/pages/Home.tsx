@@ -554,6 +554,7 @@ const testimonialPagesMobile430: TestimonialPage[] = testimonialPagesDesktop.red
 )
 
 function Home() {
+  const isInitialEvaluationPackage = (packageId: string) => packageId === 'consultanta-evaluare'
   const location = useLocation()
   const [activePillar, setActivePillar] = useState<string | null>(null)
   const selected = pillars.find((pillar) => pillar.id === activePillar)
@@ -563,7 +564,7 @@ function Home() {
   const [testimonialAutoResumeAt, setTestimonialAutoResumeAt] = useState(0)
   const [isMobile430, setIsMobile430] = useState(false)
   const [activePackage, setActivePackage] = useState<ShopPackage | null>(null)
-  const [initialEvalConsent, setInitialEvalConsent] = useState(false)
+  const [packageConsent, setPackageConsent] = useState(false)
   const detailBodyRef = useRef<HTMLDivElement | null>(null)
   const pillarTitleRef = useRef<HTMLHeadingElement | null>(null)
   const pillarGridRef = useRef<HTMLDivElement | null>(null)
@@ -577,21 +578,22 @@ function Home() {
     if (
       location.state &&
       typeof location.state === 'object' &&
-      'acceptedInitialEvalTerms' in location.state
+      ('acceptedInitialEvalTerms' in location.state || 'acceptedPackageTerms' in location.state)
     ) {
       const state = location.state as {
         acceptedInitialEvalTerms?: boolean
+        acceptedPackageTerms?: boolean
         reopenPackageId?: string
         returnScrollY?: number
       }
-      if (state.acceptedInitialEvalTerms) {
+      if (state.acceptedInitialEvalTerms || state.acceptedPackageTerms) {
         const packageToOpen =
           packages.find((pkg) => pkg.id === (state.reopenPackageId ?? 'consultanta-evaluare')) ??
           packages.find((pkg) => pkg.id === 'consultanta-evaluare')
         if (packageToOpen) {
           window.scrollTo({ top: state.returnScrollY ?? 0, behavior: 'auto' })
           setActivePackage(packageToOpen)
-          setInitialEvalConsent(true)
+          setPackageConsent(true)
         }
       }
     }
@@ -601,7 +603,7 @@ function Home() {
       return
     }
 
-    setInitialEvalConsent(false)
+    setPackageConsent(false)
     setActivePackage(pkg)
     trackViewContent(pkg.title)
   }
@@ -884,15 +886,15 @@ function Home() {
                         {pkg.ctaText}
                       </button>
                     ) : bookingUrl ? (
-                      <a
-                        href={bookingUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <button
                         className="shop-btn shop-cta-btn"
-                        onClick={() => trackInitiateCheckout(pkg.label)}
+                        type="button"
+                        onClick={() => {
+                          openPackageDetails(packageDetails)
+                        }}
                       >
                         {pkg.ctaText}
-                      </a>
+                      </button>
                     ) : (
                       <button className="shop-btn shop-cta-btn" type="button">
                         {pkg.ctaText}
@@ -1326,7 +1328,7 @@ function Home() {
                 type="button"
                 onClick={() => {
                   setActivePackage(null)
-                  setInitialEvalConsent(false)
+                  setPackageConsent(false)
                 }}
                 aria-label="Închide"
               >
@@ -1361,41 +1363,59 @@ function Home() {
               ))}
             </div>
             <div className="shop-detail-actions">
-              {activePackage.id === 'consultanta-evaluare' && (
-                <label className="shop-consent">
-                  <input
-                    type="checkbox"
-                    checked={initialEvalConsent}
-                    onChange={(event) => setInitialEvalConsent(event.target.checked)}
-                  />
-                  <span className="shop-consent-prefix">Am citit și sunt de acord cu</span>
-                  <span>
-                    Am citit și sunt de acord cu Termenii și Condițiile de evaluare
-                    inițială
-                  </span>
-                  <Link
-                    className="shop-consent-link"
-                    to="/termeni-si-conditii"
-                    state={{
-                      returnTo: '/',
-                      acceptedStateKey: 'acceptedInitialEvalTerms',
-                      reopenPackageId: 'consultanta-evaluare',
-                      returnScrollY: window.scrollY,
-                    }}
-                  >
-                    Termenii și Condițiile
-                  </Link>
-                  <span className="shop-consent-tail">de evaluare inițială</span>
-                </label>
-              )}
+              <label className="shop-consent">
+                <input
+                  type="checkbox"
+                  checked={packageConsent}
+                  onChange={(event) => setPackageConsent(event.target.checked)}
+                />
+                <span className="shop-consent-prefix">Am citit și sunt de acord cu</span>
+                {isInitialEvaluationPackage(activePackage.id) ? (
+                  <>
+                    <span>
+                      Am citit și sunt de acord cu Termenii și Condițiile de evaluare
+                      inițială
+                    </span>
+                    <Link
+                      className="shop-consent-link"
+                      to="/termeni-si-conditii"
+                      state={{
+                        returnTo: '/',
+                        acceptedStateKey: 'acceptedInitialEvalTerms',
+                        reopenPackageId: activePackage.id,
+                        returnScrollY: window.scrollY,
+                      }}
+                    >
+                      Termenii și Condițiile
+                    </Link>
+                    <span className="shop-consent-tail">de evaluare inițială</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Am citit și sunt de acord cu Termenii și Condițiile</span>
+                    <Link
+                      className="shop-consent-link"
+                      to="/termeni-si-conditii"
+                      state={{
+                        returnTo: '/',
+                        acceptedStateKey: 'acceptedPackageTerms',
+                        reopenPackageId: activePackage.id,
+                        returnScrollY: window.scrollY,
+                      }}
+                    >
+                      Termenii și Condițiile
+                    </Link>
+                  </>
+                )}
+              </label>
               <a
                 className="shop-btn"
                 href={activePackage.bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-disabled={activePackage.id === 'consultanta-evaluare' && !initialEvalConsent}
+                aria-disabled={!packageConsent}
                 onClick={(event) => {
-                  if (activePackage.id === 'consultanta-evaluare' && !initialEvalConsent) {
+                  if (!packageConsent) {
                     event.preventDefault()
                     return
                   }

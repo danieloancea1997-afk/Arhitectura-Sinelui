@@ -262,7 +262,20 @@ a {
   margin: 0 auto;
   display: grid;
   gap: 1rem;
+  padding: 0;
   background: #f7f2e8;
+}
+
+.thank-you-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.thank-you-cover {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .thank-you-kicker {
@@ -270,7 +283,7 @@ a {
   font-size: 0.95rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(45, 41, 38, 0.65);
+  color: inherit;
 }
 
 .thank-you-card h1 {
@@ -289,6 +302,11 @@ a {
 
 .thank-you-card ul {
   margin-left: 1.2rem;
+}
+
+.thank-you-card > :not(.thank-you-hero) {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .thank-you-link {
@@ -336,6 +354,117 @@ a {
 .courses-card h1 {
   margin: 0;
   font-size: 2.5rem;
+}
+
+.courses-price-block {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: -0.15rem;
+}
+
+.courses-price-wrap {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.courses-price-label {
+  margin: 0;
+  color: rgba(45, 41, 38, 0.72);
+  font-size: 0.92rem;
+  font-weight: 700 !important;
+}
+
+.courses-price-current {
+  margin: 0;
+  color: #b83a1b;
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.courses-price-old {
+  margin: 0;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.courses-price-note {
+  margin: 0;
+  color: rgba(45, 41, 38, 0.78);
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.courses-highlight-note {
+  margin: 0.35rem 0 0.2rem;
+  color: #b83a1b;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.courses-details-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0.15rem 0 0.1rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #b83a1b;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.courses-details-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 320ms ease, opacity 240ms ease, margin-top 240ms ease;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.courses-details-panel.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 0.2rem;
+}
+
+.courses-details-inner {
+  min-height: 0;
+  overflow: hidden;
+  display: grid;
+  gap: 1rem;
+}
+
+.courses-price-line {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  line-height: 1.25;
+}
+
+.courses-price-detail {
+  color: #b83a1b;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.courses-price-detail-accent {
+  color: #b83a1b;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .courses-card h3,
@@ -417,7 +546,8 @@ a {
   background: transparent;
   border: none;
   box-shadow: none;
-  padding: 0;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .terms-card h1 {
@@ -435,8 +565,11 @@ a {
 }
 
 .terms-actions {
-  margin-top: 1rem;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
 }
+
 
 .full-bleed {
   width: 100vw;
@@ -1138,6 +1271,7 @@ a {
   padding: 1rem 1rem 1.1rem;
   display: grid;
   align-content: start;
+  gap: 0.7rem;
 }
 
 .shop-course-copy h3 {
@@ -1146,6 +1280,58 @@ a {
   line-height: 1.2;
   font-family: 'Cormorant Garamond', serif;
 }
+
+.shop-course-price-block {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.shop-course-price-wrap {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.shop-course-price-label {
+  margin: 0;
+  color: rgba(45, 41, 38, 0.72);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.shop-course-price-line {
+  margin: 0;
+  line-height: 1.25;
+}
+
+.shop-course-price-detail {
+  color: rgba(45, 41, 38, 0.78);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.shop-course-price-detail-accent {
+  color: #b83a1b;
+  font-weight: 700;
+}
+
+.shop-course-price-current {
+  margin: 0;
+  color: #b83a1b;
+  font-size: 1.08rem;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.shop-course-price-old {
+  margin: 0;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
 
 .shop-cta-btn {
   position: relative;
@@ -4134,6 +4320,7 @@ body.resurse-body {
 
 .card.thank-you-card {
   background: linear-gradient(135deg, #fffdf9 0%, #f8f3ea 100%);
+  padding: 0 !important;
 }
 
 .auth-card {
@@ -4640,6 +4827,18 @@ h3 {
 }
 
 @media (max-width: 515px) and (min-width: 431px) {
+  .courses-card h1 {
+    font-size: 1.6rem;
+  }
+
+  .courses-page {
+    padding-bottom: 1rem;
+  }
+
+  .courses-cta {
+    margin-top: 3rem;
+  }
+
   .card.thank-you-card {
     background: transparent;
     border: none;
@@ -4972,14 +5171,19 @@ h3 {
     background: transparent;
     border: none;
     box-shadow: none;
+    padding: 0 !important;
   }
 
   .thank-you-card {
-    padding: 1.1rem;
+    padding: 0;
   }
 
   .thank-you-card h1 {
     font-size: 1.95rem;
+  }
+
+  .thank-you-hero {
+    border-radius: 0;
   }
 
   .courses-content {
@@ -4991,7 +5195,7 @@ h3 {
   }
 
   .courses-card h1 {
-    font-size: 1.75rem;
+    font-size: 1.55rem;
   }
 
   .courses-card p,
@@ -5000,12 +5204,24 @@ h3 {
     line-height: 1.3;
   }
 
+  .courses-page {
+    padding-bottom: 1rem;
+  }
+
+  .courses-cta {
+    margin-top: 3rem;
+  }
+
   .terms-page {
     padding: 1.25rem 0 2rem;
+    
   }
+
+  
 
   .terms-card h1 {
     font-size: 1.85rem;
+    
   }
 
   .terms-card p,
@@ -5013,6 +5229,8 @@ h3 {
     font-size: 0.98rem;
     line-height: 1.32;
   }
+
+
 
   .thank-you-kicker {
     font-size: 0.82rem;
@@ -5293,6 +5511,18 @@ h3 {
 }
 
 @media (max-width: 380px) {
+  .courses-card h1 {
+    font-size: 1.45rem;
+  }
+
+  .courses-page {
+    padding-bottom: 1rem;
+  }
+
+  .courses-cta {
+    margin-top: 3rem;
+  }
+
   .card.thank-you-card {
     background: transparent;
     border: none;

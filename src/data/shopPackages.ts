@@ -21,7 +21,7 @@ export const packages: PackageItem[] = [
     title: 'Discovery Call Gratuit (Apel de Cunoaștere)',
     meta: '30 minute @ Gratuit',
     bookingUrl:
-      'https://calendar.google.com/appointments/schedules/AcZssZ3b0QtqpPOX8gWDlfs97MiMAsHbVn4c57F0KRFR_pjCk2vrcYFNI8rARuzC5kbD8vK-H_Dh8zKS',
+      'https://wa.me/40751396810?text=Bun%C4%83%20ziua%2C%20doresc%20s%C4%83%20ne%20cunoa%C8%99tem%20printr-un%20apel%20gratuit%20de%2030%20minute.',
     description: [
       'O discuție scurtă și directă pentru a vedea dacă rezonăm și care dintre pilonii Arhitectura Sinelui - Psihologie, Fitness sau Somatic - este cel mai potrivit pentru obiectivele tale actuale. Nu este o sesiune de consiliere propriu-zisă, ci o etapă de clarificare a direcției tale de evoluție.',
     ],
@@ -32,7 +32,7 @@ export const packages: PackageItem[] = [
     title: 'Consiliere Psihologică',
     meta: '50 minute @ 199,99 lei',
     bookingUrl:
-      'https://calendar.google.com/appointments/schedules/AcZssZ2pcmEUcJmuXrQRZEBcJj4NTvG3wqr-fDKS7ltVHiSvUFXF-mua-Egu0aun3UC4jx7TmRzSydur',
+      'https://buy.stripe.com/3cI6oH5KS19C7HdbEr5J60a',
     description: [
       'Această sesiune de consiliere reprezintă primul pas în procesul de proiectare și reconstrucție a echilibrului tău interior. Într-un spațiu sigur și confidențial, vom explora împreună mecanismele care îți guvernează gândurile și emoțiile, identificând fundația pe care vom clădi noua ta stare de bine.',
     ],
@@ -56,7 +56,7 @@ export const packages: PackageItem[] = [
     title: 'Sesiune de Consultanță și Evaluare Inițială: Proiectează-ți Schimbarea',
     meta: '50 minute @ 89,99 lei',
     bookingUrl:
-      'https://calendar.google.com/appointments/schedules/AcZssZ2h2pfC07319YLB3-7Odv-I-ZzB6u1BTAkb7-vvOmZiQ_pQTeRA6noOOVYBVMQJLxI-_UJxTxh1',
+      'https://buy.stripe.com/4gMeVdb5cg4w6D97ob5J60b',
     description: [
       'Această sesiune de 50 de minute reprezintă primul punct de contact cu ecosistemul Arhitectura Sinelui. Este spațiul în care transformăm incertitudinea în claritate și obiectivele vagi în planuri de acțiune concrete.',
     ],
@@ -89,7 +89,7 @@ export const packages: PackageItem[] = [
     title: 'Sesiune Somatic Alignment',
     meta: '1 oră 30 minute @ 399,99 lei',
     bookingUrl:
-      'https://calendar.google.com/appointments/schedules/AcZssZ3IBzKiqQCpvc1s-9rKmY1Dg7FhR3tTRUmVe0WQcEFh8NrtqPN3mExM2ZCAH1yfAmZikr005q2u',
+      'https://buy.stripe.com/bJe7sLehobOgbXt5g35J60c',
     description: [
       'Somatic Alignment este o metodă de lucru corporal care vizează restabilirea echilibrului dintre minte și corp prin intervenții directe asupra sistemului nervos și a tensiunilor musculare cronice. Spre deosebire de terapia prin vorbire, această sesiune se concentrează pe limbajul corpului tău, abordând stresul și trauma acolo unde ele sunt stocate fizic.',
     ],

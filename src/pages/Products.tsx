@@ -121,6 +121,7 @@ type ShopCategory = {
 }
 
 function Products() {
+  const isInitialEvaluationPackage = (packageId: string) => packageId === 'consultanta-evaluare'
   const location = useLocation()
   const categories: ShopCategory[] = [
     {
@@ -146,7 +147,7 @@ function Products() {
     },
   ]
   const [activePackage, setActivePackage] = useState<PackageItem | null>(null)
-  const [initialEvalConsent, setInitialEvalConsent] = useState(false)
+  const [packageConsent, setPackageConsent] = useState(false)
   const detailBodyRef = useRef<HTMLDivElement | null>(null)
 
   const parseMeta = (meta: string) => {
@@ -164,28 +165,29 @@ function Products() {
     if (
       location.state &&
       typeof location.state === 'object' &&
-      'acceptedInitialEvalTerms' in location.state
+      ('acceptedInitialEvalTerms' in location.state || 'acceptedPackageTerms' in location.state)
     ) {
       const state = location.state as {
         acceptedInitialEvalTerms?: boolean
+        acceptedPackageTerms?: boolean
         reopenPackageId?: string
         returnScrollY?: number
       }
-      if (state.acceptedInitialEvalTerms) {
+      if (state.acceptedInitialEvalTerms || state.acceptedPackageTerms) {
         const packageToOpen =
           packages.find((pkg) => pkg.id === (state.reopenPackageId ?? 'consultanta-evaluare')) ??
           packages.find((pkg) => pkg.id === 'consultanta-evaluare')
         if (packageToOpen) {
           window.scrollTo({ top: state.returnScrollY ?? 0, behavior: 'auto' })
           setActivePackage(packageToOpen)
-          setInitialEvalConsent(true)
+          setPackageConsent(true)
         }
       }
     }
   }, [location.state])
 
   const openPackageDetails = (pkg: PackageItem) => {
-    setInitialEvalConsent(false)
+    setPackageConsent(false)
     setActivePackage(pkg)
     trackViewContent(pkg.title)
   }
@@ -230,7 +232,24 @@ function Products() {
                       alt="Neurobiologia și Psihologia Adicției: O Abordare Integrativă"
                     />
                     <div className="shop-course-copy">
-                      <h3>CURS: Neurobiologia și Psihologia Adicției: O Abordare Integrativă</h3>
+                      <h3>
+                        CURS VIDEO: Neurobiologia și Psihologia Adicției: O Abordare
+                        Integrativă
+                      </h3>
+                      <div className="shop-course-price-block">
+                        <p className="shop-course-price-line">
+                          <span className="shop-course-price-label">Preț Standard:</span>{' '}
+                          <span className="shop-course-price-old">399 LEI</span>
+                        </p>
+                        <p className="shop-course-price-line">
+                          <span className="shop-course-price-detail">
+                            <span className="shop-course-price-detail-accent">
+                              Preț promoțional: 299 LEI cu codul de reducere: CURS25
+                            </span>
+                            {' '}Disponibil pentru primele 100 comenzi!
+                          </span>
+                        </p>
+                      </div>
                     </div>
                   </Link>
                 </div>
@@ -321,7 +340,7 @@ function Products() {
                 type="button"
                 onClick={() => {
                   setActivePackage(null)
-                  setInitialEvalConsent(false)
+                  setPackageConsent(false)
                 }}
                 aria-label="Închide"
               >
@@ -356,41 +375,59 @@ function Products() {
               ))}
             </div>
             <div className="shop-detail-actions">
-              {activePackage.id === 'consultanta-evaluare' && (
-                <label className="shop-consent">
-                  <input
-                    type="checkbox"
-                    checked={initialEvalConsent}
-                    onChange={(event) => setInitialEvalConsent(event.target.checked)}
-                  />
-                  <span className="shop-consent-prefix">Am citit și sunt de acord cu</span>
-                  <span>
-                    Am citit și sunt de acord cu Termenii și Condițiile de evaluare
-                    inițială
-                  </span>
-                  <Link
-                    className="shop-consent-link"
-                    to="/termeni-si-conditii"
-                    state={{
-                      returnTo: '/shop',
-                      acceptedStateKey: 'acceptedInitialEvalTerms',
-                      reopenPackageId: 'consultanta-evaluare',
-                      returnScrollY: window.scrollY,
-                    }}
-                  >
-                    Termenii și Condițiile
-                  </Link>
-                  <span className="shop-consent-tail">de evaluare inițială</span>
-                </label>
-              )}
+              <label className="shop-consent">
+                <input
+                  type="checkbox"
+                  checked={packageConsent}
+                  onChange={(event) => setPackageConsent(event.target.checked)}
+                />
+                <span className="shop-consent-prefix">Am citit și sunt de acord cu</span>
+                {isInitialEvaluationPackage(activePackage.id) ? (
+                  <>
+                    <span>
+                      Am citit și sunt de acord cu Termenii și Condițiile de evaluare
+                      inițială
+                    </span>
+                    <Link
+                      className="shop-consent-link"
+                      to="/termeni-si-conditii"
+                      state={{
+                        returnTo: '/shop',
+                        acceptedStateKey: 'acceptedInitialEvalTerms',
+                        reopenPackageId: activePackage.id,
+                        returnScrollY: window.scrollY,
+                      }}
+                    >
+                      Termenii și Condițiile
+                    </Link>
+                    <span className="shop-consent-tail">de evaluare inițială</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Am citit și sunt de acord cu Termenii și Condițiile</span>
+                    <Link
+                      className="shop-consent-link"
+                      to="/termeni-si-conditii"
+                      state={{
+                        returnTo: '/shop',
+                        acceptedStateKey: 'acceptedPackageTerms',
+                        reopenPackageId: activePackage.id,
+                        returnScrollY: window.scrollY,
+                      }}
+                    >
+                      Termenii și Condițiile
+                    </Link>
+                  </>
+                )}
+              </label>
               <a
                 className="shop-btn"
                 href={activePackage.bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-disabled={activePackage.id === 'consultanta-evaluare' && !initialEvalConsent}
+                aria-disabled={!packageConsent}
                 onClick={(event) => {
-                  if (activePackage.id === 'consultanta-evaluare' && !initialEvalConsent) {
+                  if (!packageConsent) {
                     event.preventDefault()
                     return
                   }
@@ -409,3 +446,4 @@ function Products() {
 }
 
 export default Products
+
